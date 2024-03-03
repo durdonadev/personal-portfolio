@@ -1,0 +1,17 @@
+:root {
+    --primary-1: #060a11;
+    --primary-2: #404152;
+    --primary-3: #aaaab7;
+    --primary-4: #dfdfdf;
+    --primary-5: #f5f5f6;
+
+    --deepsky-blue: #16b4f2;
+    --navy-blue: #4c32e0;
+    --orange: #f1b000;
+    --black: #000000;
+    --white: #ffffff;
+    --error: #ff2727;
+
+    --transparent: transparent;
+    --overlay-40: rgba(0, 0, 0, 0.4);
+}
