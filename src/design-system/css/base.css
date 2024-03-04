@@ -9,10 +9,6 @@
     box-sizing: border-box;
 }
 
-.row {
-    --bs-gutter-x: 1.75rem;
-}
-
 html {
     font-size: 62.5%; /* it sets base font size to 10px */
 }
