@@ -14,7 +14,9 @@ export type IconName =
     | "list-menu"
     | "secure"
     | "twitter"
-    | "up-down";
+    | "up-down"
+    | "linkdin-icon"
+    | "github-icon";
 
 export type IconProps = {
     iconName: IconName;

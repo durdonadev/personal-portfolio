@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavigationLink } from "./NavigationLinks";
 import { Button, Logo } from "../../../../design-system";
+import { Container } from "../../../components";
 
 const links = [
     { text: "Home", link: "" },
@@ -9,18 +10,13 @@ const links = [
     { text: "Blog", link: "https://facebook.com" }
 ];
 
-const HeaderBase = styled.header`
-    margin: 0 auto;
-    max-width: 190rem;
-    padding: 2.5rem 36.5rem;
-    background-color: #b4bdc5;
-
+const BaseContainer = styled(Container)`
     display: flex;
     align-items: center;
     justify-content: space-between;
 `;
 
-const LogoWithLinks = styled.header`
+const LogoWithLinks = styled.div`
     display: flex;
     gap: var(--space-40);
 `;
@@ -31,7 +27,7 @@ const StyledLogo = styled(Logo)`
 
 const TopNavigation = () => {
     return (
-        <HeaderBase>
+        <BaseContainer>
             <LogoWithLinks>
                 <StyledLogo size="sm" layout="horizontal" />
                 {links.map((link, index) => (
@@ -53,7 +49,7 @@ const TopNavigation = () => {
             >
                 Contact
             </Button>
-        </HeaderBase>
+        </BaseContainer>
     );
 };
 
