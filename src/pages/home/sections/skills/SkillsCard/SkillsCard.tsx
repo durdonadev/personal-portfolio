@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Typography } from "../../../../../design-system";
 
 type Skill = {
@@ -12,10 +12,11 @@ type SkillsCardProps = {
 };
 
 export const SkillsCardBase = styled.div<{ icon: string }>`
+    position: relative;
     padding: var(--space-8);
-    border-radius: var(--border-radius-24);
-    box-shadow: var(--shadow-xs);
-    max-width: 37rem;
+    border-radius: var(--border-radius-12);
+    max-width: 34rem;
+    box-shadow: var(--shadow-2xl);
 
     display: flex;
     flex-direction: column;
@@ -25,26 +26,33 @@ export const SkillsCardBase = styled.div<{ icon: string }>`
     background-color: var(--white);
 
     & > img {
+        position: absolute;
+        top: -10%;
+        left: calc(50% - 5rem);
         width: 10rem;
         height: 10rem;
-        margin-top: var(--space-32);
-        margin-bottom: var(--space-40);
+        border-radius: var(--border-radius-12);
+        box-shadow: var(--shadow-xl);
     }
 `;
 
 const SkillTextWrapper = styled.div<{ icon: string }>`
-    max-width: 35rem;
+    text-align: center;
     padding: var(--space-24);
-    border-radius: var(--border-radius-24);
-    background-color: var(--green-25);
+    margin-top: 5rem;
 `;
 
 const SkillName = styled(Typography)`
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-16);
 `;
 
-const SkillTools = styled(Typography)`
-    color: var(--jaguar-500);
+const SkillTool = styled.li`
+    line-height: 2.4rem;
+    list-style-type: none;
+    font-size: medium;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--primary-300);
 `;
 
 const SkillsCard = ({ skill }: SkillsCardProps) => {
@@ -52,12 +60,14 @@ const SkillsCard = ({ skill }: SkillsCardProps) => {
         <SkillsCardBase icon={skill.icon}>
             <img src={skill.icon} alt="Skills Icon" />
             <SkillTextWrapper icon={skill.icon}>
-                <SkillName variant="paragraphLG" weight="semibold">
+                <SkillName variant="h5" weight="semibold">
                     {skill.name}
                 </SkillName>
-                <SkillTools variant="subtitleLG" weight="medium">
-                    {skill.tools}
-                </SkillTools>
+                <ul>
+                    {skill.tools.split(",").map((tool, index) => (
+                        <SkillTool key={index}>{tool.trim()}</SkillTool>
+                    ))}
+                </ul>
             </SkillTextWrapper>
         </SkillsCardBase>
     );
