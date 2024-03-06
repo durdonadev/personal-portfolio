@@ -17,7 +17,12 @@ export type IconName =
     | "up-down"
     | "linkdin-icon"
     | "github-icon"
-    | "twitter-icon";
+    | "twitter-icon"
+    | "person"
+    | "age"
+    | "location"
+    | "mail"
+    | "phone";
 
 export type IconProps = {
     iconName: IconName;

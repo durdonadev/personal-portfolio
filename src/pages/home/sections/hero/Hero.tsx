@@ -14,6 +14,10 @@ const BaseContainer = styled(Container)`
 const HeroTextWrapper = styled.div`
     width: 55%;
 
+    .greeting {
+        color: #42b3a2;
+    }
+
     .heading {
         margin-bottom: var(--space-20);
     }
@@ -29,11 +33,11 @@ const SocialMedia = styled.div`
     gap: var(--space-10);
     svg {
         cursor: pointer;
-        height: 4rem;
-        width: 4rem;
+        height: 3.6rem;
+        width: 3.6rem;
         transition: all 1s;
         &:hover {
-            transform: scale(1.3);
+            transform: scale(1.25);
         }
     }
 `;
@@ -56,8 +60,11 @@ const Hero = () => {
     return (
         <BaseContainer>
             <HeroTextWrapper>
-                {" "}
-                <Typography variant="paragraphLG" className="greeting">
+                <Typography
+                    variant="paragraphLG"
+                    weight="bold"
+                    className="greeting"
+                >
                     Hi, I am
                 </Typography>
                 <Typography variant="h1" className="heading">

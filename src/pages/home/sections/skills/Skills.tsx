@@ -18,6 +18,9 @@ const Title = styled(Typography)`
     color: var(--jaguar-900);
     text-align: left;
     margin-bottom: var(--space-100);
+    span {
+        color: #42b3a2;
+    }
 `;
 
 const SkillsCardsWrapper = styled.div`
@@ -31,8 +34,8 @@ const Skills = () => {
     return (
         <SectionBase>
             <SkillsTextWrapper>
-                <Title variant="h4" weight="extrabold">
-                    Professinal Skills 🛠
+                <Title variant="h3" weight="extrabold">
+                    Professinal <span>Skills</span> 🛠
                 </Title>
             </SkillsTextWrapper>
             <SkillsCardsWrapper>
