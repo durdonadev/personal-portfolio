@@ -151,6 +151,9 @@
 .font-weight-bold {
     font-weight: var(--font-weight-700);
 }
+.font-weight-extrabold {
+    font-weight: var(--font-weight-800);
+}
 
 .text-align-center {
     text-align: center;

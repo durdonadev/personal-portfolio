@@ -22,7 +22,7 @@ export const weightClassNames = {
     medium: "font-weight-medium",
     semibold: "font-weight-semibold",
     bold: "font-weight-bold",
-    extrabold: "font-weight-extra-bold"
+    extrabold: "font-weight-extrabold"
 };
 
 export const alignClassNames = {
