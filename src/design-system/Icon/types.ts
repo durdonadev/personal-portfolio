@@ -22,7 +22,24 @@ export type IconName =
     | "age"
     | "location"
     | "mail"
-    | "phone";
+    | "phone"
+    | "css"
+    | "html"
+    | "figma"
+    | "prisma"
+    | "mongodb"
+    | "javascript"
+    | "nodejs"
+    | "npm"
+    | "react"
+    | "typescript"
+    | "vscode"
+    | "expressjs"
+    | "git"
+    | "github"
+    | "terminal"
+    | "sass"
+    | "corel-draw";
 
 export type IconProps = {
     iconName: IconName;
