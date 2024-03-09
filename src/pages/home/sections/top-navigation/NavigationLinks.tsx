@@ -7,8 +7,12 @@ type PropsType = {
 };
 
 const StyledLink = styled.a`
-    color: var(--jaguar-900);
-    font-weight: var(--font-weight-500);
+    color: var(--gray-500);
+    font-weight: var(--font-weight-700);
+
+    &:hover {
+        color: var(--primary-600);
+    }
 `;
 
 const NavigationLink: React.FC<PropsType> = ({ linkText, linkTo }) => {

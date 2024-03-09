@@ -32,7 +32,9 @@ const Logo: React.FC<LogoProps> = ({ layout, size, className, customText }) => {
     return (
         <div className={finalClassNames}>
             <img src={logo} alt="Logo" />
-            <div className="logo__text">{customText || "DurdonaDev"}</div>
+            <div className="logo__text">
+                <span></span>Durdona<span>Dev</span>
+            </div>
         </div>
     );
 };

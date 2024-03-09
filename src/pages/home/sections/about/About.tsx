@@ -64,19 +64,18 @@ const About = () => {
                     <Bio variant="paragraphMD">{info.bio}</Bio>
                     <Buttons>
                         <Button
-                            iconName="arrow"
-                            size="sm"
+                            size="md"
                             shape="rounded"
-                            color="primary"
+                            color="secondary"
                             onClick={() => {}}
                         >
                             HIRE ME
                         </Button>
                         <Button
+                            color="secondary"
                             variant="outlined"
-                            size="sm"
+                            size="md"
                             shape="rounded"
-                            color="primary"
                             onClick={() => {}}
                         >
                             DOWNLOAD RESUME

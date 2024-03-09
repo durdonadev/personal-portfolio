@@ -70,3 +70,7 @@
 .logo-small.logo-horizontal {
     gap: var(--space-10);
 }
+
+span {
+    color: var(--primary-600);
+}

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import hero from "../../../../assets/images/developer.png";
+import hero from "../../../../assets/images/me2.png";
 
 const BaseContainer = styled(Container)`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: var(--space-50);
-    padding-bottom: var(--space-50);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
 `;
 
 const HeroTextWrapper = styled.div`
@@ -24,13 +24,14 @@ const HeroTextWrapper = styled.div`
 
     .description {
         margin-bottom: var(--space-40);
-        color: var(--jaguar-600);
+        color: var(--gray-600);
     }
 `;
 
 const SocialMedia = styled.div`
     display: flex;
     gap: var(--space-10);
+    margin-top: auto;
     svg {
         cursor: pointer;
         height: 3.6rem;
@@ -43,16 +44,24 @@ const SocialMedia = styled.div`
 `;
 
 const HeroImgWrapper = styled.div`
-    width: 42%;
+    width: 42rem;
+
+    text-align: center;
+    background-color: #ffc400;
+    border-top-left-radius: 17rem;
+    border-bottom-left-radius: 12rem;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 10rem;
+    transition: all 1s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
     img {
         object-fit: contain;
         height: 60.8rem;
         width: auto;
-        transition: all 1s;
-
-        &:hover {
-            transform: scale(1.1);
-        }
+        border-bottom-right-radius: 8rem;
     }
 `;
 
@@ -65,13 +74,21 @@ const Hero = () => {
                     weight="bold"
                     className="greeting"
                 >
-                    Hi, I am
+                    Hey There, It's
                 </Typography>
                 <Typography variant="h1" className="heading">
                     Durdona Ibragimova
                 </Typography>
-                <Typography variant="h5" weight="bold" className="description">
+                <Typography variant="h4" weight="bold" className="description">
                     Full Stack Web Developer
+                </Typography>
+                <Typography
+                    variant="paragraphMD"
+                    weight="bold"
+                    className="description"
+                >
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Est, omnis consectetur itaque aut error iste, quam veritatis
                 </Typography>
                 <SocialMedia>
                     <Icon iconName="linkdin-icon" />

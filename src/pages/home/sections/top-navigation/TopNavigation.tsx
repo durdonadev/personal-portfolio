@@ -4,19 +4,24 @@ import { Button, Logo } from "../../../../design-system";
 import { Container } from "../../../components";
 
 const links = [
-    { text: "Home", link: "" },
-    { text: "About", link: "https://google.com" },
-    { text: "Projects", link: "https://facebook.com" },
-    { text: "Blog", link: "https://facebook.com" }
+    { text: "HOME", link: "" },
+    { text: "ABOUT", link: "" },
+    { text: "PROJECTS", link: "" },
+    { text: "BLOG", link: "" }
 ];
 
 const BaseContainer = styled(Container)`
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff7f;
+    backdrop-filter: blur(1rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
 `;
 
-const LogoWithLinks = styled.div`
+const Links = styled.div`
     display: flex;
     gap: var(--space-40);
 `;
@@ -28,8 +33,8 @@ const StyledLogo = styled(Logo)`
 const TopNavigation = () => {
     return (
         <BaseContainer>
-            <LogoWithLinks>
-                <StyledLogo size="sm" layout="horizontal" />
+            <StyledLogo size="sm" layout="horizontal" />
+            <Links>
                 {links.map((link, index) => (
                     <NavigationLink
                         key={index}
@@ -37,14 +42,13 @@ const TopNavigation = () => {
                         linkTo={link.link}
                     />
                 ))}
-            </LogoWithLinks>
+            </Links>
 
             <Button
-                iconName="arrow"
+                color="secondary"
                 variant="outlined"
-                size="sm"
+                size="lg"
                 shape="rounded"
-                color="primary"
                 onClick={() => {}}
             >
                 Contact

@@ -35,7 +35,7 @@ const Skills = () => {
         <SectionBase>
             <SkillsTextWrapper>
                 <Title variant="h3" weight="extrabold">
-                    Professinal <span>Skills</span> 🛠
+                    Professional <span>Skills</span> 🛠
                 </Title>
             </SkillsTextWrapper>
             <SkillsCardsWrapper>
