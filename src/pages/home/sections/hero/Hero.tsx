@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import hero from "../../../../assets/images/me2.png";
+import dots from "../../../../assets/images/dot-transparent.png";
 
 const BaseContainer = styled(Container)`
     display: flex;
@@ -9,13 +10,19 @@ const BaseContainer = styled(Container)`
     justify-content: space-between;
     padding-top: var(--space-10);
     padding-bottom: var(--space-10);
+    position: relative;
 `;
 
 const HeroTextWrapper = styled.div`
-    width: 55%;
+    width: 50%;
+
+    img {
+        width: 4rem;
+    }
 
     .greeting {
-        color: #42b3a2;
+        color: #296e6b;
+        margin-bottom: var(--space-12);
     }
 
     .heading {
@@ -28,10 +35,30 @@ const HeroTextWrapper = styled.div`
     }
 `;
 
+const BackgroundDotsWrapper = styled.div`
+    position: absolute;
+    bottom: 0;
+    left: 14.1rem;
+
+    img {
+        z-index: -2;
+        opacity: 0.1;
+        object-fit: contain;
+        height: 30.5rem;
+        width: auto;
+    }
+`;
+
+const Position = styled(Typography)`
+    margin-bottom: var(--space-20);
+    color: var(--primary-600);
+`;
+
 const SocialMedia = styled.div`
     display: flex;
-    gap: var(--space-10);
-    margin-top: auto;
+    gap: var(--space-12);
+    align-items: center;
+
     svg {
         cursor: pointer;
         height: 3.6rem;
@@ -44,7 +71,7 @@ const SocialMedia = styled.div`
 `;
 
 const HeroImgWrapper = styled.div`
-    width: 42rem;
+    width: 52rem;
 
     text-align: center;
     background-color: #ffc400;
@@ -76,26 +103,34 @@ const Hero = () => {
                 >
                     Hey There, It's
                 </Typography>
+                <Position variant="h2" weight="bold">
+                    Web Developer
+                </Position>
                 <Typography variant="h1" className="heading">
                     Durdona Ibragimova
-                </Typography>
-                <Typography variant="h4" weight="bold" className="description">
-                    Full Stack Web Developer
                 </Typography>
                 <Typography
                     variant="paragraphMD"
                     weight="bold"
                     className="description"
                 >
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Est, omnis consectetur itaque aut error iste, quam veritatis
+                    Creative full stack web developer driven by a love for
+                    coding and a passion for creating seamless user experiences.
+                    I am coding with a clean and beautiful problem solving in
+                    mind
                 </Typography>
                 <SocialMedia>
+                    <Typography variant="h6" weight="bold">
+                        Follow Me:
+                    </Typography>
                     <Icon iconName="linkdin-icon" />
                     <Icon iconName="github-icon" />
                     <Icon iconName="twitter-icon" />
                 </SocialMedia>
             </HeroTextWrapper>
+            <BackgroundDotsWrapper>
+                <img src={dots} alt="dots" />
+            </BackgroundDotsWrapper>
             <HeroImgWrapper>
                 <img src={hero} alt="Girl with laptop" />
             </HeroImgWrapper>

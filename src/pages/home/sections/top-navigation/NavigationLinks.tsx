@@ -8,10 +8,10 @@ type PropsType = {
 
 const StyledLink = styled.a`
     color: var(--gray-500);
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-800);
 
     &:hover {
-        color: var(--primary-600);
+        color: #296e6b;
     }
 `;
 

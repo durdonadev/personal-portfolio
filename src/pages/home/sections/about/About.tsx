@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
+import dots from "../../../../assets/images/dot-transparent.png";
 
 const info = {
     bio: "Hello, I'm Durdona, a full-stack developer based in New York with over a year of experience. Passionate about crafting seamless digital experiences, I thrive on bringing innovative ideas to life through code. From backend logic to captivating frontend interfaces, I specialize in creating dynamic web solutions that engage and inspire users.",
@@ -12,6 +13,7 @@ const info = {
 };
 
 const BaseContainer = styled(Container)`
+    position: relative;
     padding-top: var(--space-150);
     padding-bottom: var(--space-150);
     background-color: #fff;
@@ -53,9 +55,26 @@ const Buttons = styled.div`
     gap: var(--space-20);
 `;
 
+const BackgroundDotsWrapper = styled.div`
+    position: absolute;
+    top: 10rem;
+    right: 14.1rem;
+
+    img {
+        z-index: -2;
+        opacity: 0.1;
+        object-fit: contain;
+        height: 30.5rem;
+        width: auto;
+    }
+`;
+
 const About = () => {
     return (
         <BaseContainer>
+            <BackgroundDotsWrapper>
+                <img src={dots} alt="" />
+            </BackgroundDotsWrapper>
             <Title variant="h3" weight="extrabold">
                 About <span>Me</span>
             </Title>

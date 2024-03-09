@@ -14,8 +14,10 @@ const BaseContainer = styled(Container)`
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    background-color: #ffffff7f;
+    background-color: #ffffff7e;
     backdrop-filter: blur(1rem);
+    z-index: 999;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
