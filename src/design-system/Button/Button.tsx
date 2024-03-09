@@ -6,7 +6,6 @@ import {
     colorClassNames,
     variantClassNames
 } from "./classnames";
-import { Icon } from "../Icon";
 import { ButtonProps } from "./types";
 import "./Button.css";
 
@@ -21,15 +20,18 @@ const Button: FC<ButtonProps> = (props) => {
         className,
         children,
         onClick,
-        buttonRef,
-        iconName // Assuming iconName is passed as a prop
+        buttonRef
     } = props;
 
     const sizeClassName = size !== undefined ? sizeClassNames[size] : "";
+
     const shapeClassName = shape !== undefined ? shapeClassNames[shape] : "";
+
     const colorClassName = color !== undefined ? colorClassNames[color] : "";
+
     const variantClassName =
         variant !== undefined ? variantClassNames[variant] : "";
+
     const fullWidthClassName = fullWidth ? "btn-full-width" : "";
 
     const finalClassNames = trimWhiteSpaces(
@@ -39,33 +41,14 @@ const Button: FC<ButtonProps> = (props) => {
     );
 
     return (
-        <>
-            {iconName ? (
-                <button
-                    className={trimWhiteSpaces(finalClassNames)}
-                    disabled={disabled}
-                    onClick={onClick}
-                    ref={buttonRef}
-                >
-                    {children}{" "}
-                    <Icon
-                        iconName={iconName}
-                        height="2rem"
-                        width="2rem"
-                        className="btn-icon"
-                    />
-                </button>
-            ) : (
-                <button
-                    className={trimWhiteSpaces(finalClassNames)}
-                    disabled={disabled}
-                    onClick={onClick}
-                    ref={buttonRef}
-                >
-                    {children}
-                </button>
-            )}
-        </>
+        <button
+            className={trimWhiteSpaces(finalClassNames)}
+            disabled={disabled}
+            onClick={onClick}
+            ref={buttonRef}
+        >
+            {children}
+        </button>
     );
 };
 
