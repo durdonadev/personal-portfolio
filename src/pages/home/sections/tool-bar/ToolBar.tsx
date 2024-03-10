@@ -3,10 +3,11 @@ import styled from "styled-components";
 import { Tool } from "./types";
 import { Icon } from "../../../../design-system";
 import { Container } from "../../../components";
+import { tools } from "./data";
 
 const ToolBarWrapper = styled(Container)`
     margin-top: var(--space-80);
-    padding: 4rem 0;
+    padding: 5rem 0;
     display: flex;
     flex-wrap: wrap;
     gap: 5rem;
@@ -53,4 +54,6 @@ const ToolBar: React.FC<ToolBarProps> = ({ tools }) => {
     );
 };
 
-export { ToolBar };
+export const ToolsBar = () => {
+    return <ToolBar tools={tools} />;
+};

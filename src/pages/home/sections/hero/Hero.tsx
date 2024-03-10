@@ -21,7 +21,7 @@ const HeroTextWrapper = styled.div`
     }
 
     .greeting {
-        color: #296e6b;
+        color: #0fa49d;
         margin-bottom: var(--space-12);
     }
 
@@ -58,21 +58,21 @@ const SocialMedia = styled.div`
     display: flex;
     gap: var(--space-12);
     align-items: center;
+`;
 
-    svg {
-        cursor: pointer;
-        height: 3.6rem;
-        width: 3.6rem;
-        transition: all 1s;
-        &:hover {
-            transform: scale(1.25);
-        }
+const StyledIcon = styled(Icon)`
+    cursor: pointer;
+    height: 3.6rem;
+    width: 3.6rem;
+    transition: all 1s;
+
+    &:hover {
+        transform: scale(1.1);
     }
 `;
 
 const HeroImgWrapper = styled.div`
     width: 52rem;
-
     text-align: center;
     background-color: #ffc400;
     border-top-left-radius: 17rem;
@@ -86,9 +86,8 @@ const HeroImgWrapper = styled.div`
     }
     img {
         object-fit: contain;
-        height: 60.8rem;
+        height: 58rem;
         width: auto;
-        border-bottom-right-radius: 8rem;
     }
 `;
 
@@ -123,9 +122,9 @@ const Hero = () => {
                     <Typography variant="h6" weight="bold">
                         Follow Me:
                     </Typography>
-                    <Icon iconName="linkdin-icon" />
-                    <Icon iconName="github-icon" />
-                    <Icon iconName="twitter-icon" />
+                    <StyledIcon iconName="linkdin-icon" />
+                    <StyledIcon iconName="github-icon" />
+                    <StyledIcon iconName="twitter-icon" />
                 </SocialMedia>
             </HeroTextWrapper>
             <BackgroundDotsWrapper>

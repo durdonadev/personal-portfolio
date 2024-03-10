@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { TopNavigation } from "./sections/top-navigation/TopNavigation";
 import { Hero } from "./sections/hero/Hero";
-import { Skills } from "./sections/skills/Skills";
 import { About } from "./sections/about/About";
-import { ToolBar } from "./sections/tool-bar/ToolBar";
-import { tools } from "./sections/tool-bar/data";
+import { ToolsBar } from "./sections/tool-bar/ToolBar";
+import { Services } from "./sections/services/Services";
 
 const Base = styled.div``;
 
@@ -13,9 +12,9 @@ const HomePage = () => {
         <Base>
             <TopNavigation />
             <Hero />
-            <ToolBar tools={tools} />
+            <ToolsBar />
             <About />
-            <Skills />
+            <Services />
         </Base>
     );
 };

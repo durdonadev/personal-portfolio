@@ -39,7 +39,11 @@ export type IconName =
     | "github"
     | "terminal"
     | "sass"
-    | "corel-draw";
+    | "corel-draw"
+    | "frontend"
+    | "backend"
+    | "internet"
+    | "management";
 
 export type IconProps = {
     iconName: IconName;
