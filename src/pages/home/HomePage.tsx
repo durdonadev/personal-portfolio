@@ -13,8 +13,8 @@ const HomePage = () => {
             <TopNavigation />
             <Hero />
             <ToolsBar />
-            <About />
             <Services />
+            <About />
         </Base>
     );
 };

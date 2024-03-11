@@ -75,14 +75,11 @@ const HeroImgWrapper = styled.div`
     width: 52rem;
     text-align: center;
     background-color: #ffc400;
-    border-top-left-radius: 17rem;
-    border-bottom-left-radius: 12rem;
-    border-top-right-radius: 1.5rem;
-    border-bottom-right-radius: 10rem;
+    border-radius: 17rem 12rem 1.5rem 10rem;
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.07);
     }
     img {
         object-fit: contain;

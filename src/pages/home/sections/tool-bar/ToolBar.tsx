@@ -13,9 +13,9 @@ const ToolBarWrapper = styled(Container)`
     gap: 5rem;
     align-items: center;
     justify-content: space-around;
-    background-color: var(--jaguar-25);
-    border-top: 0.4rem solid var(--jaguar-200);
-    border-bottom: 0.4rem solid var(--jaguar-200);
+    background-color: #f6f7fb;
+    /* border-top: 0.4rem solid var(--jaguar-200);
+    border-bottom: 0.4rem solid var(--jaguar-200); */
 `;
 
 const StyledIcon = styled(Icon)`

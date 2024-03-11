@@ -53,7 +53,7 @@ const TopNavigation = () => {
                 shape="rounded"
                 onClick={() => {}}
             >
-                Contact
+                CONTACT
             </Button>
         </BaseContainer>
     );

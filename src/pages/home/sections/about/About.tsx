@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import dots from "../../../../assets/images/dot-transparent.png";
-
+import me from "../../../../assets/images/about-me.png";
 const info = {
     bio: "Hello, I'm Durdona, a full-stack developer based in New York with over a year of experience. Passionate about crafting seamless digital experiences, I thrive on bringing innovative ideas to life through code. From backend logic to captivating frontend interfaces, I specialize in creating dynamic web solutions that engage and inspire users.",
     fullName: "Durdona Ibragimova",
@@ -14,9 +14,9 @@ const info = {
 
 const BaseContainer = styled(Container)`
     position: relative;
-    padding-top: var(--space-150);
-    padding-bottom: var(--space-150);
-    background-color: #fff;
+    padding-top: var(--space-100);
+    padding-bottom: var(--space-100);
+    background-color: #f6f7fb;
 `;
 
 const AboutContent = styled.div`
@@ -24,14 +24,30 @@ const AboutContent = styled.div`
     gap: 5%;
 `;
 
-const AboutBioWrapper = styled.div`
-    width: 55%;
+const ImageWrapper = styled.div`
+    width: 52rem;
+    text-align: center;
+    background-color: #ffc400;
+    border-radius: 10rem 17rem 12rem 1.5rem;
+    transition: all 1s;
+
+    &:hover {
+        transform: scale(1.07);
+    }
+    img {
+        object-fit: contain;
+        height: 58rem;
+        width: auto;
+    }
+`;
+
+const AboutTextWrapper = styled.div`
+    width: 60%;
 `;
 
 const AboutInfoWrapper = styled.div`
-    width: 40%;
     display: grid;
-    row-gap: 0px;
+    row-gap: var(--space-16); /* row-gap: 0px; */
 `;
 const InfoItem = styled.div`
     display: grid;
@@ -40,19 +56,23 @@ const InfoItem = styled.div`
 
 const Title = styled(Typography)`
     margin-bottom: var(--space-50);
+    /* color: var(--white); */
+    z-index: 10;
     span {
-        color: #42b3a2;
+        color: var(--primary-600);
     }
 `;
 
 const Bio = styled(Typography)`
     margin-bottom: var(--space-30);
-    line-height: 2;
+    line-height: 1.5;
+    /* color: var(--white); */
 `;
 
 const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
+    margin-bottom: var(--space-40);
 `;
 
 const BackgroundDotsWrapper = styled.div`
@@ -75,15 +95,19 @@ const About = () => {
             <BackgroundDotsWrapper>
                 <img src={dots} alt="" />
             </BackgroundDotsWrapper>
-            <Title variant="h3" weight="extrabold">
-                About <span>Me</span>
-            </Title>
+
             <AboutContent>
-                <AboutBioWrapper>
-                    <Bio variant="paragraphMD">{info.bio}</Bio>
+                <ImageWrapper>
+                    <img src={me} alt="" />
+                </ImageWrapper>
+                <AboutTextWrapper>
+                    <Title variant="h3" weight="extrabold">
+                        About <span>Me</span>
+                    </Title>
+                    <Bio variant="paragraphLG">{info.bio}</Bio>
                     <Buttons>
                         <Button
-                            size="md"
+                            size="lg"
                             shape="rounded"
                             color="secondary"
                             onClick={() => {}}
@@ -93,53 +117,59 @@ const About = () => {
                         <Button
                             color="secondary"
                             variant="outlined"
-                            size="md"
+                            size="lg"
                             shape="rounded"
                             onClick={() => {}}
                         >
                             DOWNLOAD RESUME
                         </Button>
                     </Buttons>
-                </AboutBioWrapper>
-                <AboutInfoWrapper>
-                    <InfoItem>
-                        <Icon iconName="person" />
-                        <Typography variant="paragraphMD">
-                            Full Name:
-                        </Typography>
-                        <Typography variant="paragraphMD">
-                            {info.fullName}
-                        </Typography>
-                    </InfoItem>
-                    <InfoItem>
-                        <Icon iconName="age" />
-                        <Typography variant="paragraphMD">Age:</Typography>
-                        <Typography variant="paragraphMD">
-                            {info.age}
-                        </Typography>
-                    </InfoItem>
-                    <InfoItem>
-                        <Icon iconName="location" />
-                        <Typography variant="paragraphMD">Address:</Typography>
-                        <Typography variant="paragraphMD">
-                            {info.address}
-                        </Typography>
-                    </InfoItem>
-                    <InfoItem>
-                        <Icon iconName="mail" />
-                        <Typography variant="paragraphMD">Email:</Typography>
-                        <Typography variant="paragraphMD">
-                            {info.email}
-                        </Typography>
-                    </InfoItem>
-                    <InfoItem>
-                        <Icon iconName="phone" />
-                        <Typography variant="paragraphMD">Phone:</Typography>
-                        <Typography variant="paragraphMD">
-                            {info.phone}
-                        </Typography>
-                    </InfoItem>
-                </AboutInfoWrapper>
+                    <AboutInfoWrapper>
+                        <InfoItem>
+                            <Icon iconName="person" />
+                            <Typography variant="paragraphMD">
+                                Full Name:
+                            </Typography>
+                            <Typography variant="paragraphMD">
+                                {info.fullName}
+                            </Typography>
+                        </InfoItem>
+                        <InfoItem>
+                            <Icon iconName="age" />
+                            <Typography variant="paragraphMD">Age:</Typography>
+                            <Typography variant="paragraphMD">
+                                {info.age}
+                            </Typography>
+                        </InfoItem>
+                        <InfoItem>
+                            <Icon iconName="location" />
+                            <Typography variant="paragraphMD">
+                                Address:
+                            </Typography>
+                            <Typography variant="paragraphMD">
+                                {info.address}
+                            </Typography>
+                        </InfoItem>
+                        <InfoItem>
+                            <Icon iconName="mail" />
+                            <Typography variant="paragraphMD">
+                                Email:
+                            </Typography>
+                            <Typography variant="paragraphMD">
+                                {info.email}
+                            </Typography>
+                        </InfoItem>
+                        <InfoItem>
+                            <Icon iconName="phone" />
+                            <Typography variant="paragraphMD">
+                                Phone:
+                            </Typography>
+                            <Typography variant="paragraphMD">
+                                {info.phone}
+                            </Typography>
+                        </InfoItem>
+                    </AboutInfoWrapper>
+                </AboutTextWrapper>
             </AboutContent>
         </BaseContainer>
     );
