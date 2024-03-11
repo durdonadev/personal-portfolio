@@ -110,6 +110,20 @@ const ProjectImageWrapper = styled.div`
     }
 `;
 
+const StyledButton = styled(Button)`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: transparent !important;
+
+    &:hover {
+        background-color: var(--jaguar-900) !important;
+        color: white !important;
+    }
+`;
+
 const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <ProjectCardBase>
@@ -137,6 +151,14 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
             <ProjectCardRight name={project.name}>
                 <img src={project.image} alt="" />
+                <StyledButton
+                    size="md"
+                    variant="outlined"
+                    color="secondary"
+                    shape="rounded"
+                >
+                    Try Demo
+                </StyledButton>
             </ProjectCardRight>
         </ProjectCardBase>
     );
