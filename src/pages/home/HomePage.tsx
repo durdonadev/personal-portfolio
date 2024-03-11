@@ -4,6 +4,7 @@ import { Hero } from "./sections/hero/Hero";
 import { About } from "./sections/about/About";
 import { ToolsBar } from "./sections/tool-bar/ToolBar";
 import { Services } from "./sections/services/Services";
+import { Projects } from "./sections/projects/Projects";
 
 const Base = styled.div``;
 
@@ -15,6 +16,7 @@ const HomePage = () => {
             <ToolsBar />
             <Services />
             <About />
+            <Projects />
         </Base>
     );
 };

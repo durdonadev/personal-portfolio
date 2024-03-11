@@ -47,7 +47,7 @@ const AboutTextWrapper = styled.div`
 
 const AboutInfoWrapper = styled.div`
     display: grid;
-    row-gap: var(--space-16); /* row-gap: 0px; */
+    row-gap: var(--space-16);
 `;
 const InfoItem = styled.div`
     display: grid;
@@ -56,7 +56,6 @@ const InfoItem = styled.div`
 
 const Title = styled(Typography)`
     margin-bottom: var(--space-50);
-    /* color: var(--white); */
     z-index: 10;
     span {
         color: var(--primary-600);
