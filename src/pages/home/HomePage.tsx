@@ -13,12 +13,25 @@ const HomePage = () => {
     return (
         <Base>
             <TopNavigation />
-            <Hero />
-            <ToolsBar />
-            <Services />
-            <About />
-            <Projects />
-            <Contact />
+
+            <section id="hero">
+                <Hero />
+            </section>
+            <section id="tool-bar">
+                <ToolsBar />
+            </section>
+            <section id="services">
+                <Services />
+            </section>
+            <section id="about">
+                <About />
+            </section>
+            <section id="projects">
+                <Projects />
+            </section>
+            <section id="contact">
+                <Contact />
+            </section>
         </Base>
     );
 };

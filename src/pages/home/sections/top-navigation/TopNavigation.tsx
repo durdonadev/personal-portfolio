@@ -4,10 +4,10 @@ import { Button, Logo } from "../../../../design-system";
 import { Container } from "../../../components";
 
 const links = [
-    { text: "HOME", link: "" },
-    { text: "SERVICES", link: "" },
-    { text: "ABOUT", link: "" },
-    { text: "PROJECTS", link: "" }
+    { text: "HOME", link: "#hero" },
+    { text: "SERVICES", link: "#services" },
+    { text: "ABOUT", link: "#about" },
+    { text: "PROJECTS", link: "#projects" }
 ];
 
 const BaseContainer = styled(Container)`
@@ -32,7 +32,13 @@ const StyledLogo = styled(Logo)`
     margin-right: var(--space-40);
 `;
 
-const TopNavigation = () => {
+const TopNavigation: React.FC = () => {
+    const handleOnClick = () => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
     return (
         <BaseContainer>
             <StyledLogo size="sm" layout="horizontal" />
@@ -51,7 +57,7 @@ const TopNavigation = () => {
                 variant="outlined"
                 size="lg"
                 shape="rounded"
-                onClick={() => {}}
+                onClick={handleOnClick}
             >
                 CONTACT
             </Button>
