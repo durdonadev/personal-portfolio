@@ -56,18 +56,17 @@ const Position = styled(Typography)`
 
 const SocialMedia = styled.div`
     display: flex;
-    gap: var(--space-12);
-    align-items: center;
+    gap: var(--space-20);
 `;
 
 const StyledIcon = styled(Icon)`
     cursor: pointer;
-    height: 3.6rem;
-    width: 3.6rem;
+    height: 3rem;
+    width: 3rem;
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.1);
+        transform: scale(1.3);
     }
 `;
 
@@ -116,9 +115,9 @@ const Hero = () => {
                     mind
                 </Typography>
                 <SocialMedia>
-                    <Typography variant="h6" weight="bold">
+                    {/* <Typography variant="h6" weight="bold">
                         Follow Me:
-                    </Typography>
+                    </Typography> */}
                     <StyledIcon iconName="linkdin-icon" />
                     <StyledIcon iconName="github-icon" />
                     <StyledIcon iconName="twitter-icon" />
