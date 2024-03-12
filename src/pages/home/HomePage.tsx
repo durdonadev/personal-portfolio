@@ -5,6 +5,7 @@ import { About } from "./sections/about/About";
 import { ToolsBar } from "./sections/tool-bar/ToolBar";
 import { Services } from "./sections/services/Services";
 import { Projects } from "./sections/projects/Projects";
+import { Contact } from "./sections/contact/Contact";
 
 const Base = styled.div``;
 
@@ -17,6 +18,7 @@ const HomePage = () => {
             <Services />
             <About />
             <Projects />
+            <Contact />
         </Base>
     );
 };
