@@ -70,7 +70,7 @@ const ProjectCardRight = styled.div<{ name: string }>`
         width: 100%;
         height: 100%;
         z-index: 1;
-        /* background-color: rgba(81, 129, 248, 0.5); */
+
         background-color: ${({ name }) => {
             switch (name) {
                 case "Projectify-App":

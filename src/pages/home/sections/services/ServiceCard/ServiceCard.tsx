@@ -88,7 +88,7 @@ const ServicesCard: React.FC<ServicesCardProps> = ({ service }) => {
                 <ServiceTitle variant="h6" weight="bold">
                     {service.title}
                 </ServiceTitle>
-                <ServiceDescription variant="paragraphMD" weight="semibold">
+                <ServiceDescription variant="paragraphMD" weight="normal">
                     {service.description}
                 </ServiceDescription>
             </ServiceTextWrapper>

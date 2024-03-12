@@ -5,9 +5,9 @@ import { Container } from "../../../components";
 
 const links = [
     { text: "HOME", link: "" },
+    { text: "SERVICES", link: "" },
     { text: "ABOUT", link: "" },
-    { text: "PROJECTS", link: "" },
-    { text: "BLOG", link: "" }
+    { text: "PROJECTS", link: "" }
 ];
 
 const BaseContainer = styled(Container)`
