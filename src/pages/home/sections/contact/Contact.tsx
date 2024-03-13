@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Button, Icon, Input, Typography } from "../../../../design-system";
+import { Button, Input, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
+import IconLink from "../../../components/IconLink";
 
 const BaseContainer = styled(Container)`
     padding-top: var(--space-50);
@@ -53,17 +54,6 @@ const SocialMedia = styled.div`
     justify-content: center;
 `;
 
-const StyledIcon = styled(Icon)`
-    cursor: pointer;
-    height: 2.6rem;
-    width: 2.6rem;
-    transition: all 1s;
-
-    &:hover {
-        transform: scale(1.3);
-    }
-`;
-
 const ContactForm = styled.form`
     width: 60%;
     margin: 0 auto;
@@ -77,6 +67,11 @@ const ContactForm = styled.form`
 `;
 
 const Contact = () => {
+    const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
+    const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK || "";
+    const twitterLink = process.env.REACT_APP_TWITTER_LINK || "";
+    const facebookLink = process.env.REACT_APP_FACEBOOK_LINK || "";
+
     return (
         <BaseContainer>
             <Title variant="h3" weight="extrabold">
@@ -108,10 +103,10 @@ const Contact = () => {
                     </TextWrapper>
 
                     <SocialMedia>
-                        <StyledIcon iconName="linkdin-icon" />
-                        <StyledIcon iconName="github-icon" />
-                        <StyledIcon iconName="twitter-icon" />
-                        <StyledIcon iconName="facebook" />
+                        <IconLink href={linkedinLink} iconName="linkdin-icon" />
+                        <IconLink href={githubLink} iconName="github-icon" />
+                        <IconLink href={twitterLink} iconName="twitter-icon" />
+                        <IconLink href={facebookLink} iconName="facebook" />
                     </SocialMedia>
                 </ContactInfoWrapper>
                 <ContactForm>

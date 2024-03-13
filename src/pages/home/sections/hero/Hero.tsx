@@ -3,6 +3,7 @@ import { Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import hero from "../../../../assets/images/me2.png";
 import dots from "../../../../assets/images/dot-transparent.png";
+import IconLink from "../../../components/IconLink";
 
 const BaseContainer = styled(Container)`
     display: flex;
@@ -59,17 +60,6 @@ const SocialMedia = styled.div`
     gap: var(--space-20);
 `;
 
-const StyledIcon = styled(Icon)`
-    cursor: pointer;
-    height: 3rem;
-    width: 3rem;
-    transition: all 1s;
-
-    &:hover {
-        transform: scale(1.3);
-    }
-`;
-
 const HeroImgWrapper = styled.div`
     width: 52rem;
     text-align: center;
@@ -88,6 +78,10 @@ const HeroImgWrapper = styled.div`
 `;
 
 const Hero = () => {
+    const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
+    const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK || "";
+    const twitterLink = process.env.REACT_APP_TWITTER_LINK || "";
+
     return (
         <BaseContainer>
             <HeroTextWrapper>
@@ -115,12 +109,9 @@ const Hero = () => {
                     mind
                 </Typography>
                 <SocialMedia>
-                    {/* <Typography variant="h6" weight="bold">
-                        Follow Me:
-                    </Typography> */}
-                    <StyledIcon iconName="linkdin-icon" />
-                    <StyledIcon iconName="github-icon" />
-                    <StyledIcon iconName="twitter-icon" />
+                    <IconLink href={linkedinLink} iconName="linkdin-icon" />
+                    <IconLink href={githubLink} iconName="github-icon" />
+                    <IconLink href={twitterLink} iconName="twitter-icon" />
                 </SocialMedia>
             </HeroTextWrapper>
             <BackgroundDotsWrapper>
