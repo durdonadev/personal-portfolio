@@ -7,6 +7,12 @@ import { Container } from "../../../components";
 const SectionBase = styled(Container)`
     padding-top: 15rem;
     padding-bottom: 15rem;
+
+    @media (max-width: 75em) {
+        //1200
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
 `;
 
 const Title = styled(Typography)`

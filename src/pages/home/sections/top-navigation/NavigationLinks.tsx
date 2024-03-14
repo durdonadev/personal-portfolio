@@ -11,7 +11,7 @@ const StyledLink = styled.a`
     font-weight: var(--font-weight-800);
 
     &:hover {
-        color: #296e6b;
+        color: #0fa49d;
     }
 `;
 

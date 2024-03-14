@@ -24,7 +24,7 @@ const ProjectCardLeft = styled.div<{ name: string }>`
     display: flex;
     align-items: center;
     gap: var(--space-20);
-    padding: var(--space-60) var(--space-60) 0;
+    padding: var(--space-50) var(--space-50) 0;
     border-radius: var(--border-radius-8);
     box-shadow: var(--shadow-l);
     margin-bottom: var(--space-30);
@@ -41,13 +41,44 @@ const ProjectCardLeft = styled.div<{ name: string }>`
                 return "transparent";
         }
     }};
+
+    @media (max-width: 84em) {
+        //1340
+        width: 65%;
+    }
+`;
+
+const ProjectTextWrapper = styled.div`
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-right: var(--space-20);
+`;
+
+const ProjectName = styled(Typography)`
+    margin-bottom: var(--space-12);
+`;
+
+const ProjectDescription = styled(Typography)`
+    margin-bottom: var(--space-12);
+`;
+
+const ProjectImageWrapper = styled.div`
+    width: 70%;
+    overflow: hidden;
+    img {
+        object-fit: contain;
+        height: 41.2rem;
+    }
 `;
 
 const ProjectCardRight = styled.div<{ name: string }>`
     position: relative;
     text-align: center;
     width: 30%;
-    height: 47.52rem;
+    height: 46.52rem;
     overflow: hidden;
     border-radius: var(--border-radius-8);
     box-shadow: var(--shadow-l);
@@ -86,29 +117,10 @@ const ProjectCardRight = styled.div<{ name: string }>`
             }
         }};
     }
-`;
 
-const ProjectTextWrapper = styled.div`
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-`;
-
-const ProjectName = styled(Typography)`
-    margin-bottom: var(--space-12);
-`;
-
-const ProjectDescription = styled(Typography)`
-    margin-bottom: var(--space-12);
-`;
-
-const ProjectImageWrapper = styled.div`
-    overflow: hidden;
-    img {
-        object-fit: cover;
-        height: 41.2rem;
+    @media (max-width: 84em) {
+        //1340
+        width: 35%;
     }
 `;
 

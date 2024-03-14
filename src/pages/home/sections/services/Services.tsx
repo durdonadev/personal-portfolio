@@ -7,6 +7,12 @@ import { ServicesCard } from "./ServiceCard/ServiceCard";
 const SectionBase = styled(Container)`
     padding-top: 15rem;
     padding-bottom: 15rem;
+
+    @media (max-width: 75em) {
+        //1200
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
 `;
 
 const ServicesTextWrapper = styled.div`
@@ -28,6 +34,13 @@ const ServicesCardsWrapper = styled.div`
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-40);
     margin-bottom: var(--space-50);
+
+    @media (max-width: 86em) {
+        grid-template-columns: repeat(3, 1fr);
+        > :last-child {
+            display: none;
+        }
+    }
 `;
 
 const Services = () => {

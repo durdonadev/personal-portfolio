@@ -17,10 +17,6 @@ const BaseContainer = styled(Container)`
 const HeroTextWrapper = styled.div`
     width: 50%;
 
-    img {
-        width: 4rem;
-    }
-
     .greeting {
         color: #0fa49d;
         margin-bottom: var(--space-12);
@@ -41,12 +37,42 @@ const BackgroundDotsWrapper = styled.div`
     bottom: 0;
     left: 14.1rem;
 
+    @media (max-width: 106em) {
+        //1700
+        left: 10rem;
+    }
+
+    @media (max-width: 100em) {
+        //1600
+        left: 8rem;
+    }
+
     img {
         z-index: -2;
         opacity: 0.1;
         object-fit: contain;
         height: 30.5rem;
         width: auto;
+
+        @media (max-width: 106em) {
+            //1700
+            height: 28rem;
+        }
+
+        @media (max-width: 100em) {
+            //1600
+            height: 26rem;
+        }
+
+        @media (max-width: 90em) {
+            //1440
+            height: 24rem;
+        }
+
+        @media (max-width: 82em) {
+            //1300
+            height: 22rem;
+        }
     }
 `;
 
@@ -61,19 +87,24 @@ const SocialMedia = styled.div`
 `;
 
 const HeroImgWrapper = styled.div`
-    width: 52rem;
+    width: 40%;
     text-align: center;
     background-color: #ffc400;
     border-radius: 17rem 12rem 1.5rem 10rem;
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.07);
+        transform: scale(1.03);
     }
     img {
         object-fit: contain;
         height: 58rem;
         width: auto;
+
+        @media (max-width: 90em) {
+            //1440
+            height: 52rem;
+        }
     }
 `;
 

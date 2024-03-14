@@ -26,19 +26,31 @@ const AboutContent = styled.div`
 `;
 
 const ImageWrapper = styled.div`
-    width: 52rem;
+    width: 45%;
     text-align: center;
     background-color: #ffc400;
     border-radius: 10rem 17rem 12rem 1.5rem;
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.07);
+        transform: scale(1.03);
     }
     img {
+        margin-top: auto;
         object-fit: contain;
-        height: 58rem;
+        height: 100%;
         width: auto;
+        border-radius: 10rem 17rem 12rem 1.5rem;
+
+        @media (max-width: 90em) {
+            //1440
+            height: 55rem;
+        }
+    }
+
+    @media (max-width: 90em) {
+        //1440
+        height: 30%;
     }
 `;
 
@@ -80,12 +92,42 @@ const BackgroundDotsWrapper = styled.div`
     top: 10rem;
     right: 14.1rem;
 
+    @media (max-width: 106em) {
+        //1700
+        right: 10rem;
+    }
+
+    @media (max-width: 100em) {
+        //1600
+        right: 8rem;
+    }
+
     img {
         z-index: -2;
         opacity: 0.1;
         object-fit: contain;
         height: 30.5rem;
         width: auto;
+
+        @media (max-width: 106em) {
+            //1700
+            height: 28rem;
+        }
+
+        @media (max-width: 100em) {
+            //1600
+            height: 26rem;
+        }
+
+        @media (max-width: 90em) {
+            //1440
+            height: 24rem;
+        }
+
+        @media (max-width: 82em) {
+            //1300
+            height: 22rem;
+        }
     }
 `;
 
@@ -113,7 +155,7 @@ const About = () => {
                     <Title variant="h3" weight="extrabold">
                         About <span>Me</span>
                     </Title>
-                    <Bio variant="paragraphLG">{info.bio}</Bio>
+                    <Bio variant="paragraphMD">{info.bio}</Bio>
                     <Buttons>
                         <Button
                             size="lg"

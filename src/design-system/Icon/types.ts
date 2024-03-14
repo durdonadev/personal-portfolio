@@ -43,7 +43,8 @@ export type IconName =
     | "frontend"
     | "backend"
     | "internet"
-    | "management";
+    | "management"
+    | "database";
 
 export type IconProps = {
     iconName: IconName;

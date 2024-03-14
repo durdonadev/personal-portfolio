@@ -17,14 +17,14 @@ export const ServicesCardBase = styled.div<{ icon: IconName }>`
     cursor: pointer;
     border-radius: 0 var(--border-radius-40) var(--border-radius-40)
         var(--border-radius-40);
-    max-width: 34rem;
+    max-width: 37rem;
     box-shadow: var(--shadow-2xl);
     display: flex;
     flex-direction: column;
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.08);
+        transform: scale(1.05);
     }
 
     background-color: ${({ icon }) => {
@@ -37,6 +37,8 @@ export const ServicesCardBase = styled.div<{ icon: IconName }>`
                 return "#dce3f3";
             case "management":
                 return "#dcece1";
+            case "database":
+                return "#ffebee";
         }
     }};
 `;
@@ -73,6 +75,8 @@ const IconWrapper = styled.div<{ icon: IconName }>`
                 return "#b8c9f2";
             case "management":
                 return "#b5e4ca";
+            case "database":
+                return "#ffcdd2";
         }
     }};
 `;

@@ -22,7 +22,7 @@ export const projects = [
     {
         image: project2,
         name: "Furniture Website",
-        description: "E-commerce website",
+        description: "Electronic commerce platform",
         githubLink:
             "https://github.com/durdonadev/furniture-shop-website-react",
         demoLink: "http://localhost:3000/"

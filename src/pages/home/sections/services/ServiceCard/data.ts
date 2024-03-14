@@ -13,6 +13,12 @@ export const services: Service[] = [
         description:
             "Building server-side logic and databases, Ensure the functionality of websites or web applications using languages like Node.js."
     },
+    // {
+    //     icon: "database",
+    //     title: "Database Management",
+    //     description:
+    //         "Designing and managing databases to efficiently store and retrieve data, ensuring data integrity, security, and scalability."
+    // },
     {
         icon: "internet",
         title: "API Development and Integration",
@@ -21,7 +27,7 @@ export const services: Service[] = [
     },
     {
         icon: "management",
-        title: "Website Maintenance and Support",
+        title: "Website Support and Maintenance",
         description:
             "Providing ongoing maintenance, updates, and technical support for websites to remain  secure, functionality, and up-to-date."
     }
