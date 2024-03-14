@@ -7,10 +7,10 @@ const StyledLink = styled.a`
     cursor: pointer;
     height: 3rem;
     width: 3rem;
-    transition: all 1s;
+    transition: all 0.7s;
 
     &:hover {
-        transform: scale(1.3);
+        transform: translateY(-7px);
     }
 `;
 
