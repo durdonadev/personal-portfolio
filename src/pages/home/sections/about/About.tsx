@@ -3,6 +3,7 @@ import { Button, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import dots from "../../../../assets/images/dot-transparent.png";
 import me from "../../../../assets/images/about-me.png";
+
 const info = {
     bio: "Hello, I'm Durdona, a full-stack developer based in New York with over a year of experience. Passionate about crafting seamless digital experiences, I thrive on bringing innovative ideas to life through code. From backend logic to captivating frontend interfaces, I specialize in creating dynamic web solutions that engage and inspire users.",
     fullName: "Durdona Ibragimova",
@@ -89,6 +90,15 @@ const BackgroundDotsWrapper = styled.div`
 `;
 
 const About = () => {
+    const resumeLink = process.env.REACT_APP_RESUME_LINK || "";
+
+    const handleOnClick = () => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <BaseContainer>
             <BackgroundDotsWrapper>
@@ -109,19 +119,21 @@ const About = () => {
                             size="lg"
                             shape="rounded"
                             color="secondary"
-                            onClick={() => {}}
+                            onClick={handleOnClick}
                         >
                             HIRE ME
                         </Button>
-                        <Button
-                            color="secondary"
-                            variant="outlined"
-                            size="lg"
-                            shape="rounded"
-                            onClick={() => {}}
-                        >
-                            DOWNLOAD RESUME
-                        </Button>
+                        <a href={resumeLink}>
+                            <Button
+                                color="secondary"
+                                variant="outlined"
+                                size="lg"
+                                shape="rounded"
+                                onClick={() => {}}
+                            >
+                                REVIEW MY RESUME
+                            </Button>
+                        </a>
                     </Buttons>
                     <AboutInfoWrapper>
                         <InfoItem>

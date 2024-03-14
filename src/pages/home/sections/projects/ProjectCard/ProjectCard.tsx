@@ -5,6 +5,8 @@ type Project = {
     image: string;
     name: string;
     description: string;
+    githubLink: string;
+    demoLink: string;
 };
 
 type ProjectCardProps = {
@@ -135,14 +137,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     <ProjectDescription variant="paragraphMD">
                         {project.description}
                     </ProjectDescription>
-                    <Button
-                        size="md"
-                        variant="outlined"
-                        color="secondary"
-                        shape="rounded"
-                    >
-                        GitHub Link
-                    </Button>
+                    <a href={project.githubLink}>
+                        <Button
+                            size="md"
+                            variant="outlined"
+                            color="secondary"
+                            shape="rounded"
+                        >
+                            GitHub Link
+                        </Button>
+                    </a>
                 </ProjectTextWrapper>
                 <ProjectImageWrapper>
                     <img src={project.image} alt="Project" />
@@ -151,14 +155,16 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
             <ProjectCardRight name={project.name}>
                 <img src={project.image} alt="" />
-                <StyledButton
-                    size="md"
-                    variant="outlined"
-                    color="secondary"
-                    shape="rounded"
-                >
-                    Try Demo
-                </StyledButton>
+                <a href={project.demoLink}>
+                    <StyledButton
+                        size="md"
+                        variant="outlined"
+                        color="secondary"
+                        shape="rounded"
+                    >
+                        Try Demo
+                    </StyledButton>
+                </a>
             </ProjectCardRight>
         </ProjectCardBase>
     );

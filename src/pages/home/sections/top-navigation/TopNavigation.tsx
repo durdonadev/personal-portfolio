@@ -39,6 +39,7 @@ const TopNavigation: React.FC = () => {
             contactSection.scrollIntoView({ behavior: "smooth" });
         }
     };
+
     return (
         <BaseContainer>
             <StyledLogo size="sm" layout="horizontal" />

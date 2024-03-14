@@ -8,17 +8,24 @@ export const projects = [
     {
         image: project1,
         name: "Projectify-App",
-        description: "Web-based project management platform"
+        description: "Web-based project management platform",
+        githubLink: "https://github.com/durdonadev/projectify-app-ui",
+        demoLink: "http://localhost:3000/"
     },
     {
         image: project3,
         name: "Restaurant Website",
-        description: "Informational and promotional website"
+        description: "Informational and promotional website",
+        githubLink: "https://github.com/durdonadev/restaurant-website-react",
+        demoLink: "http://localhost:3000/"
     },
     {
         image: project2,
         name: "Furniture Website",
-        description: "E-commerce website"
+        description: "E-commerce website",
+        githubLink:
+            "https://github.com/durdonadev/furniture-shop-website-react",
+        demoLink: "http://localhost:3000/"
     }
 
     // {
