@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Button, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import dots from "../../../../assets/images/dot-transparent.png";
-import me from "../../../../assets/images/about-me.png";
+import me from "../../../../assets/images/shape-about.png";
 
 const info = {
     bio: "Hello, I'm Durdona, a full-stack developer based in New York with over a year of experience. Passionate about crafting seamless digital experiences, I thrive on bringing innovative ideas to life through code. From backend logic to captivating frontend interfaces, I specialize in creating dynamic web solutions that engage and inspire users.",
@@ -22,25 +22,28 @@ const BaseContainer = styled(Container)`
 
 const AboutContent = styled.div`
     display: flex;
+    align-items: center;
     gap: 5%;
 `;
 
 const ImageWrapper = styled.div`
     width: 45%;
     text-align: center;
-    background-color: #ffc400;
-    border-radius: 10rem 17rem 12rem 1.5rem;
+    /* background-color: #ffc400; */
+    /* border-radius: 10rem 17rem 12rem 1.5rem; */
     transition: all 1s;
 
     &:hover {
         transform: scale(1.03);
     }
+
     img {
         margin-top: auto;
         object-fit: contain;
-        height: 100%;
+        height: 58rem;
         width: auto;
-        border-radius: 10rem 17rem 12rem 1.5rem;
+        /* border-radius: 10rem 17rem 12rem 1.5rem; */
+        border-radius: 50%;
 
         @media (max-width: 90em) {
             //1440
@@ -61,7 +64,12 @@ const AboutTextWrapper = styled.div`
 const AboutInfoWrapper = styled.div`
     display: grid;
     row-gap: var(--space-16);
+
+    @media (max-width: 84em) {
+        row-gap: var(--space-10);
+    }
 `;
+
 const InfoItem = styled.div`
     display: grid;
     grid-template-columns: 15% 30% 55%;
@@ -72,6 +80,10 @@ const Title = styled(Typography)`
     z-index: 10;
     span {
         color: var(--primary-600);
+    }
+
+    @media (max-width: 90em) {
+        margin-bottom: var(--space-40);
     }
 `;
 
@@ -167,7 +179,7 @@ const About = () => {
                         </Button>
                         <a href={resumeLink}>
                             <Button
-                                color="secondary"
+                                color="primary"
                                 variant="outlined"
                                 size="lg"
                                 shape="rounded"

@@ -4,7 +4,7 @@ import { Button, Logo } from "../../../../design-system";
 import { Container } from "../../../components";
 
 const links = [
-    { text: "HOME", link: "#hero" },
+    { text: "HOME", link: "" },
     { text: "SERVICES", link: "#services" },
     { text: "ABOUT", link: "#about" },
     { text: "PROJECTS", link: "#projects" }
@@ -49,12 +49,13 @@ const TopNavigation: React.FC = () => {
                         key={index}
                         linkText={link.text}
                         linkTo={link.link}
+                        isFirstLink={index === 0} // Add isFirstLink prop here
                     />
                 ))}
             </Links>
 
             <Button
-                color="secondary"
+                color="primary"
                 variant="outlined"
                 size="lg"
                 shape="rounded"

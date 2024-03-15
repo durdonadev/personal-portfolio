@@ -27,7 +27,7 @@ const Title = styled(Typography)`
 const ContactInfoWrapper = styled.div`
     width: 40%;
     padding: var(--space-32);
-    background-color: #dcece1;
+    background-color: #e2e2fe;
     border-radius: var(--border-radius-8);
 
     display: flex;
@@ -44,7 +44,7 @@ const TextWrapper = styled.div`
 
 const StyledLink = styled.a`
     font-size: 1.8rem;
-    color: var(--green-900);
+    color: var(--primary-900);
 `;
 
 const SocialMedia = styled.div`
@@ -147,12 +147,7 @@ const Contact = () => {
                         value=""
                         onChange={() => {}}
                     />
-                    <Button
-                        color="secondary"
-                        size="lg"
-                        shape="rounded"
-                        fullWidth
-                    >
+                    <Button color="primary" size="lg" shape="rounded" fullWidth>
                         Send Message
                     </Button>
                 </ContactForm>

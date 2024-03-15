@@ -35,10 +35,18 @@ const ServicesCardsWrapper = styled.div`
     gap: var(--space-40);
     margin-bottom: var(--space-50);
 
-    @media (max-width: 86em) {
+    @media (max-width: 85em) {
         grid-template-columns: repeat(3, 1fr);
         > :last-child {
             display: none;
+        }
+    }
+
+    @media (max-width: 64em) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-50);
+        > :last-child {
+            display: block;
         }
     }
 `;

@@ -40,11 +40,11 @@ input::placeholder,
 }
 
 .input:hover:not(.input-error, :disabled) {
-    border: 0.15rem solid var(--green-100);
+    border: 0.15rem solid var(--primary-200);
 }
 
 .input:focus:not(.input-error) {
-    border: 0.15rem solid var(--green-500);
+    border: 0.15rem solid var(--primary-600);
 }
 
 .input-error {

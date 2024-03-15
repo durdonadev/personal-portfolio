@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Icon, Typography } from "../../../../design-system";
+import { Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import hero from "../../../../assets/images/me2.png";
+import hero from "../../../../assets/images/shape-me.png";
 import dots from "../../../../assets/images/dot-transparent.png";
 import IconLink from "../../../components/IconLink";
 
@@ -18,7 +18,7 @@ const HeroTextWrapper = styled.div`
     width: 50%;
 
     .greeting {
-        color: #0fa49d;
+        /* color: #0fa49d; */
         margin-bottom: var(--space-12);
     }
 
@@ -89,14 +89,16 @@ const SocialMedia = styled.div`
 const HeroImgWrapper = styled.div`
     width: 40%;
     text-align: center;
-    background-color: #ffc400;
-    border-radius: 17rem 12rem 1.5rem 10rem;
+    /* background-color: #6055ee; */
+    /* border-radius: 17rem 12rem 1.5rem 10rem; */
+
     transition: all 1s;
 
     &:hover {
         transform: scale(1.03);
     }
     img {
+        border-radius: 50%;
         object-fit: contain;
         height: 58rem;
         width: auto;
