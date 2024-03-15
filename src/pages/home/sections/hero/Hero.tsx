@@ -4,6 +4,7 @@ import { Container } from "../../../components";
 import hero from "../../../../assets/images/shape-me.png";
 import dots from "../../../../assets/images/dot-transparent.png";
 import IconLink from "../../../components/IconLink";
+import Typewriter from "typewriter-effect";
 
 const BaseContainer = styled(Container)`
     display: flex;
@@ -18,7 +19,6 @@ const HeroTextWrapper = styled.div`
     width: 50%;
 
     .greeting {
-        /* color: #0fa49d; */
         margin-bottom: var(--space-12);
     }
 
@@ -76,7 +76,10 @@ const BackgroundDotsWrapper = styled.div`
     }
 `;
 
-const Position = styled(Typography)`
+const StyledTypewriterWrapper = styled.div`
+    font-weight: var(--font-weight-700);
+    font-size: 5.2rem;
+    line-height: var(--line-height-64);
     margin-bottom: var(--space-20);
     color: var(--primary-600);
 `;
@@ -89,8 +92,6 @@ const SocialMedia = styled.div`
 const HeroImgWrapper = styled.div`
     width: 40%;
     text-align: center;
-    /* background-color: #6055ee; */
-    /* border-radius: 17rem 12rem 1.5rem 10rem; */
 
     transition: all 1s;
 
@@ -104,7 +105,6 @@ const HeroImgWrapper = styled.div`
         width: auto;
 
         @media (max-width: 90em) {
-            //1440
             height: 52rem;
         }
     }
@@ -125,9 +125,17 @@ const Hero = () => {
                 >
                     Hey There, It's
                 </Typography>
-                <Position variant="h2" weight="bold">
-                    Web Developer
-                </Position>
+
+                <StyledTypewriterWrapper>
+                    <Typewriter
+                        options={{
+                            strings: ["Web Developer", "Full Stack Engeneer"],
+                            autoStart: true,
+                            loop: true
+                        }}
+                    />
+                </StyledTypewriterWrapper>
+
                 <Typography variant="h1" className="heading">
                     Durdona Ibragimova
                 </Typography>
