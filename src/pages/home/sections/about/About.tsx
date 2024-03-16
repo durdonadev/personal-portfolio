@@ -29,25 +29,22 @@ const AboutContent = styled.div`
 const ImageWrapper = styled.div`
     width: 45%;
     text-align: center;
-    /* background-color: #ffc400; */
-    /* border-radius: 10rem 17rem 12rem 1.5rem; */
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.03);
+        transform: scale(1.05);
     }
 
     img {
-        margin-top: auto;
-        object-fit: contain;
-        height: 58rem;
-        width: auto;
-        /* border-radius: 10rem 17rem 12rem 1.5rem; */
         border-radius: 50%;
+        /* margin-top: auto; */
+        object-fit: contain;
+        height: 56rem;
+        width: auto;
 
         @media (max-width: 90em) {
             //1440
-            height: 55rem;
+            height: 53rem;
         }
     }
 
@@ -90,7 +87,6 @@ const Title = styled(Typography)`
 const Bio = styled(Typography)`
     margin-bottom: var(--space-30);
     line-height: 1.5;
-    /* color: var(--white); */
 `;
 
 const Buttons = styled.div`

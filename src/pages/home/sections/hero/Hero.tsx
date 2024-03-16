@@ -92,11 +92,10 @@ const SocialMedia = styled.div`
 const HeroImgWrapper = styled.div`
     width: 40%;
     text-align: center;
-
     transition: all 1s;
 
     &:hover {
-        transform: scale(1.03);
+        transform: scale(1.05);
     }
     img {
         border-radius: 50%;
