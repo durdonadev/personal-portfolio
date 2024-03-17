@@ -20,3 +20,21 @@ body {
 a {
     text-decoration: none;
 }
+
+@media (max-width: 75em) {
+    html {
+        font-size: 56%; /* it sets base font size to 8px */
+    }
+}
+
+@media (max-width: 64em) {
+    html {
+        font-size: 50%; /* it sets base font size to 8px */
+    }
+}
+
+@media (max-width: 57em) {
+    html {
+        font-size: 46%; /* it sets base font size to 8px */
+    }
+}

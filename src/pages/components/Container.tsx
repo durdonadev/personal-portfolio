@@ -37,12 +37,17 @@ const Container = styled.div`
 
     @media (max-width: 69em) {
         //1104
-        padding: 2.5rem 9.3rem;
+        padding: 2.5rem 9.23rem;
     }
 
     @media (max-width: 64em) {
         //1024
         padding: 2.5rem 8.7rem;
+    }
+
+    @media (max-width: 57em) {
+        //912
+        padding: 2.5rem 8rem;
     }
 `;
 

@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { Button, Input, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import IconLink from "../../../components/IconLink";
-import mail from "../../../../assets/images/mail-2.png";
-// import mailIcon from "../../../../assets/images/mail.png"
-// import phoneIcon from "../../../../assets/images/phone.png"
 
 const BaseContainer = styled(Container)`
     padding-top: var(--space-100);
@@ -14,70 +11,59 @@ const BaseContainer = styled(Container)`
 
 const Content = styled.div`
     display: flex;
-    margin-bottom: var(--space-50);
-    gap: var(--space-50);
+    justify-content: space-between;
+    gap: var(--space-30);
 `;
 
 const Title = styled(Typography)`
     color: var(--jaguar-900);
     text-align: left;
-    margin-bottom: var(--space-40);
+    margin-bottom: var(--space-80);
     span {
         color: var(--primary-600);
     }
 `;
 
-const StyledText = styled(Typography)`
-    margin-bottom: var(--space-30);
-`;
-
 const ContactInfoWrapper = styled.div`
-    width: 50%;
+    width: 40%;
+    padding: var(--space-32);
+    background-color: #e2e2fe;
+    border-radius: var(--border-radius-8);
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom: var(--space-32);
+`;
+
+const TextWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-20);
 `;
 
 const StyledLink = styled.a`
     font-size: 1.8rem;
     color: var(--primary-900);
-    margin-bottom: var(--space-10);
 `;
 
-const ImgWrapper = styled.div`
-    width: 100%;
-    text-align: center;
-    margin-top: auto;
-
-    img {
-        object-fit: cover;
-        width: auto;
-        height: 30rem;
-    }
+const SocialMedia = styled.div`
+    display: flex;
+    gap: var(--space-20);
+    align-items: center;
+    justify-content: center;
 `;
 
 const ContactForm = styled.form`
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     padding: var(--space-32) var(--space-100);
-    background-color: #e2e2fe;
+    background-color: #eff0f1;
     border-radius: var(--border-radius-8);
 
     > *:not(:last-child) {
         margin-bottom: var(--space-24);
     }
-
-    > :last-child {
-        margin-left: auto;
-    }
-`;
-
-const SocialMedia = styled.div`
-    display: flex;
-    gap: var(--space-40);
-    align-items: center;
-    justify-content: center;
 `;
 
 const Contact = () => {
@@ -88,43 +74,47 @@ const Contact = () => {
 
     return (
         <BaseContainer>
+            <Title variant="h3" weight="extrabold">
+                Contact Me
+            </Title>
             <Content>
                 <ContactInfoWrapper>
-                    <Title variant="h3" weight="extrabold">
-                        Contact <span>Me</span>
-                    </Title>
-                    <StyledText variant="paragraphMD" weight="normal">
-                        Have a project in mind or just have a question? Let's
-                        connect and make things happen together!
-                    </StyledText>
+                    <TextWrapper>
+                        <Typography variant="h5" weight="bold">
+                            Say Hello!
+                        </Typography>
+                        <Typography variant="paragraphMD" weight="normal">
+                            Interested in working together or just have a
+                            question? Let's connect and make things happen.
+                        </Typography>
+                        <Typography variant="paragraphLG" weight="bold">
+                            Email
+                        </Typography>
+                        <StyledLink href="mailto:durdona.dev@gmail.com">
+                            durdona.dev@gmail.com
+                        </StyledLink>
 
-                    <Typography variant="paragraphMD" weight="bold">
-                        Email
-                    </Typography>
+                        <Typography variant="paragraphLG" weight="bold">
+                            Phone
+                        </Typography>
+                        <StyledLink href="tel:+19293347203">
+                            +1 929 334-7203
+                        </StyledLink>
+                    </TextWrapper>
 
-                    <StyledLink href="mailto:durdona.dev@gmail.com">
-                        durdona.dev@gmail.com
-                    </StyledLink>
-                    <Typography variant="paragraphMD" weight="bold">
-                        Phone
-                    </Typography>
-                    <StyledLink href="tel:+19293347203">
-                        +1 929 334-7203
-                    </StyledLink>
-                    <ImgWrapper>
-                        <img src={mail} alt="" />
-                    </ImgWrapper>
+                    <SocialMedia>
+                        <IconLink href={linkedinLink} iconName="linkdin-icon" />
+                        <IconLink href={githubLink} iconName="github-icon" />
+                        <IconLink href={twitterLink} iconName="twitter-icon" />
+                        <IconLink href={facebookLink} iconName="facebook" />
+                    </SocialMedia>
                 </ContactInfoWrapper>
-
                 <ContactForm>
-                    <Typography variant="paragraphLG" weight="bold">
-                        Send me a message!
-                    </Typography>
                     <Input
                         labelText="Name"
                         type="text"
                         placeholder="Will Smith"
-                        shape="circle"
+                        shape="rounded"
                         size="lg"
                         value=""
                         onChange={() => {}}
@@ -134,7 +124,7 @@ const Contact = () => {
                         labelText="Email"
                         type="email"
                         placeholder="email@example.com"
-                        shape="circle"
+                        shape="rounded"
                         size="lg"
                         value=""
                         onChange={() => {}}
@@ -143,7 +133,7 @@ const Contact = () => {
                         labelText="Phone Number"
                         type="tel"
                         placeholder="(123) 456-7890"
-                        shape="circle"
+                        shape="rounded"
                         size="lg"
                         value=""
                         onChange={() => {}}
@@ -152,22 +142,16 @@ const Contact = () => {
                         labelText="Message"
                         type="textarea"
                         placeholder="How can I help you?"
-                        shape="circle"
+                        shape="rounded"
                         size="lg"
                         value=""
                         onChange={() => {}}
                     />
-                    <Button color="primary" size="lg" shape="circle">
+                    <Button color="primary" size="lg" shape="rounded" fullWidth>
                         Send Message
                     </Button>
                 </ContactForm>
             </Content>
-            <SocialMedia>
-                <IconLink href={linkedinLink} iconName="linkdin-icon" />
-                <IconLink href={githubLink} iconName="github-icon" />
-                <IconLink href={twitterLink} iconName="twitter-icon" />
-                <IconLink href={facebookLink} iconName="facebook" />
-            </SocialMedia>
         </BaseContainer>
     );
 };

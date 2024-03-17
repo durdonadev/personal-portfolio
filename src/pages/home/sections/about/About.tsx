@@ -23,11 +23,12 @@ const BaseContainer = styled(Container)`
 const AboutContent = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 5%;
 `;
 
 const ImageWrapper = styled.div`
-    width: 45%;
+    width: 40%;
     text-align: center;
     transition: all 1s;
 
@@ -37,7 +38,6 @@ const ImageWrapper = styled.div`
 
     img {
         border-radius: 50%;
-        /* margin-top: auto; */
         object-fit: contain;
         height: 56rem;
         width: auto;
@@ -46,16 +46,26 @@ const ImageWrapper = styled.div`
             //1440
             height: 53rem;
         }
+
+        @media (max-width: 75em) {
+            //1200
+            height: 50rem;
+        }
     }
 
-    @media (max-width: 90em) {
-        //1440
-        height: 30%;
+    @media (max-width: 84em) {
+        //1344
+        width: 45%;
     }
 `;
 
 const AboutTextWrapper = styled.div`
-    width: 60%;
+    width: 55%;
+
+    @media (max-width: 84em) {
+        //1344
+        width: 50%;
+    }
 `;
 
 const AboutInfoWrapper = styled.div`

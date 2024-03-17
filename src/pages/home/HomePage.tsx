@@ -7,32 +7,30 @@ import { Services } from "./sections/services/Services";
 import { Projects } from "./sections/projects/Projects";
 import { Contact } from "./sections/contact/Contact";
 
-const Base = styled.div``;
-
 const HomePage = () => {
     return (
-        <Base>
+        <>
             <TopNavigation />
 
             <section id="hero">
                 <Hero />
             </section>
-            <section id="tool-bar">
+            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
                 <ToolsBar />
             </section>
             <section id="services">
                 <Services />
             </section>
-            <section id="about">
+            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
                 <About />
             </section>
             <section id="projects">
                 <Projects />
             </section>
-            <section id="contact">
+            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
                 <Contact />
             </section>
-        </Base>
+        </>
     );
 };
 

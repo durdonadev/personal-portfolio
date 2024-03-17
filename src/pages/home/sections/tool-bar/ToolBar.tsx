@@ -7,13 +7,16 @@ import { tools } from "./data";
 
 const ToolBarWrapper = styled(Container)`
     margin-top: var(--space-80);
-    padding: 5rem 0;
+    padding: 5rem 2rem;
     display: flex;
     flex-wrap: wrap;
     gap: 6rem;
     align-items: center;
     justify-content: space-around;
     background-color: #f6f7fb;
+
+    @media (max-width: 90em) {
+    }
 `;
 
 const StyledIcon = styled(Icon)`

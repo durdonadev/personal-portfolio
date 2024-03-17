@@ -42,13 +42,13 @@ const ServicesCardsWrapper = styled.div`
         }
     }
 
-    @media (max-width: 64em) {
+    /* @media (max-width: 64em) {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-50);
         > :last-child {
             display: block;
         }
-    }
+    } */
 `;
 
 const Services = () => {
