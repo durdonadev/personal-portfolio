@@ -49,7 +49,7 @@ const TopNavigation: React.FC = () => {
                         key={index}
                         linkText={link.text}
                         linkTo={link.link}
-                        isFirstLink={index === 0} // Add isFirstLink prop here
+                        isFirstLink={index === 0}
                     />
                 ))}
             </Links>

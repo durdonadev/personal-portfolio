@@ -56,7 +56,7 @@ const Services = () => {
         <SectionBase>
             <ServicesTextWrapper>
                 <Title variant="h3" weight="extrabold">
-                    What <span>Services</span> Do I Provide?
+                    What Services Do I Provide?
                 </Title>
             </ServicesTextWrapper>
             <ServicesCardsWrapper>

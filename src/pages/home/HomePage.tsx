@@ -15,19 +15,19 @@ const HomePage = () => {
             <section id="hero">
                 <Hero />
             </section>
-            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
+            <section id="tool-bar" style={{ backgroundColor: "#f6f7fb" }}>
                 <ToolsBar />
             </section>
             <section id="services">
                 <Services />
             </section>
-            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
+            <section id="tool-bar" style={{ backgroundColor: "#f6f7fb" }}>
                 <About />
             </section>
             <section id="projects">
                 <Projects />
             </section>
-            <section id="tool-bar" style={{ backgroundColor: "#f2f2f2" }}>
+            <section id="tool-bar" style={{ backgroundColor: "#f6f7fb" }}>
                 <Contact />
             </section>
         </>

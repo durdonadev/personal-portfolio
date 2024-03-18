@@ -13,7 +13,6 @@ const ToolBarWrapper = styled(Container)`
     gap: 6rem;
     align-items: center;
     justify-content: space-around;
-    background-color: #f6f7fb;
 
     @media (max-width: 90em) {
     }

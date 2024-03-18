@@ -17,7 +17,6 @@ const BaseContainer = styled(Container)`
     position: relative;
     padding-top: var(--space-100);
     padding-bottom: var(--space-100);
-    background-color: #f6f7fb;
 `;
 
 const AboutContent = styled.div`
@@ -83,11 +82,9 @@ const InfoItem = styled.div`
 `;
 
 const Title = styled(Typography)`
+    color: var(--jaguar-600);
     margin-bottom: var(--space-50);
     z-index: 10;
-    span {
-        color: var(--primary-600);
-    }
 
     @media (max-width: 90em) {
         margin-bottom: var(--space-40);
@@ -171,14 +168,14 @@ const About = () => {
                 </ImageWrapper>
                 <AboutTextWrapper>
                     <Title variant="h3" weight="extrabold">
-                        About <span>Me</span>
+                        About Me
                     </Title>
                     <Bio variant="paragraphMD">{info.bio}</Bio>
                     <Buttons>
                         <Button
                             size="lg"
                             shape="rounded"
-                            color="secondary"
+                            color="primary"
                             onClick={handleOnClick}
                         >
                             HIRE ME

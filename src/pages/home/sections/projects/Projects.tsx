@@ -32,7 +32,7 @@ const Projects = () => {
     return (
         <SectionBase>
             <Title variant="h3" weight="extrabold">
-                Latest <span>Projects</span>
+                Featured Projects
             </Title>
 
             <ProjectCardsWrapper>

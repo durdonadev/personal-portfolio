@@ -130,7 +130,7 @@ const StyledButton = styled(Button)`
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
-    background-color: transparent !important;
+    /* background-color: transparent !important; */
 
     &:hover {
         background-color: var(--jaguar-900) !important;
@@ -150,12 +150,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         {project.description}
                     </ProjectDescription>
                     <a href={project.githubLink}>
-                        <Button
-                            size="md"
-                            variant="outlined"
-                            color="secondary"
-                            shape="rounded"
-                        >
+                        <Button size="md" color="primary" shape="rounded">
                             GitHub Link
                         </Button>
                     </a>

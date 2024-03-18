@@ -6,7 +6,6 @@ import IconLink from "../../../components/IconLink";
 const BaseContainer = styled(Container)`
     padding-top: var(--space-100);
     padding-bottom: var(--space-40);
-    background-color: #f6f7fb;
 `;
 
 const Content = styled.div`
@@ -84,17 +83,17 @@ const Contact = () => {
                             Say Hello!
                         </Typography>
                         <Typography variant="paragraphMD" weight="normal">
-                            Interested in working together or just have a
-                            question? Let's connect and make things happen.
+                            Have a project in mind or just have a question?
+                            Let's connect and make it happen together!
                         </Typography>
-                        <Typography variant="paragraphLG" weight="bold">
+                        <Typography variant="paragraphMD" weight="bold">
                             Email
                         </Typography>
                         <StyledLink href="mailto:durdona.dev@gmail.com">
                             durdona.dev@gmail.com
                         </StyledLink>
 
-                        <Typography variant="paragraphLG" weight="bold">
+                        <Typography variant="paragraphMD" weight="bold">
                             Phone
                         </Typography>
                         <StyledLink href="tel:+19293347203">
