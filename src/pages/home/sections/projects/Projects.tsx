@@ -16,12 +16,9 @@ const SectionBase = styled(Container)`
 `;
 
 const Title = styled(Typography)`
-    color: var(--jaguar-900);
-    text-align: left;
-    margin-bottom: var(--space-80);
-    span {
-        color: var(--primary-600);
-    }
+    color: var(--color-section-header);
+    text-align: center;
+    margin-bottom: 8rem;
 `;
 
 const ProjectCardsWrapper = styled.div`
@@ -31,7 +28,7 @@ const ProjectCardsWrapper = styled.div`
 const Projects = () => {
     return (
         <SectionBase>
-            <Title variant="h3" weight="extrabold">
+            <Title variant="h2" weight="bold">
                 Featured Projects
             </Title>
 

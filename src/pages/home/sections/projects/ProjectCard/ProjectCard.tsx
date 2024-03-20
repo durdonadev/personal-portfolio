@@ -14,165 +14,82 @@ type ProjectCardProps = {
 };
 
 const ProjectCardBase = styled.div`
-    display: flex;
-    justify-content: space-between;
-    gap: var(--space-30);
-`;
-
-const ProjectCardLeft = styled.div<{ name: string }>`
-    width: 70%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: var(--space-20);
-    padding: var(--space-50) var(--space-50) 0;
-    border-radius: var(--border-radius-8);
-    box-shadow: var(--shadow-l);
-    margin-bottom: var(--space-30);
-
-    background-color: ${({ name }) => {
-        switch (name) {
-            case "Projectify-App":
-                return "#dce3f3";
-            case "Furniture Website":
-                return "#faf0d7";
-            case "Restaurant Website":
-                return "#dcece1";
-            default:
-                return "transparent";
-        }
-    }};
-
-    @media (max-width: 84em) {
-        //1340
-        width: 65%;
-    }
+    gap: var(--space-50);
+    margin-bottom: var(--space-80);
 `;
 
-const ProjectTextWrapper = styled.div`
-    width: 30%;
+const ProjectImageWrapper = styled.div<{ $name: string }>`
+    grid-row: 1 / 2;
+    grid-column: ${(props) =>
+        props.$name === "Restaurant Website" ? "2 / 3" : "1 / 2"};
+
+    overflow: hidden;
+`;
+
+const ProjectImg = styled.img`
+    object-fit: contain;
+    border-radius: 0.8rem;
+`;
+
+const ProjectTextWrapper = styled.div<{ $name: string }>`
+    grid-row: 1 / 2;
+    grid-column: ${(props) =>
+        props.$name === "Restaurant Website" ? "1 / 2" : "2 / 3"};
+
+    padding-right: 18rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-right: var(--space-20);
+    text-align: left;
 `;
 
 const ProjectName = styled(Typography)`
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-32);
 `;
 
 const ProjectDescription = styled(Typography)`
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-32);
 `;
 
-const ProjectImageWrapper = styled.div`
-    width: 70%;
-    overflow: hidden;
-    img {
-        object-fit: contain;
-        height: 41.2rem;
-    }
-`;
-
-const ProjectCardRight = styled.div<{ name: string }>`
-    position: relative;
-    text-align: center;
-    width: 30%;
-    height: 46.52rem;
-    overflow: hidden;
-    border-radius: var(--border-radius-8);
-    box-shadow: var(--shadow-l);
-    cursor: pointer;
-    transition: all 1s;
-
-    &:hover {
-        transform: scale(1.04);
-    }
-
-    img {
-        object-fit: cover;
-        height: 100%;
-        border-radius: var(--border-radius-8);
-    }
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-
-        background-color: ${({ name }) => {
-            switch (name) {
-                case "Projectify-App":
-                    return "rgba(81, 129, 248, 0.5)";
-                case "Furniture Website":
-                    return "rgba(255, 187, 64, 0.5)";
-                case "Restaurant Website":
-                    return " rgba(50, 183, 104, 0.5)";
-                default:
-                    return "transparent";
-            }
-        }};
-    }
-
-    @media (max-width: 84em) {
-        //1340
-        width: 35%;
-    }
-`;
-
-const StyledButton = styled(Button)`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    /* background-color: transparent !important; */
-
-    &:hover {
-        background-color: var(--jaguar-900) !important;
-        color: white !important;
-    }
+const Buttons = styled.div`
+    display: flex;
+    gap: var(--space-20);
 `;
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <ProjectCardBase>
-            <ProjectCardLeft name={project.name}>
-                <ProjectTextWrapper>
-                    <ProjectName variant="h5" weight="semibold">
-                        {project.name}
-                    </ProjectName>
-                    <ProjectDescription variant="paragraphMD">
-                        {project.description}
-                    </ProjectDescription>
+            <ProjectImageWrapper $name={project.name}>
+                <ProjectImg src={project.image} alt="Project" />
+            </ProjectImageWrapper>
+
+            <ProjectTextWrapper $name={project.name}>
+                <ProjectName variant="h3" weight="bold">
+                    {project.name}
+                </ProjectName>
+                <ProjectDescription variant="paragraphSM" weight="normal">
+                    {project.description}
+                </ProjectDescription>
+                <Buttons>
+                    <a href={project.demoLink}>
+                        <Button size="lg" color="primary" shape="rounded">
+                            Try Demo
+                        </Button>
+                    </a>
                     <a href={project.githubLink}>
-                        <Button size="md" color="primary" shape="rounded">
+                        <Button
+                            size="lg"
+                            variant="outlined"
+                            color="primary"
+                            shape="rounded"
+                        >
                             GitHub Link
                         </Button>
                     </a>
-                </ProjectTextWrapper>
-                <ProjectImageWrapper>
-                    <img src={project.image} alt="Project" />
-                </ProjectImageWrapper>
-            </ProjectCardLeft>
-
-            <ProjectCardRight name={project.name}>
-                <img src={project.image} alt="" />
-                <a href={project.demoLink}>
-                    <StyledButton
-                        size="md"
-                        variant="outlined"
-                        color="secondary"
-                        shape="rounded"
-                    >
-                        Try Demo
-                    </StyledButton>
-                </a>
-            </ProjectCardRight>
+                </Buttons>
+            </ProjectTextWrapper>
         </ProjectCardBase>
     );
 };
