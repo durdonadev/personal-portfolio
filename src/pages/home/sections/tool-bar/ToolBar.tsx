@@ -7,7 +7,6 @@ import { tools } from "./data";
 
 const ToolBarWrapper = styled(Container)`
     padding: 8rem 2rem;
-
     display: flex;
     flex-wrap: wrap;
     gap: 6rem;

@@ -10,7 +10,7 @@ export type IconName =
     | "drop-down"
     | "facebook"
     | "instagram"
-    | "linkdin"
+    | "linkedin"
     | "list-menu"
     | "secure"
     | "twitter"

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { Button, Input, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import IconLink from "../../../components/IconLink";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const BaseContainer = styled(Container)`
     padding-top: var(--space-100);
@@ -11,27 +13,36 @@ const BaseContainer = styled(Container)`
 const Content = styled.div`
     display: flex;
     justify-content: space-between;
-    gap: var(--space-30);
+    gap: var(--space-50);
+
+    @media (max-width: 57em) {
+        //912
+        display: block;
+    }
 `;
 
 const Title = styled(Typography)`
-    color: var(--jaguar-900);
-    text-align: left;
-    margin-bottom: var(--space-80);
-    span {
-        color: var(--primary-600);
-    }
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: var(--space-64);
 `;
 
 const ContactInfoWrapper = styled.div`
     width: 40%;
     padding: var(--space-32);
-    background-color: #e2e2fe;
+
+    background-color: #fafafa;
     border-radius: var(--border-radius-8);
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 57em) {
+        //912
+        width: 100%;
+        margin-bottom: var(--space-32);
+    }
 `;
 
 const TextWrapper = styled.div`
@@ -39,11 +50,12 @@ const TextWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     gap: var(--space-20);
+    margin-bottom: var(--space-32);
 `;
 
 const StyledLink = styled.a`
     font-size: 1.8rem;
-    color: var(--primary-900);
+    color: #3aa79a;
 `;
 
 const SocialMedia = styled.div`
@@ -56,16 +68,100 @@ const SocialMedia = styled.div`
 const ContactForm = styled.form`
     width: 60%;
     margin: 0 auto;
-    padding: var(--space-32) var(--space-100);
-    background-color: #eff0f1;
+    padding: var(--space-32) var(--space-120);
+    background-color: var(--color-gray-100);
     border-radius: var(--border-radius-8);
 
     > *:not(:last-child) {
         margin-bottom: var(--space-24);
     }
+
+    @media (max-width: 57em) {
+        //912
+        width: 100%;
+    }
+`;
+
+const StyledButton = styled(Button)`
+    margin: 0 auto;
 `;
 
 const Contact = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [tel, setTel] = useState("");
+    const [message, setMessage] = useState("");
+    const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+    const [isError, setIsError] = useState<boolean>(false);
+
+    const handleOnChangeName = (value: string) => {
+        setName(value);
+    };
+    const handleOnChangeEmail = (value: string) => {
+        setEmail(value);
+    };
+    const handleOnChangeTel = (value: string) => {
+        setTel(value);
+    };
+    const handleOnChangeMessage = (value: string) => {
+        setMessage(value);
+    };
+
+    const isFormSubmittable = name && email && tel && message;
+
+    const form = useRef<HTMLFormElement | null>(null);
+
+    const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(email, name, tel, message);
+
+        if (form.current) {
+            setIsFormSubmitting(true);
+
+            const formData = new FormData(form.current);
+            const data: Record<string, string> = {
+                name,
+                email,
+                tel,
+                message
+            };
+
+            formData.set("user_name", name);
+            formData.set("user_email", email);
+            formData.set("user_tel", tel);
+            formData.set("message", message);
+
+            formData.forEach((value, key) => {
+                if (value instanceof File) {
+                } else {
+                    data[key] = value as string;
+                }
+            });
+
+            try {
+                await emailjs.sendForm(
+                    "service_67toclm",
+                    "template_6vyt8o9",
+                    form.current,
+                    {
+                        publicKey: "WM3lpTR-yY047TINO"
+                    }
+                );
+                setIsFormSubmitting(false);
+                setName("");
+                setEmail("");
+                setTel("");
+                setMessage("");
+
+                console.log("Email sent successfully!");
+            } catch (error) {
+                setIsFormSubmitting(false);
+
+                console.error("Error sending email:", error);
+            }
+        }
+    };
+
     const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
     const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK || "";
     const twitterLink = process.env.REACT_APP_TWITTER_LINK || "";
@@ -73,8 +169,8 @@ const Contact = () => {
 
     return (
         <BaseContainer>
-            <Title variant="h3" weight="extrabold">
-                Contact Me
+            <Title variant="h3" weight="bold">
+                Get In Touch
             </Title>
             <Content>
                 <ContactInfoWrapper>
@@ -108,47 +204,66 @@ const Contact = () => {
                         <IconLink href={facebookLink} iconName="facebook" />
                     </SocialMedia>
                 </ContactInfoWrapper>
-                <ContactForm>
+                <ContactForm ref={form} onSubmit={sendEmail}>
+                    {/* <form ref={form} onSubmit={sendEmail}>
+                    <label>Name</label>
+                    <input type="text" name="user_name" />
+                    <label>Email</label>
+                    <input type="email" name="user_email" />
+                    <label>Message</label>
+                    <textarea name="message" />
+                    <input type="submit" value="Send" />
+                    </form> */}
                     <Input
+                        name="user_name"
                         labelText="Name"
                         type="text"
                         placeholder="Will Smith"
                         shape="rounded"
                         size="lg"
-                        value=""
-                        onChange={() => {}}
+                        value={name}
+                        onChange={handleOnChangeName}
                     />
 
                     <Input
+                        name="user_email"
                         labelText="Email"
                         type="email"
                         placeholder="email@example.com"
                         shape="rounded"
                         size="lg"
-                        value=""
-                        onChange={() => {}}
+                        value={email}
+                        onChange={handleOnChangeEmail}
                     />
                     <Input
+                        name="user_tel"
                         labelText="Phone Number"
                         type="tel"
                         placeholder="(123) 456-7890"
                         shape="rounded"
                         size="lg"
-                        value=""
-                        onChange={() => {}}
+                        value={tel}
+                        onChange={handleOnChangeTel}
                     />
                     <Input
+                        name="message"
                         labelText="Message"
                         type="textarea"
                         placeholder="How can I help you?"
                         shape="rounded"
                         size="lg"
-                        value=""
-                        onChange={() => {}}
+                        value={message}
+                        onChange={handleOnChangeMessage}
                     />
-                    <Button color="primary" size="lg" shape="rounded" fullWidth>
+                    <StyledButton
+                        color="primary"
+                        size="lg"
+                        shape="rounded"
+                        fullWidth
+                        // disabled={isFormSubmitting || !isFormSubmittable}
+                    >
                         Send Message
-                    </Button>
+                    </StyledButton>
                 </ContactForm>
             </Content>
         </BaseContainer>

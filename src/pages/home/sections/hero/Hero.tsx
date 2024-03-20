@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import { Button, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import hero from "../../../../assets/images/hero-shape.png";
-import dots from "../../../../assets/images/dot-transparent.png";
+import hero from "../../../../assets/images/hero-img.png";
 import IconLink from "../../../components/IconLink";
 import Typewriter from "typewriter-effect";
 
@@ -13,6 +12,11 @@ const BaseContainer = styled(Container)`
     padding-top: var(--space-25);
     padding-bottom: var(--space-0);
     position: relative;
+
+    @media (max-width: 57em) {
+        //912
+        display: block;
+    }
 `;
 
 const HeroTextWrapper = styled.div`
@@ -25,14 +29,29 @@ const HeroTextWrapper = styled.div`
 
     .description {
         width: 70%;
+        font-size: 18px;
         line-height: 3.2rem;
         margin-bottom: var(--space-32);
         color: var(--color-text);
+
+        @media (max-width: 57em) {
+            width: 80%;
+            font-size: 18px;
+            margin: 0 auto;
+            margin-bottom: var(--space-32);
+        }
     }
 
     @media (max-width: 69em) {
         //1104
         width: 55%;
+    }
+
+    @media (max-width: 57em) {
+        //912
+        width: 100%;
+        text-align: center;
+        padding-top: 6rem;
     }
 `;
 
@@ -54,24 +73,35 @@ const StyledTypewriterWrapper = styled.div`
 const SocialMedia = styled.div`
     display: flex;
     align-items: center;
-
     gap: var(--space-12);
+    width: max-content;
+
+    @media (max-width: 57em) {
+        margin: 0 auto;
+        margin-bottom: var(--space-32);
+    }
 `;
 
 const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
+    width: max-content;
     margin-bottom: var(--space-32);
+
+    @media (max-width: 57em) {
+        margin: 0 auto;
+        margin-bottom: var(--space-32);
+    }
 `;
 
 const HeroImgWrapper = styled.div`
     width: 50%;
     text-align: center;
-    transition: all 1s;
+    /* transition: all 1s;
 
     &:hover {
         transform: scale(1.05);
-    }
+    } */
     img {
         object-fit: contain;
         height: 72rem;
@@ -86,10 +116,15 @@ const HeroImgWrapper = styled.div`
             height: 60rem;
         }
 
-        /* @media (max-width: 69em) {
-            //1104
-            height: 48rem;
-        } */
+        @media (max-width: 57em) {
+            /* width: auto; */
+            height: 72rem;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 57em) {
+        width: 100%;
     }
 `;
 
@@ -113,7 +148,7 @@ const Hero = () => {
                 </StyledTypewriterWrapper>
 
                 <Typography
-                    variant="paragraphMD"
+                    variant="paragraphLG"
                     weight="normal"
                     className="description"
                 >

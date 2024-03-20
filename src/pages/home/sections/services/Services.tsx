@@ -27,9 +27,10 @@ const ServicesCardsWrapper = styled.div`
     gap: var(--space-30);
     margin-bottom: var(--space-50);
 
-    /* @media (max-width: 80em) {
-        gap: var(--space-20);
-    } */
+    @media (max-width: 57em) {
+        //912
+        display: block;
+    }
 `;
 
 const Services = () => {

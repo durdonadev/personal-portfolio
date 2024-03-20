@@ -23,6 +23,11 @@ export const ServicesCardBase = styled.div<{ icon: IconName }>`
     &:hover {
         transform: scale(1.05);
     }
+
+    @media (max-width: 57em) {
+        //912
+        margin-bottom: var(--space-32);
+    }
 `;
 
 const ServiceTitle = styled(Typography)`
@@ -32,6 +37,11 @@ const ServiceTitle = styled(Typography)`
 
 const ServiceDescription = styled(Typography)`
     color: var(--color-text);
+
+    @media (max-width: 57em) {
+        //912
+        font-size: 15px;
+    }
 `;
 
 const IconWrapper = styled.div<{ icon: IconName }>`

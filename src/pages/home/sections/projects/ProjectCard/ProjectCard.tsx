@@ -19,17 +19,32 @@ const ProjectCardBase = styled.div`
     align-items: center;
     gap: var(--space-50);
     margin-bottom: var(--space-80);
+
+    @media (max-width: 57em) {
+        //912
+        display: block;
+        padding-bottom: var(--space-50);
+        border-bottom: 1px solid #dee2e6;
+    }
 `;
 
 const ProjectImageWrapper = styled.div<{ $name: string }>`
     grid-row: 1 / 2;
     grid-column: ${(props) =>
         props.$name === "Restaurant Website" ? "2 / 3" : "1 / 2"};
-
     overflow: hidden;
+
+    @media (max-width: 57em) {
+        //912
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: var(--space-32);
+    }
 `;
 
 const ProjectImg = styled.img`
+    width: 100%;
+    height: auto;
     object-fit: contain;
     border-radius: 0.8rem;
 `;
@@ -39,10 +54,19 @@ const ProjectTextWrapper = styled.div<{ $name: string }>`
     grid-column: ${(props) =>
         props.$name === "Restaurant Website" ? "1 / 2" : "2 / 3"};
 
-    padding-right: 18rem;
+    padding-right: 10%;
     display: flex;
     flex-direction: column;
     text-align: left;
+
+    @media (max-width: 57em) {
+        //912
+        width: 80%;
+        margin: 0 auto;
+        margin-bottom: var(--space-32);
+        padding-right: 0;
+        text-align: center;
+    }
 `;
 
 const ProjectName = styled(Typography)`
@@ -56,6 +80,12 @@ const ProjectDescription = styled(Typography)`
 const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
+
+    @media (max-width: 57em) {
+        //912
+        width: max-content;
+        margin: 0 auto;
+    }
 `;
 
 const ProjectCard = ({ project }: ProjectCardProps) => {

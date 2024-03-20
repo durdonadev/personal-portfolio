@@ -40,9 +40,3 @@ a {
         font-size: 50%; /* it sets base font size to 8px */
     }
 }
-
-@media (max-width: 57em) {
-    html {
-        font-size: 46%;
-    }
-}
