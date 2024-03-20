@@ -30,24 +30,34 @@ const Container = styled.div`
         padding: 2.5rem 11rem;
     }
 
+    @media (max-width: 82em) {
+        //1300
+        padding: 2.5rem 9rem;
+    }
+
+    @media (max-width: 77.5em) {
+        //1240
+        padding: 2.5rem 8rem;
+    }
+
     @media (max-width: 75em) {
         //1200
-        padding: 2.5rem 10rem;
+        padding: 2.5rem 7rem;
     }
 
     @media (max-width: 69em) {
         //1104
-        padding: 2.5rem 9.23rem;
+        padding: 2.5rem 6rem;
     }
 
     @media (max-width: 64em) {
         //1024
-        padding: 2.5rem 8.7rem;
+        padding: 2.5rem 5rem;
     }
 
     @media (max-width: 57em) {
         //912
-        padding: 2.5rem 8rem;
+        padding: 4rem;
     }
 `;
 

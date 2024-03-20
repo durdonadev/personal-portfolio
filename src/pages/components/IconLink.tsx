@@ -5,8 +5,8 @@ import { Icon, IconName } from "../../design-system";
 const StyledLink = styled.a`
     z-index: 10;
     cursor: pointer;
-    height: 3rem;
-    width: 3rem;
+    height: 2.4rem;
+    width: 2.4rem;
     transition: all 0.7s;
 
     &:hover {
@@ -22,7 +22,7 @@ interface IconLinkProps {
 const IconLink: React.FC<IconLinkProps> = ({ href, iconName }) => {
     return (
         <StyledLink href={href} target="_blank">
-            <Icon iconName={iconName} height="3rem" width="3rem" />
+            <Icon iconName={iconName} height="2.4rem" width="2.4rem" />
         </StyledLink>
     );
 };
