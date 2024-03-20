@@ -8,11 +8,15 @@ type PropsType = {
 };
 
 const StyledLink = styled.a`
-    color: var(--gray-500);
-    font-weight: var(--font-weight-800);
+    color: var(--color-navbar);
+    font-weight: var(--font-weight-700);
+    font-size: var(--font-size-16);
+    padding-bottom: 0.2rem;
+    border-bottom: 0.2rem solid transparent;
+    transition: all 1s;
 
     &:hover {
-        color: var(--primary-800);
+        border-bottom: 1px solid var(--color-navbar);
     }
 `;
 
