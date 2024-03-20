@@ -13,89 +13,44 @@ type ServicesCardProps = {
 };
 
 export const ServicesCardBase = styled.div<{ icon: IconName }>`
-    position: relative;
     cursor: pointer;
-    border-radius: 0 var(--border-radius-40) var(--border-radius-40)
-        var(--border-radius-40);
-    max-width: 37rem;
-    box-shadow: var(--shadow-2xl);
-    display: flex;
-    flex-direction: column;
+    border: 1px solid var(--color-gray-300);
+    border-radius: var(--border-radius-8);
+    padding: 3.2rem 4.2rem;
+    text-align: left;
     transition: all 1s;
 
     &:hover {
         transform: scale(1.05);
     }
-
-    background-color: ${({ icon }) => {
-        switch (icon) {
-            case "frontend":
-                return "var(--purple-25)";
-            case "backend":
-                return "#faf0d7";
-            case "internet":
-                return "#dce3f3";
-            case "management":
-                return "#dcece1";
-            case "database":
-                return "#ffebee";
-        }
-    }};
-`;
-
-const ServiceTextWrapper = styled.div<{ icon: string }>`
-    padding: var(--space-30) var(--space-24);
 `;
 
 const ServiceTitle = styled(Typography)`
-    color: var(--jaguar-900);
-    margin-bottom: var(--space-16);
+    color: var(--color-gray);
+    margin-bottom: var(--space-20);
 `;
 
 const ServiceDescription = styled(Typography)`
-    color: var(--gray-500);
+    color: var(--color-text);
 `;
 
 const IconWrapper = styled.div<{ icon: IconName }>`
-    padding: var(--space-16);
-    display: flex;
-    align-items: center;
-    border-radius: 0 50% 50% 50%;
-    height: 12.4rem;
-    width: 12.4rem;
-    margin-bottom: var(--space-36);
-
-    background-color: ${({ icon }) => {
-        switch (icon) {
-            case "frontend":
-                return "#f8d9f1";
-            case "backend":
-                return "#fbe6b2";
-            case "internet":
-                return "#b8c9f2";
-            case "management":
-                return "#b5e4ca";
-            case "database":
-                return "#ffcdd2";
-        }
-    }};
+    margin-bottom: var(--space-20);
 `;
 
 const ServicesCard: React.FC<ServicesCardProps> = ({ service }) => {
     return (
         <ServicesCardBase icon={service.icon}>
             <IconWrapper icon={service.icon}>
-                <Icon iconName={service.icon} height="7rem" width="8rem" />
+                <Icon iconName={service.icon} height="7rem" width="7rem" />
             </IconWrapper>
 
-            <ServiceTextWrapper icon={service.icon}>
-                <ServiceTitle variant="h6" weight="bold">
-                    {service.title}
-                </ServiceTitle>
-                <ServiceDescription variant="paragraphMD" weight="normal">
-                    {service.description}
-                </ServiceDescription>
-            </ServiceTextWrapper>
+            <ServiceTitle variant="h5" weight="bold">
+                {service.title}
+            </ServiceTitle>
+            <ServiceDescription variant="paragraphSM" weight="normal">
+                {service.description}
+            </ServiceDescription>
         </ServicesCardBase>
     );
 };
