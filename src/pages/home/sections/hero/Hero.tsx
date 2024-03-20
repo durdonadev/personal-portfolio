@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Typography } from "../../../../design-system";
+import { Button, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import hero from "../../../../assets/images/shape-me.png";
+import hero from "../../../../assets/images/hero-shape.png";
 import dots from "../../../../assets/images/dot-transparent.png";
 import IconLink from "../../../components/IconLink";
 import Typewriter from "typewriter-effect";
@@ -10,25 +10,24 @@ const BaseContainer = styled(Container)`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: var(--space-20);
-    padding-bottom: var(--space-10);
+    padding-top: var(--space-25);
+    padding-bottom: var(--space-0);
     position: relative;
 `;
 
 const HeroTextWrapper = styled.div`
     width: 50%;
 
-    .greeting {
-        margin-bottom: var(--space-10);
-    }
-
     .heading {
-        margin-bottom: var(--space-20);
+        color: var(--color-gray);
+        letter-spacing: -0.04em;
     }
 
     .description {
-        margin-bottom: var(--space-40);
-        color: var(--gray-600);
+        width: 70%;
+        line-height: 3.2rem;
+        margin-bottom: var(--space-32);
+        color: var(--color-text);
     }
 
     @media (max-width: 69em) {
@@ -37,65 +36,36 @@ const HeroTextWrapper = styled.div`
     }
 `;
 
-const BackgroundDotsWrapper = styled.div`
-    position: absolute;
-    bottom: 0;
-    left: 14.1rem;
-
-    @media (max-width: 106em) {
-        //1700
-        left: 10rem;
-    }
-
-    @media (max-width: 100em) {
-        //1600
-        left: 8rem;
-    }
-
-    img {
-        z-index: -2;
-        opacity: 0.1;
-        object-fit: contain;
-        height: 30.5rem;
-        width: auto;
-
-        @media (max-width: 106em) {
-            //1700
-            height: 28rem;
-        }
-
-        @media (max-width: 100em) {
-            //1600
-            height: 26rem;
-        }
-
-        @media (max-width: 90em) {
-            //1440
-            height: 24rem;
-        }
-
-        @media (max-width: 82em) {
-            //1300
-            height: 22rem;
-        }
-    }
-`;
-
 const StyledTypewriterWrapper = styled.div`
     font-weight: var(--font-weight-700);
-    font-size: 5rem;
-    line-height: var(--line-height-64);
+    font-size: 6.4rem;
+    line-height: var(--line-height-72);
     margin-bottom: var(--space-18);
-    color: var(--primary-600);
+    margin-bottom: var(--space-24);
+    color: var(--color-gray);
+    letter-spacing: -0.06em;
+
+    @media (max-width: 90em) {
+        //1440
+        font-size: 6rem;
+    }
 `;
 
 const SocialMedia = styled.div`
     display: flex;
+    align-items: center;
+
+    gap: var(--space-12);
+`;
+
+const Buttons = styled.div`
+    display: flex;
     gap: var(--space-20);
+    margin-bottom: var(--space-32);
 `;
 
 const HeroImgWrapper = styled.div`
-    /* width: 40%; */
+    width: 50%;
     text-align: center;
     transition: all 1s;
 
@@ -103,18 +73,17 @@ const HeroImgWrapper = styled.div`
         transform: scale(1.05);
     }
     img {
-        border-radius: 50%;
         object-fit: contain;
-        height: 58rem;
+        height: 72rem;
         width: auto;
 
         @media (max-width: 90em) {
-            height: 52rem;
+            height: 62rem;
         }
 
         @media (max-width: 75em) {
             //1200
-            height: 50rem;
+            height: 60rem;
         }
 
         /* @media (max-width: 69em) {
@@ -126,52 +95,54 @@ const HeroImgWrapper = styled.div`
 
 const Hero = () => {
     const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
-    const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK || "";
-    const twitterLink = process.env.REACT_APP_TWITTER_LINK || "";
 
     return (
         <BaseContainer>
             <HeroTextWrapper>
-                <Typography
-                    variant="paragraphLG"
-                    weight="bold"
-                    className="greeting"
-                >
-                    Hey There, It's
+                <Typography variant="h1" className="heading">
+                    Hey there, It's <br></br> Durdona
                 </Typography>
-
                 <StyledTypewriterWrapper>
                     <Typewriter
                         options={{
-                            strings: ["Web Developer", "Full Stack Engeneer"],
+                            strings: ["Web Developer", "Full Stack Engineer"],
                             autoStart: true,
                             loop: true
                         }}
                     />
                 </StyledTypewriterWrapper>
 
-                <Typography variant="h1" className="heading">
-                    Durdona Ibragimova
-                </Typography>
                 <Typography
                     variant="paragraphMD"
-                    weight="bold"
+                    weight="normal"
                     className="description"
                 >
                     Creative full stack web developer driven by a love for
                     coding and a passion for creating seamless user experiences.
-                    I am coding with a clean and beautiful problem solving in
-                    mind
                 </Typography>
+                <Buttons>
+                    <Button size="lg" shape="rounded" color="secondary">
+                        Hire Me
+                    </Button>
+                    <Button
+                        size="lg"
+                        shape="rounded"
+                        color="secondary"
+                        variant="outlined"
+                    >
+                        Download Resume
+                    </Button>
+                </Buttons>
+
                 <SocialMedia>
-                    <IconLink href={linkedinLink} iconName="linkdin-icon" />
                     <IconLink href={githubLink} iconName="github-icon" />
-                    <IconLink href={twitterLink} iconName="twitter-icon" />
+
+                    <Typography variant="paragraphSM" weight="normal">
+                        Explore more on my GitHub
+                    </Typography>
                 </SocialMedia>
             </HeroTextWrapper>
-            <BackgroundDotsWrapper>
-                <img src={dots} alt="dots" />
-            </BackgroundDotsWrapper>
+
             <HeroImgWrapper>
                 <img src={hero} alt="Girl with laptop" />
             </HeroImgWrapper>
