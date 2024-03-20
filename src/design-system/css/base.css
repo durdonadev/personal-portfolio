@@ -22,8 +22,16 @@ a {
 }
 
 @media (max-width: 75em) {
+    /* 1200 */
     html {
-        font-size: 56%; /* it sets base font size to 8px */
+        font-size: 56%;
+    }
+}
+
+@media (max-width: 69em) {
+    /* 1104 */
+    html {
+        font-size: 53%;
     }
 }
 
@@ -35,6 +43,6 @@ a {
 
 @media (max-width: 57em) {
     html {
-        font-size: 46%; /* it sets base font size to 8px */
+        font-size: 46%;
     }
 }

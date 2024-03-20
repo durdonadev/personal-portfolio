@@ -44,7 +44,10 @@ export type IconName =
     | "backend"
     | "internet"
     | "management"
-    | "database";
+    | "database"
+    | "services-icon-1"
+    | "services-icon-2"
+    | "services-icon-3";
 
 export type IconProps = {
     iconName: IconName;

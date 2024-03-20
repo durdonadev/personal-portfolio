@@ -1,7 +1,7 @@
 .input {
     outline: none !important;
     height: 3.6rem;
-    border: 0.15rem solid var(--jaguar-200);
+    border: 0.15rem solid var(--jaguar-100);
     padding: 0 var(--space-16);
     font-family: inherit;
     font-size: var(--font-size-16);
@@ -40,11 +40,11 @@ input::placeholder,
 }
 
 .input:hover:not(.input-error, :disabled) {
-    border: 0.15rem solid var(--primary-200);
+    border: 0.15rem solid #a9e4dd;
 }
 
 .input:focus:not(.input-error) {
-    border: 0.15rem solid var(--primary-600);
+    border: 0.15rem solid #a0e1da;
 }
 
 .input-error {

@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logo.svg";
+import logo from "../../assets/images/logo.png";
 import { trimWhiteSpaces } from "../utils";
 
 import "./Logo.css";
@@ -32,9 +32,9 @@ const Logo: React.FC<LogoProps> = ({ layout, size, className, customText }) => {
     return (
         <div className={finalClassNames}>
             <img src={logo} alt="Logo" />
-            <div className="logo__text">
-                <span></span>Durdona<span>Dev</span>
-            </div>
+            {/* <div className="logo__text">
+                <span>urdonaDev</span>
+            </div> */}
         </div>
     );
 };
