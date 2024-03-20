@@ -6,8 +6,8 @@ import { Container } from "../../../components";
 import { tools } from "./data";
 
 const ToolBarWrapper = styled(Container)`
-    margin-top: var(--space-80);
-    padding: 5rem 2rem;
+    padding: 8rem 2rem;
+
     display: flex;
     flex-wrap: wrap;
     gap: 6rem;
@@ -22,9 +22,9 @@ const StyledIcon = styled(Icon)`
     margin-right: 1rem;
 `;
 
-const SkillTitle = styled.span`
+const ToolTitle = styled.span`
     font-size: var(--font-size-24);
-    font-weight: var(--font-weight-700);
+    font-weight: var(--font-weight-500);
     color: var(--gray-500);
 `;
 
@@ -44,10 +44,10 @@ const ToolBar: React.FC<ToolBarProps> = ({ tools }) => {
                 <ToolBox key={idx}>
                     <StyledIcon
                         height="4rem"
-                        width="5rem"
+                        width="4rem"
                         iconName={tool.icon}
                     />
-                    <SkillTitle>{tool.title}</SkillTitle>
+                    <ToolTitle>{tool.title}</ToolTitle>
                 </ToolBox>
             ))}
         </ToolBarWrapper>
