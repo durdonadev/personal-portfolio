@@ -165,7 +165,7 @@ const Hero = () => {
                         color="secondary"
                         variant="outlined"
                     >
-                        Download Resume
+                        Download CV
                     </Button>
                 </Buttons>
 

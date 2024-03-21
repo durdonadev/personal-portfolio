@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavigationLink } from "./NavigationLinks";
-import { Button, Logo } from "../../../../design-system";
+import { Button, Icon, Logo } from "../../../../design-system";
+import { useState } from "react";
 
 interface TopNavigationProps {
     scrolled: boolean; // Define a prop to receive the scrolled state
@@ -21,6 +22,7 @@ const BaseContainer = styled.nav<TopNavigationProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 
     @media (max-width: 106em) {
         //1696
@@ -86,13 +88,64 @@ const BaseContainer = styled.nav<TopNavigationProps>`
 const Links = styled.div`
     display: flex;
     gap: var(--space-40);
+
+    @media (max-width: 50em) {
+        display: none;
+    }
 `;
 
 const StyledLogo = styled(Logo)`
     margin-right: var(--space-40);
 `;
 
+const StyledButton = styled(Button)`
+    @media (max-width: 50em) {
+        display: none;
+    }
+`;
+
+const IconWrapper = styled.div`
+    height: 4rem;
+    width: 4rem;
+
+    border-radius: 0.4rem;
+    background-color: var(--color-primary);
+    padding: 0.8rem;
+    display: none;
+
+    @media (max-width: 50em) {
+        display: block;
+    }
+`;
+
+const MenuLinks = styled.div<TopNavigationProps>`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-24);
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+    border-bottom-left-radius: 1.6rem;
+    border-bottom-right-radius: 1.6rem;
+    background-color: ${(props) => (props.scrolled ? "#fff" : "#f5fdff")};
+
+    position: absolute;
+    top: 8rem;
+    left: 0;
+
+    @media (min-width: 50em) {
+        display: none;
+    }
+`;
+
 const TopNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
+    const [showMenu, setShowMenu] = useState<boolean>(false);
+
+    const handleOnClickMenu = () => {
+        setShowMenu(!showMenu);
+    };
+
     const handleOnClick = () => {
         const contactSection = document.getElementById("contact");
         if (contactSection) {
@@ -114,7 +167,7 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
                 ))}
             </Links>
 
-            <Button
+            <StyledButton
                 size="md"
                 color="primary"
                 shape="rounded"
@@ -122,7 +175,36 @@ const TopNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
                 onClick={handleOnClick}
             >
                 Let's Talk
-            </Button>
+            </StyledButton>
+
+            <IconWrapper onClick={handleOnClickMenu}>
+                {showMenu ? (
+                    <Icon iconName="close" />
+                ) : (
+                    <Icon iconName="list-menu" />
+                )}
+            </IconWrapper>
+            {showMenu ? (
+                <MenuLinks scrolled={scrolled}>
+                    {links.map((link, index) => (
+                        <NavigationLink
+                            key={index}
+                            linkText={link.text}
+                            linkTo={link.link}
+                            isFirstLink={index === 0}
+                        />
+                    ))}
+                    <Button
+                        size="md"
+                        color="primary"
+                        shape="rounded"
+                        variant="contained"
+                        onClick={handleOnClick}
+                    >
+                        Let's Talk
+                    </Button>
+                </MenuLinks>
+            ) : null}
         </BaseContainer>
     );
 };

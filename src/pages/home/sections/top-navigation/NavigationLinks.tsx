@@ -18,6 +18,10 @@ const StyledLink = styled.a`
     &:hover {
         border-bottom: 1px solid var(--color-navbar);
     }
+
+    &:active {
+        border-bottom: 1px solid var(--color-navbar);
+    }
 `;
 
 const NavigationLink: React.FC<PropsType> = ({
