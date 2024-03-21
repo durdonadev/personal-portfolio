@@ -4,6 +4,7 @@ import { Container } from "../../../components";
 import hero from "../../../../assets/images/hero-img.png";
 import IconLink from "../../../components/IconLink";
 import Typewriter from "typewriter-effect";
+import FileViewer from "../../../components/FileViewer";
 
 const BaseContainer = styled(Container)`
     display: flex;
@@ -25,6 +26,12 @@ const HeroTextWrapper = styled.div`
     .heading {
         color: var(--color-gray);
         letter-spacing: -0.04em;
+
+        @media (max-width: 40em) {
+            //1104
+            font-size: 5rem;
+            line-height: 1.25;
+        }
     }
 
     .description {
@@ -40,6 +47,12 @@ const HeroTextWrapper = styled.div`
             margin: 0 auto;
             margin-bottom: var(--space-32);
         }
+
+        @media (max-width: 40em) {
+            width: 90%;
+            font-size: 15px;
+            line-height: 1.5;
+        }
     }
 
     @media (max-width: 69em) {
@@ -51,22 +64,29 @@ const HeroTextWrapper = styled.div`
         //912
         width: 100%;
         text-align: center;
-        padding-top: 6rem;
+        padding-top: 2rem;
     }
 `;
 
 const StyledTypewriterWrapper = styled.div`
     font-weight: var(--font-weight-700);
     font-size: 6.4rem;
-    line-height: var(--line-height-72);
-    margin-bottom: var(--space-18);
+    line-height: 1.25;
     margin-bottom: var(--space-24);
     color: var(--color-gray);
     letter-spacing: -0.06em;
 
     @media (max-width: 90em) {
-        //1440
         font-size: 6rem;
+    }
+
+    @media (max-width: 40em) {
+        font-size: 5rem;
+        margin-bottom: var(--space-20);
+    }
+
+    @media (max-width: 27.5em) {
+        font-size: 4rem;
     }
 `;
 
@@ -117,9 +137,33 @@ const HeroImgWrapper = styled.div`
         }
 
         @media (max-width: 57em) {
-            /* width: auto; */
             height: 72rem;
             text-align: center;
+        }
+
+        @media (max-width: 44em) {
+            //704
+            height: 60rem;
+        }
+
+        @media (max-width: 38em) {
+            //608
+            height: 54rem;
+        }
+
+        @media (max-width: 32em) {
+            //512
+            height: 48rem;
+        }
+
+        @media (max-width: 26em) {
+            //416
+            height: 44rem;
+        }
+
+        @media (max-width: 23em) {
+            //416
+            height: 38rem;
         }
     }
 
@@ -159,14 +203,7 @@ const Hero = () => {
                     <Button size="lg" shape="rounded" color="secondary">
                         Hire Me
                     </Button>
-                    <Button
-                        size="lg"
-                        shape="rounded"
-                        color="secondary"
-                        variant="outlined"
-                    >
-                        Download CV
-                    </Button>
+                    <FileViewer />
                 </Buttons>
 
                 <SocialMedia>

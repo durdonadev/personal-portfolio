@@ -67,22 +67,22 @@ const Container = styled.div`
 
     @media (max-width: 38em) {
         //608
-        padding: 2.5rem 8rem;
+        padding: 2.5rem 7.6rem;
     }
 
     @media (max-width: 32em) {
         //512
-        padding: 2.5rem 6rem;
+        padding: 2.5rem 5rem;
     }
 
     @media (max-width: 25em) {
         //400
-        padding: 2.5rem 4rem;
+        padding: 2.5rem 3rem;
     }
 
     @media (max-width: 21em) {
         //336
-        padding: 2.5rem 3rem;
+        padding: 2.5rem 2.6rem;
     }
 `;
 
