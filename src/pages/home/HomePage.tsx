@@ -9,6 +9,26 @@ import { Contact } from "./sections/contact/Contact";
 import { useEffect, useState } from "react";
 import footer from "../../assets/images/footer.png";
 
+interface HeaderProps {
+    backgroundColor: string;
+    scrolled: boolean;
+}
+
+const StyledHeader = styled.header<HeaderProps>`
+    background-color: ${(props) => props.backgroundColor};
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: ${(props) =>
+        props.scrolled ? "0 2rem 6rem rgba(50,61,88,0.09)" : "none"};
+    @media (max-width: 50em) {
+        border-radius: ${(props) => (props.scrolled ? "1.6rem" : "none")};
+        top: ${(props) => (props.scrolled ? "1.6rem" : "none")};
+        margin-left: ${(props) => (props.scrolled ? "1.6rem" : "none")};
+        margin-right: ${(props) => (props.scrolled ? "1.6rem" : "none")};
+    }
+`;
+
 const HomePage = () => {
     const [headerBackground, setHeaderBackground] = useState("#f5fdff");
     const [scrolled, setScrolled] = useState(false);
@@ -33,20 +53,13 @@ const HomePage = () => {
 
     return (
         <>
-            <header
+            <StyledHeader
+                backgroundColor={headerBackground}
+                scrolled={scrolled}
                 id="top-navigation"
-                style={{
-                    backgroundColor: headerBackground,
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 999,
-                    boxShadow: scrolled
-                        ? "0 20px 60px rgba(50,61,88,0.09)"
-                        : "none"
-                }}
             >
-                <TopNavigation />
-            </header>
+                <TopNavigation scrolled={scrolled} />
+            </StyledHeader>
 
             <section id="hero" style={{ backgroundColor: "#f5fdff" }}>
                 <Hero />

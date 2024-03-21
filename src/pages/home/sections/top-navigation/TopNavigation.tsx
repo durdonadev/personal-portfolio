@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { NavigationLink } from "./NavigationLinks";
 import { Button, Logo } from "../../../../design-system";
 
+interface TopNavigationProps {
+    scrolled: boolean; // Define a prop to receive the scrolled state
+}
+
 const links = [
     { text: "Home", link: "" },
     { text: "Services", link: "#services" },
@@ -9,7 +13,7 @@ const links = [
     { text: "Projects", link: "#projects" }
 ];
 
-const BaseContainer = styled.nav`
+const BaseContainer = styled.nav<TopNavigationProps>`
     margin: 0 auto;
     max-width: 190rem;
     padding: 2.5rem 28.2rem;
@@ -72,6 +76,11 @@ const BaseContainer = styled.nav`
         //912
         padding: 2.5rem 12rem;
     }
+
+    @media (max-width: 50em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 10.4rem" : "2.5rem 12rem"};
+    }
 `;
 
 const Links = styled.div`
@@ -83,7 +92,7 @@ const StyledLogo = styled(Logo)`
     margin-right: var(--space-40);
 `;
 
-const TopNavigation: React.FC = () => {
+const TopNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
     const handleOnClick = () => {
         const contactSection = document.getElementById("contact");
         if (contactSection) {
@@ -92,7 +101,7 @@ const TopNavigation: React.FC = () => {
     };
 
     return (
-        <BaseContainer>
+        <BaseContainer scrolled={scrolled}>
             <StyledLogo size="sm" layout="horizontal" />
             <Links>
                 {links.map((link, index) => (
