@@ -59,6 +59,31 @@ const Container = styled.div`
         //912
         padding: 2.5rem 12rem;
     }
+
+    @media (max-width: 44em) {
+        //704
+        padding: 2.5rem 10rem;
+    }
+
+    @media (max-width: 38em) {
+        //608
+        padding: 2.5rem 8rem;
+    }
+
+    @media (max-width: 32em) {
+        //512
+        padding: 2.5rem 6rem;
+    }
+
+    @media (max-width: 25em) {
+        //400
+        padding: 2.5rem 4rem;
+    }
+
+    @media (max-width: 21em) {
+        //336
+        padding: 2.5rem 3rem;
+    }
 `;
 
 export { Container };
