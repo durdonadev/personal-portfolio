@@ -13,6 +13,12 @@ const SectionBase = styled(Container)`
         padding-top: 10rem;
         padding-bottom: 10rem;
     }
+
+    @media (max-width: 25em) {
+        //400
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+    }
 `;
 
 const Title = styled(Typography)`
@@ -37,7 +43,7 @@ const Services = () => {
     return (
         <SectionBase>
             <Title variant="h2" weight="bold">
-                What Services Do I Provide?
+                My Skills
             </Title>
 
             <ServicesCardsWrapper>

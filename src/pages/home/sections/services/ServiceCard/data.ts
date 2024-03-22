@@ -5,20 +5,20 @@ export const services: Service[] = [
         icon: "services-icon-1",
         title: "Back-end Development",
         description:
-            "Building server-side logic and databases, Ensure the functionality of websites or web applications using languages like Node.js."
+            "Proficient in Node.js and Express.js for robust server-side development. Experienced in MongoDB for flexible data storage and Prisma for simplified database management. Well-versed in npm for efficient dependency handling."
     },
     {
         icon: "services-icon-2",
         title: "Front-end Development",
         description:
-            "Creating the user interface and user experience (UI/UX) of websites using HTML, CSS, and React"
+            "Expertise in HTML, CSS, and JavaScript for crafting engaging user interfaces. Proficient in React for building scalable frontend applications. Skilled in Sass for efficient styling and Figma for collaborative design prototyping."
     },
 
     {
         icon: "services-icon-3",
-        title: "Database Management",
+        title: "Development Tools ",
         description:
-            "Designing and managing databases to efficiently store and retrieve data, ensuring data integrity, security, and scalability."
+            "Skilled in terminal usage for command-line operations. Proficient in Visual Studio Code for streamlined code editing and development. Experienced in Git and GitHub for version control and collaborative project management."
     }
     // {
     //     icon: "services-icon-3",

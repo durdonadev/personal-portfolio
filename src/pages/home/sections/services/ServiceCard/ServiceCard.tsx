@@ -41,6 +41,7 @@ const ServiceDescription = styled(Typography)`
     @media (max-width: 57em) {
         //912
         font-size: 15px;
+        line-height: 1.5;
     }
 `;
 
