@@ -9,7 +9,7 @@ interface TopNavigationProps {
 
 const links = [
     { text: "Home", link: "" },
-    { text: "Services", link: "#services" },
+    { text: "My Skills", link: "#services" },
     { text: "About", link: "#about" },
     { text: "Projects", link: "#projects" }
 ];
@@ -82,6 +82,31 @@ const BaseContainer = styled.nav<TopNavigationProps>`
     @media (max-width: 50em) {
         padding: ${(props) =>
             props.scrolled ? "2.5rem 10.4rem" : "2.5rem 12rem"};
+    }
+
+    @media (max-width: 44em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 8.4rem" : "2.5rem 10rem"};
+    }
+
+    @media (max-width: 38em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 6rem" : "2.5rem 7.6rem"};
+    }
+
+    @media (max-width: 32em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 3.4rem" : "2.5rem 5rem"};
+    }
+
+    @media (max-width: 25em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 1.4rem" : "2.5rem 3rem"};
+    }
+
+    @media (max-width: 21em) {
+        padding: ${(props) =>
+            props.scrolled ? "2.5rem 1rem" : "2.5rem 2.6rem"};
     }
 `;
 
