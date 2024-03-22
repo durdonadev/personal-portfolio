@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import { Button, Input, Typography } from "../../../../design-system";
+import { Button, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import IconLink from "../../../components/IconLink";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+
+import "./Contact.css";
 
 const BaseContainer = styled(Container)`
     padding-top: var(--space-100);
@@ -72,93 +74,62 @@ const ContactForm = styled.form`
     background-color: var(--color-gray-100);
     border-radius: var(--border-radius-8);
 
-    > *:not(:last-child) {
-        margin-bottom: var(--space-24);
-    }
-
     @media (max-width: 57em) {
         //912
         width: 100%;
     }
+
+    @media (max-width: 44em) {
+        //704
+        padding: var(--space-32) var(--space-80);
+    }
+
+    @media (max-width: 38em) {
+        //608
+        padding: var(--space-32) var(--space-50);
+    }
+
+    @media (max-width: 32em) {
+        //512
+        padding: var(--space-32);
+    }
 `;
 
 const StyledButton = styled(Button)`
-    margin: 0 auto;
+    margin-left: auto;
+
+    @media (max-width: 32em) {
+        //512
+        width: 100%;
+    }
+`;
+const StyledLabel = styled.label`
+    font-size: var(--font-size-16);
+    line-height: var(--line-height-24);
+    color: var(--jaguar-500);
+    font-weight: var(--font-weight-500);
 `;
 
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [tel, setTel] = useState("");
-    const [message, setMessage] = useState("");
-    const [isFormSubmitting, setIsFormSubmitting] = useState(false);
-    const [isError, setIsError] = useState<boolean>(false);
-
-    const handleOnChangeName = (value: string) => {
-        setName(value);
-    };
-    const handleOnChangeEmail = (value: string) => {
-        setEmail(value);
-    };
-    const handleOnChangeTel = (value: string) => {
-        setTel(value);
-    };
-    const handleOnChangeMessage = (value: string) => {
-        setMessage(value);
-    };
-
-    const isFormSubmittable = name && email && tel && message;
-
     const form = useRef<HTMLFormElement | null>(null);
 
-    const sendEmail = async (e: React.FormEvent<HTMLFormElement>) => {
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(email, name, tel, message);
 
         if (form.current) {
-            setIsFormSubmitting(true);
-
-            const formData = new FormData(form.current);
-            const data: Record<string, string> = {
-                name,
-                email,
-                tel,
-                message
-            };
-
-            formData.set("user_name", name);
-            formData.set("user_email", email);
-            formData.set("user_tel", tel);
-            formData.set("message", message);
-
-            formData.forEach((value, key) => {
-                if (value instanceof File) {
-                } else {
-                    data[key] = value as string;
-                }
-            });
-
-            try {
-                await emailjs.sendForm(
-                    "service_67toclm",
-                    "template_6vyt8o9",
-                    form.current,
-                    {
-                        publicKey: "WM3lpTR-yY047TINO"
+            emailjs
+                .sendForm("service_67toclm", "template_6vyt8o9", form.current, {
+                    publicKey: "WM3lpTR-yY047TINO"
+                })
+                .then(
+                    (response) => {
+                        console.log(response);
+                        console.log("SUCCESS!", response);
+                    },
+                    (error) => {
+                        console.error("FAILED...", error);
                     }
                 );
-                setIsFormSubmitting(false);
-                setName("");
-                setEmail("");
-                setTel("");
-                setMessage("");
-
-                console.log("Email sent successfully!");
-            } catch (error) {
-                setIsFormSubmitting(false);
-
-                console.error("Error sending email:", error);
-            }
         }
     };
 
@@ -204,64 +175,40 @@ const Contact = () => {
                         <IconLink href={facebookLink} iconName="facebook" />
                     </SocialMedia>
                 </ContactInfoWrapper>
-                <ContactForm ref={form} onSubmit={sendEmail}>
-                    {/* <form ref={form} onSubmit={sendEmail}>
-                    <label>Name</label>
-                    <input type="text" name="user_name" />
-                    <label>Email</label>
-                    <input type="email" name="user_email" />
-                    <label>Message</label>
-                    <textarea name="message" />
-                    <input type="submit" value="Send" />
-                    </form> */}
-                    <Input
-                        name="user_name"
-                        labelText="Name"
-                        type="text"
-                        placeholder="Will Smith"
-                        shape="rounded"
-                        size="lg"
-                        value={name}
-                        onChange={handleOnChangeName}
-                    />
 
-                    <Input
-                        name="user_email"
-                        labelText="Email"
+                <ContactForm ref={form} onSubmit={sendEmail}>
+                    <StyledLabel>Name</StyledLabel>
+                    <input
+                        className="input"
+                        required
+                        type="text"
+                        name="user_name"
+                        placeholder="Will Smith"
+                    />
+                    <StyledLabel>Email</StyledLabel>
+                    <input
+                        className="input"
+                        required
                         type="email"
+                        name="user_email"
                         placeholder="email@example.com"
-                        shape="rounded"
-                        size="lg"
-                        value={email}
-                        onChange={handleOnChangeEmail}
                     />
-                    <Input
-                        name="user_tel"
-                        labelText="Phone Number"
+                    <StyledLabel>Phone number</StyledLabel>
+                    <input
+                        className="input"
+                        required
                         type="tel"
+                        name="user_tel"
                         placeholder="(123) 456-7890"
-                        shape="rounded"
-                        size="lg"
-                        value={tel}
-                        onChange={handleOnChangeTel}
                     />
-                    <Input
-                        name="message"
-                        labelText="Message"
-                        type="textarea"
+                    <StyledLabel>Message</StyledLabel>
+                    <textarea
+                        className="input input-textarea"
                         placeholder="How can I help you?"
-                        shape="rounded"
-                        size="lg"
-                        value={message}
-                        onChange={handleOnChangeMessage}
+                        name="message"
+                        required
                     />
-                    <StyledButton
-                        color="primary"
-                        size="lg"
-                        shape="rounded"
-                        fullWidth
-                        // disabled={isFormSubmitting || !isFormSubmittable}
-                    >
+                    <StyledButton color="primary" size="lg" shape="rounded">
                         Send Message
                     </StyledButton>
                 </ContactForm>

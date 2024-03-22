@@ -42,7 +42,7 @@ const Input: React.FC<InputProps> = (props) => {
             | React.ChangeEvent<HTMLTextAreaElement>
             | React.ChangeEvent<HTMLInputElement>
     ) => {
-        onChange(e.target.value);
+        onChange && onChange(e.target.value);
     };
 
     return (
