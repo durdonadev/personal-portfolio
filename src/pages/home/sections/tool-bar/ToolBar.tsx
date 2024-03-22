@@ -13,7 +13,21 @@ const ToolBarWrapper = styled(Container)`
     align-items: center;
     justify-content: space-around;
 
-    @media (max-width: 90em) {
+    @media (max-width: 57em) {
+        //912
+        padding: 6rem 2rem;
+        gap: 5rem;
+    }
+
+    @media (max-width: 44em) {
+        //704
+        padding: 4rem 2rem;
+        gap: 4rem;
+    }
+
+    @media (max-width: 38em) {
+        //608
+        gap: 3rem;
     }
 `;
 
