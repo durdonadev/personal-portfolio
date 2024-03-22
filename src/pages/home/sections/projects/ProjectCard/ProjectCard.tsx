@@ -26,6 +26,11 @@ const ProjectCardBase = styled.div`
         padding-bottom: var(--space-50);
         border-bottom: 1px solid #dee2e6;
     }
+
+    @media (max-width: 25em) {
+        //400
+        padding-bottom: var(--space-20);
+    }
 `;
 
 const ProjectImageWrapper = styled.div<{ $name: string }>`
@@ -39,6 +44,10 @@ const ProjectImageWrapper = styled.div<{ $name: string }>`
         width: 80%;
         margin: 0 auto;
         margin-bottom: var(--space-32);
+    }
+
+    @media (max-width: 32em) {
+        width: 90%;
     }
 `;
 
@@ -67,6 +76,10 @@ const ProjectTextWrapper = styled.div<{ $name: string }>`
         padding-right: 0;
         text-align: center;
     }
+
+    @media (max-width: 32em) {
+        width: 90%;
+    }
 `;
 
 const ProjectName = styled(Typography)`
@@ -74,6 +87,8 @@ const ProjectName = styled(Typography)`
 `;
 
 const ProjectDescription = styled(Typography)`
+    font-size: 15px;
+    line-height: 1.5;
     margin-bottom: var(--space-32);
 `;
 

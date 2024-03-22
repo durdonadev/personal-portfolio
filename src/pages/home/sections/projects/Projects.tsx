@@ -13,6 +13,12 @@ const SectionBase = styled(Container)`
         padding-top: 10rem;
         padding-bottom: 10rem;
     }
+
+    @media (max-width: 25em) {
+        //400
+        padding-top: 7rem;
+        padding-bottom: 5rem;
+    }
 `;
 
 const Title = styled(Typography)`
@@ -29,7 +35,7 @@ const Projects = () => {
     return (
         <SectionBase>
             <Title variant="h2" weight="bold">
-                Featured Projects
+                Latest Projects
             </Title>
 
             <ProjectCardsWrapper>
