@@ -116,10 +116,14 @@ const Contact = () => {
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
+        const serviceId = process.env.REACT_APP_SERVICE_ID || "";
+        const templateId = process.env.REACT_APP_TEMPLATE_ID || "";
+        const publicKey = process.env.REACT_APP_PUBLIC_KEY || "";
+
         if (form.current) {
             emailjs
-                .sendForm("service_67toclm", "template_6vyt8o9", form.current, {
-                    publicKey: "WM3lpTR-yY047TINO"
+                .sendForm(serviceId, templateId, form.current, {
+                    publicKey: publicKey
                 })
                 .then(
                     (response) => {
