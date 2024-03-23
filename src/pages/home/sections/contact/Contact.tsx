@@ -137,11 +137,6 @@ const Contact = () => {
         }
     };
 
-    const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
-    const linkedinLink = process.env.REACT_APP_LINKEDIN_LINK || "";
-    const twitterLink = process.env.REACT_APP_TWITTER_LINK || "";
-    const facebookLink = process.env.REACT_APP_FACEBOOK_LINK || "";
-
     return (
         <BaseContainer>
             <Title variant="h3" weight="bold">
@@ -173,10 +168,22 @@ const Contact = () => {
                     </TextWrapper>
 
                     <SocialMedia>
-                        <IconLink href={linkedinLink} iconName="linkdin-icon" />
-                        <IconLink href={githubLink} iconName="github-icon" />
-                        <IconLink href={twitterLink} iconName="twitter-icon" />
-                        <IconLink href={facebookLink} iconName="facebook" />
+                        <IconLink
+                            href="https://www.linkedin.com/in/durdonadev"
+                            iconName="linkdin-icon"
+                        />
+                        <IconLink
+                            href="https://github.com/durdonadev"
+                            iconName="github-icon"
+                        />
+                        <IconLink
+                            href="https://twitter.com/DurdonaDev"
+                            iconName="twitter-icon"
+                        />
+                        <IconLink
+                            href="https://www.linkedin.com/in/durdona-ibragimova-0b68b328b/"
+                            iconName="facebook"
+                        />
                     </SocialMedia>
                 </ContactInfoWrapper>
 
