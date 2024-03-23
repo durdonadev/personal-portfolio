@@ -9,7 +9,8 @@ import FileViewer from "../../../components/FileViewer";
 const BaseContainer = styled(Container)`
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    gap: var(--space-16);
     padding-top: var(--space-25);
     padding-bottom: var(--space-0);
     position: relative;
@@ -21,11 +22,11 @@ const BaseContainer = styled(Container)`
 `;
 
 const HeroTextWrapper = styled.div`
-    width: 50%;
+    width: 55%;
 
     .heading {
         color: var(--color-gray);
-        letter-spacing: -0.04em;
+        /* letter-spacing: -0.04em; */
 
         @media (max-width: 40em) {
             //1104
@@ -55,10 +56,15 @@ const HeroTextWrapper = styled.div`
         }
     }
 
-    @media (max-width: 69em) {
+    /* @media (max-width: 77.5em) {
+        //1240
+        width: 60%;
+    } */
+
+    /* @media (max-width: 69em) {
         //1104
         width: 55%;
-    }
+    } */
 
     @media (max-width: 57em) {
         //912
@@ -74,7 +80,7 @@ const StyledTypewriterWrapper = styled.div`
     line-height: 1.25;
     margin-bottom: var(--space-24);
     color: var(--color-gray);
-    letter-spacing: -0.06em;
+    /* letter-spacing: -0.06em; */
 
     @media (max-width: 90em) {
         font-size: 6rem;
@@ -87,6 +93,7 @@ const StyledTypewriterWrapper = styled.div`
 
     @media (max-width: 27.5em) {
         font-size: 4rem;
+        letter-spacing: -0.05em;
     }
 `;
 
@@ -115,8 +122,8 @@ const Buttons = styled.div`
 `;
 
 const HeroImgWrapper = styled.div`
-    width: 50%;
-    text-align: center;
+    width: 45%;
+    /* text-align: right; */
     /* transition: all 1s;
 
     &:hover {
@@ -124,51 +131,59 @@ const HeroImgWrapper = styled.div`
     } */
     img {
         object-fit: contain;
-        height: 72rem;
-        width: auto;
+        /* height: 72rem; */
+        width: 100%;
 
         @media (max-width: 90em) {
-            height: 62rem;
+            /* height: 62rem; */
         }
 
         @media (max-width: 75em) {
             //1200
-            height: 60rem;
+            /* height: 60rem; */
         }
 
         @media (max-width: 57em) {
-            height: 72rem;
-            text-align: center;
+            /* height: 72rem; */
+            /* text-align: center; */
+            width: 90%;
         }
 
         @media (max-width: 44em) {
             //704
-            height: 60rem;
+            /* height: 60rem; */
         }
 
         @media (max-width: 38em) {
             //608
-            height: 54rem;
+            /* height: 54rem; */
         }
 
         @media (max-width: 32em) {
             //512
-            height: 48rem;
+            /* height: 48rem; */
+            width: 100%;
         }
 
         @media (max-width: 26em) {
             //416
-            height: 44rem;
+            /* height: 44rem; */
         }
 
         @media (max-width: 23em) {
             //416
-            height: 38rem;
+            /* height: 38rem; */
         }
     }
 
+    /* @media (max-width: 77.5em) {
+        //1240
+        width: 40%;
+    } */
+
     @media (max-width: 57em) {
         width: 100%;
+        text-align: center;
     }
 `;
 
@@ -190,12 +205,27 @@ const Hero = () => {
                 </Typography>
                 <StyledTypewriterWrapper>
                     <Typewriter
+                        onInit={(typewriter) => {
+                            typewriter
+                                .typeString("Full Stack  Engineer")
+                                .callFunction(() => {
+                                    console.log("String typed out!");
+                                })
+                                .pauseFor(2500)
+
+                                .callFunction(() => {
+                                    console.log("All strings were deleted");
+                                })
+                                .start();
+                        }}
+                    />
+                    {/* <Typewriter
                         options={{
                             strings: ["Web Developer", "Full Stack Engineer"],
                             autoStart: true,
                             loop: true
                         }}
-                    />
+                    /> */}
                 </StyledTypewriterWrapper>
 
                 <Typography

@@ -56,11 +56,6 @@ const BaseContainer = styled.nav<TopNavigationProps>`
 
     @media (max-width: 77.5em) {
         //1240
-        padding: 2.5rem 8rem;
-    }
-
-    @media (max-width: 75em) {
-        //1200
         padding: 2.5rem 7rem;
     }
 
@@ -96,18 +91,18 @@ const BaseContainer = styled.nav<TopNavigationProps>`
 
     @media (max-width: 32em) {
         padding: ${(props) =>
-            props.scrolled ? "2.5rem 3.4rem" : "2.5rem 5rem"};
+            props.scrolled ? "2.5rem 1.4rem" : "2.5rem 3rem"};
     }
 
     @media (max-width: 25em) {
         padding: ${(props) =>
-            props.scrolled ? "2.5rem 1.4rem" : "2.5rem 3rem"};
+            props.scrolled ? "2.5rem 0.4rem" : "2.5rem 2rem"};
     }
 
-    @media (max-width: 21em) {
+    /* @media (max-width: 21em) {
         padding: ${(props) =>
-            props.scrolled ? "2.5rem 1rem" : "2.5rem 2.6rem"};
-    }
+        props.scrolled ? "2.5rem 1rem" : "2.5rem 2.6rem"};
+    } */
 `;
 
 const Links = styled.div`

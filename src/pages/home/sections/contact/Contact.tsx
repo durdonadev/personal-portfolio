@@ -181,7 +181,7 @@ const Contact = () => {
                             iconName="twitter-icon"
                         />
                         <IconLink
-                            href="https://www.linkedin.com/in/durdona-ibragimova-0b68b328b/"
+                            href="https://www.facebook.com/profile.php?id=100079816749162"
                             iconName="facebook"
                         />
                     </SocialMedia>
