@@ -175,6 +175,13 @@ const HeroImgWrapper = styled.div`
 const Hero = () => {
     const githubLink = process.env.REACT_APP_GITHUB_LINK || "";
 
+    const handleOnClick = () => {
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <BaseContainer>
             <HeroTextWrapper>
@@ -200,14 +207,22 @@ const Hero = () => {
                     coding and a passion for creating seamless user experiences.
                 </Typography>
                 <Buttons>
-                    <Button size="lg" shape="rounded" color="secondary">
+                    <Button
+                        size="lg"
+                        shape="rounded"
+                        color="secondary"
+                        onClick={handleOnClick}
+                    >
                         Hire Me
                     </Button>
                     <FileViewer />
                 </Buttons>
 
                 <SocialMedia>
-                    <IconLink href={githubLink} iconName="github-icon" />
+                    <IconLink
+                        href="https://github.com/durdonadev"
+                        iconName="github-icon"
+                    />
 
                     <Typography variant="paragraphSM" weight="normal">
                         Explore more on my GitHub
