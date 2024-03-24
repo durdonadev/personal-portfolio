@@ -205,27 +205,12 @@ const Hero = () => {
                 </Typography>
                 <StyledTypewriterWrapper>
                     <Typewriter
-                        onInit={(typewriter) => {
-                            typewriter
-                                .typeString("Full Stack  Engineer")
-                                .callFunction(() => {
-                                    console.log("String typed out!");
-                                })
-                                .pauseFor(2500)
-
-                                .callFunction(() => {
-                                    console.log("All strings were deleted");
-                                })
-                                .start();
-                        }}
-                    />
-                    {/* <Typewriter
                         options={{
                             strings: ["Web Developer", "Full Stack Engineer"],
                             autoStart: true,
                             loop: true
                         }}
-                    /> */}
+                    />
                 </StyledTypewriterWrapper>
 
                 <Typography
