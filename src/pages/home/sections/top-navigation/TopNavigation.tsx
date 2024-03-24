@@ -95,8 +95,7 @@ const BaseContainer = styled.nav<TopNavigationProps>`
     }
 
     @media (max-width: 25em) {
-        padding: ${(props) =>
-            props.scrolled ? "2.5rem 0.4rem" : "2.5rem 2rem"};
+        padding: ${(props) => (props.scrolled ? "2.5rem 1rem" : "2.5rem 2rem")};
     }
 
     /* @media (max-width: 21em) {

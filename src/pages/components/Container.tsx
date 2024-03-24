@@ -75,10 +75,10 @@ const Container = styled.div`
         padding: 2.5rem 2rem;
     }
 
-    @media (max-width: 21em) {
+    /* @media (max-width: 21em) {
         //336
         padding: 2.5rem 2.6rem;
-    }
+    } */
 `;
 
 export { Container };

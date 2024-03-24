@@ -27,6 +27,13 @@ const StyledHeader = styled.header<HeaderProps>`
         margin-left: ${(props) => (props.scrolled ? "1.6rem" : "none")};
         margin-right: ${(props) => (props.scrolled ? "1.6rem" : "none")};
     }
+
+    @media (max-width: 25em) {
+        border-radius: ${(props) => (props.scrolled ? "1rem" : "none")};
+        top: ${(props) => (props.scrolled ? "1rem" : "none")};
+        margin-left: ${(props) => (props.scrolled ? "1rem" : "none")};
+        margin-right: ${(props) => (props.scrolled ? "1rem" : "none")};
+    }
 `;
 
 const HomePage = () => {
