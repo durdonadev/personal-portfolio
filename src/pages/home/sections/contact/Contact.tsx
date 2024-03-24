@@ -7,6 +7,10 @@ import emailjs from "@emailjs/browser";
 
 import "./Contact.css";
 
+import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
+import { Form } from "./ContactForm";
+
 const BaseContainer = styled(Container)`
     padding-top: var(--space-100);
     padding-bottom: var(--space-40);
@@ -111,14 +115,55 @@ const StyledLabel = styled.label`
 `;
 
 const Contact = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [tel, setTel] = useState("");
+    const [message, setMessage] = useState("");
+
     const form = useRef<HTMLFormElement | null>(null);
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors, isSubmitting }
+    } = useForm();
+
+    const [isFormSubmitting, setIsFormSubmitting] = useState(false);
+    const [isError, setIsError] = useState<boolean>(false);
+
+    const handleOnChangeName = (value: string) => {
+        setName(value);
+    };
+
+    const handleOnChangeEmail = (value: string) => {
+        setEmail(value);
+    };
+
+    const handleOnChangeTel = (value: string) => {
+        setTel(value);
+    };
+
+    const handleOnChangeMessage = (value: string) => {
+        setMessage(value);
+    };
+
+    const isFormSubmittable = name && email && tel && message;
+
+    const resetFormData = () => {
+        setName("");
+        setEmail("");
+        setTel("");
+        setMessage("");
+    };
 
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const serviceId = process.env.REACT_APP_SERVICE_ID || "";
-        const templateId = process.env.REACT_APP_TEMPLATE_ID || "";
-        const publicKey = process.env.REACT_APP_PUBLIC_KEY || "";
+        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
+        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
+        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
+
+        setIsFormSubmitting(true);
 
         if (form.current) {
             emailjs
@@ -126,12 +171,20 @@ const Contact = () => {
                     publicKey: publicKey
                 })
                 .then(
-                    (response) => {
-                        console.log(response);
-                        console.log("SUCCESS!", response);
+                    () => {
+                        setIsFormSubmitting(false);
+
+                        toast.success(
+                            "Thank you! I have received your message."
+                        );
+                        reset();
                     },
-                    (error) => {
-                        console.error("FAILED...", error);
+                    () => {
+                        setIsFormSubmitting(false);
+                        setIsError(true);
+                        toast.error(
+                            "Oops. There was a problem! Please email me at durdona.dev@gmail.com"
+                        );
                     }
                 );
         }
