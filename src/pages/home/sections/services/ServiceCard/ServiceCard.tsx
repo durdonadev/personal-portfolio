@@ -16,7 +16,7 @@ export const ServicesCardBase = styled.div<{ icon: IconName }>`
     cursor: pointer;
     border: 1px solid var(--color-gray-300);
     border-radius: var(--border-radius-8);
-    padding: 3.2rem 4.2rem;
+    padding: var(--space-32) var(--space-42);
     text-align: left;
     transition: all 1s;
 
@@ -24,9 +24,8 @@ export const ServicesCardBase = styled.div<{ icon: IconName }>`
         transform: scale(1.05);
     }
 
-    @media (max-width: 57em) {
-        //912
-        margin-bottom: var(--space-32);
+    @media (max-width: 60em) {
+        /* margin-bottom: var(--space-32); */
     }
 `;
 
@@ -37,12 +36,6 @@ const ServiceTitle = styled(Typography)`
 
 const ServiceDescription = styled(Typography)`
     color: var(--color-text);
-
-    @media (max-width: 57em) {
-        //912
-        font-size: 15px;
-        line-height: 1.5;
-    }
 `;
 
 const IconWrapper = styled.div<{ icon: IconName }>`

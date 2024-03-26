@@ -3,22 +3,10 @@ import { Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import { services } from "./ServiceCard/data";
 import { ServicesCard } from "./ServiceCard/ServiceCard";
+import { SectionBase } from "../../../components/SectionBase";
 
-const SectionBase = styled(Container)`
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-
-    @media (max-width: 75em) {
-        //1200
-        padding-top: 10rem;
-        padding-bottom: 10rem;
-    }
-
-    @media (max-width: 25em) {
-        //400
-        padding-top: 7rem;
-        padding-bottom: 5rem;
-    }
+const ServicesSectionBase = styled(SectionBase)`
+    background-color: var(--color-white);
 `;
 
 const Title = styled(Typography)`
@@ -31,27 +19,31 @@ const ServicesCardsWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-30);
-    margin-bottom: var(--space-50);
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         display: block;
+
+        :not(:last-child) {
+            margin-bottom: var(--space-30);
+        }
     }
 `;
 
 const Services = () => {
     return (
-        <SectionBase>
-            <Title variant="h2" weight="bold">
-                My Skills
-            </Title>
+        <ServicesSectionBase id="services">
+            <Container>
+                <Title variant="h2" weight="bold">
+                    My Skills
+                </Title>
 
-            <ServicesCardsWrapper>
-                {services.map((service, index) => (
-                    <ServicesCard key={index} service={service} />
-                ))}
-            </ServicesCardsWrapper>
-        </SectionBase>
+                <ServicesCardsWrapper>
+                    {services.map((service, index) => (
+                        <ServicesCard key={index} service={service} />
+                    ))}
+                </ServicesCardsWrapper>
+            </Container>
+        </ServicesSectionBase>
     );
 };
 
