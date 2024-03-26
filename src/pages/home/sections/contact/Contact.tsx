@@ -1,29 +1,35 @@
 import styled from "styled-components";
-import { Button, Typography } from "../../../../design-system";
+import { Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import IconLink from "../../../components/IconLink";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-
 import "./Contact.css";
-
 import toast from "react-hot-toast";
-import { useForm } from "react-hook-form";
-import { Form } from "./ContactForm";
+import { ContactForm } from "./ContactForm";
+import { SectionBase } from "../../../components/SectionBase";
+import footer from "../../../../assets/images/footer.png";
 
-const BaseContainer = styled(Container)`
-    padding-top: var(--space-100);
-    padding-bottom: var(--space-40);
+const ContactSectionBase = styled(SectionBase)`
+    background-image: url(${footer});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 40rem;
 `;
 
 const Content = styled.div`
     display: flex;
+    border-radius: var(--border-radius-4);
     justify-content: space-between;
-    gap: var(--space-50);
+    align-items: center;
+    gap: var(--space-60);
+    max-width: 102.4rem;
+    margin: 0 auto;
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         display: block;
+        max-width: 60rem;
     }
 `;
 
@@ -35,28 +41,22 @@ const Title = styled(Typography)`
 
 const ContactInfoWrapper = styled.div`
     width: 40%;
-    padding: var(--space-32);
-
-    background-color: #fafafa;
-    border-radius: var(--border-radius-8);
-
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: var(--space-40);
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         width: 100%;
-        margin-bottom: var(--space-32);
+        margin-bottom: var(--space-40);
     }
 `;
 
-const TextWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: var(--space-20);
-    margin-bottom: var(--space-32);
+const Heading = styled(Typography)`
+    color: var(--color-white);
+`;
+
+const Paragraph = styled(Typography)`
+    color: var(--color-white);
 `;
 
 const StyledLink = styled.a`
@@ -67,51 +67,6 @@ const StyledLink = styled.a`
 const SocialMedia = styled.div`
     display: flex;
     gap: var(--space-20);
-    align-items: center;
-    justify-content: center;
-`;
-
-const ContactForm = styled.form`
-    width: 60%;
-    margin: 0 auto;
-    padding: var(--space-32) var(--space-120);
-    background-color: var(--color-gray-100);
-    border-radius: var(--border-radius-8);
-
-    @media (max-width: 57em) {
-        //912
-        width: 100%;
-    }
-
-    @media (max-width: 44em) {
-        //704
-        padding: var(--space-32) var(--space-80);
-    }
-
-    @media (max-width: 38em) {
-        //608
-        padding: var(--space-32) var(--space-50);
-    }
-
-    @media (max-width: 32em) {
-        //512
-        padding: var(--space-32);
-    }
-`;
-
-const StyledButton = styled(Button)`
-    margin-left: auto;
-
-    @media (max-width: 32em) {
-        //512
-        width: 100%;
-    }
-`;
-const StyledLabel = styled.label`
-    font-size: var(--font-size-16);
-    line-height: var(--line-height-24);
-    color: var(--jaguar-500);
-    font-weight: var(--font-weight-500);
 `;
 
 const Contact = () => {
@@ -121,12 +76,6 @@ const Contact = () => {
     const [message, setMessage] = useState("");
 
     const form = useRef<HTMLFormElement | null>(null);
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors, isSubmitting }
-    } = useForm();
 
     const [isFormSubmitting, setIsFormSubmitting] = useState(false);
     const [isError, setIsError] = useState<boolean>(false);
@@ -149,13 +98,6 @@ const Contact = () => {
 
     const isFormSubmittable = name && email && tel && message;
 
-    const resetFormData = () => {
-        setName("");
-        setEmail("");
-        setTel("");
-        setMessage("");
-    };
-
     const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -177,7 +119,6 @@ const Contact = () => {
                         toast.success(
                             "Thank you! I have received your message."
                         );
-                        reset();
                     },
                     () => {
                         setIsFormSubmitting(false);
@@ -191,93 +132,93 @@ const Contact = () => {
     };
 
     return (
-        <BaseContainer>
-            <Title variant="h3" weight="bold">
-                Get In Touch
-            </Title>
-            <Content>
-                <ContactInfoWrapper>
-                    <TextWrapper>
-                        <Typography variant="h5" weight="bold">
+        <ContactSectionBase id="contact">
+            <Container>
+                <Title variant="h3" weight="bold">
+                    Get In Touch
+                </Title>
+                <Content>
+                    <ContactInfoWrapper>
+                        <Heading variant="h5" weight="bold">
                             Say Hello!
-                        </Typography>
-                        <Typography variant="paragraphMD" weight="normal">
+                        </Heading>
+                        <Paragraph variant="paragraphMD" weight="normal">
                             Have a project in mind or just have a question?
                             Let's connect and make it happen together!
-                        </Typography>
-                        <Typography variant="paragraphMD" weight="bold">
-                            Email
-                        </Typography>
-                        <StyledLink href="mailto:durdona.dev@gmail.com">
-                            durdona.dev@gmail.com
-                        </StyledLink>
+                        </Paragraph>
+                        <SocialMedia>
+                            <IconLink
+                                href="https://www.linkedin.com/in/durdonadev"
+                                iconName="linkdin-icon"
+                            />
+                            <IconLink
+                                href="https://github.com/durdonadev"
+                                iconName="github-icon"
+                            />
+                            <IconLink
+                                href="https://twitter.com/DurdonaDev"
+                                iconName="twitter-icon"
+                            />
+                            <IconLink
+                                href="https://www.facebook.com/profile.php?id=100079816749162"
+                                iconName="facebook"
+                            />
+                        </SocialMedia>
+                        {/* <Typography variant="paragraphMD" weight="bold">
+                                Email
+                            </Typography>
+                            <StyledLink href="mailto:durdona.dev@gmail.com">
+                                durdona.dev@gmail.com
+                            </StyledLink>
 
-                        <Typography variant="paragraphMD" weight="bold">
-                            Phone
-                        </Typography>
-                        <StyledLink href="tel:+19293347203">
-                            +1 929 334-7203
-                        </StyledLink>
-                    </TextWrapper>
+                            <Typography variant="paragraphMD" weight="bold">
+                                Phone
+                            </Typography>
+                            <StyledLink href="tel:+19293347203">
+                                +1 929 334-7203
+                            </StyledLink> */}
+                    </ContactInfoWrapper>
 
-                    <SocialMedia>
-                        <IconLink
-                            href="https://www.linkedin.com/in/durdonadev"
-                            iconName="linkdin-icon"
+                    {/* <ContactForm ref={form} onSubmit={sendEmail}>
+                        <StyledLabel>Name</StyledLabel>
+                        <input
+                            className="input"
+                            required
+                            type="text"
+                            name="user_name"
+                            placeholder="Will Smith"
                         />
-                        <IconLink
-                            href="https://github.com/durdonadev"
-                            iconName="github-icon"
+                        <StyledLabel>Email</StyledLabel>
+                        <input
+                            className="input"
+                            required
+                            type="email"
+                            name="user_email"
+                            placeholder="email@example.com"
                         />
-                        <IconLink
-                            href="https://twitter.com/DurdonaDev"
-                            iconName="twitter-icon"
+                        <StyledLabel>Phone number</StyledLabel>
+                        <input
+                            className="input"
+                            required
+                            type="tel"
+                            name="user_tel"
+                            placeholder="(123) 456-7890"
                         />
-                        <IconLink
-                            href="https://www.facebook.com/profile.php?id=100079816749162"
-                            iconName="facebook"
+                        <StyledLabel>Message</StyledLabel>
+                        <textarea
+                            className="input input-textarea"
+                            placeholder="How can I help you?"
+                            name="message"
+                            required
                         />
-                    </SocialMedia>
-                </ContactInfoWrapper>
-
-                <ContactForm ref={form} onSubmit={sendEmail}>
-                    <StyledLabel>Name</StyledLabel>
-                    <input
-                        className="input"
-                        required
-                        type="text"
-                        name="user_name"
-                        placeholder="Will Smith"
-                    />
-                    <StyledLabel>Email</StyledLabel>
-                    <input
-                        className="input"
-                        required
-                        type="email"
-                        name="user_email"
-                        placeholder="email@example.com"
-                    />
-                    <StyledLabel>Phone number</StyledLabel>
-                    <input
-                        className="input"
-                        required
-                        type="tel"
-                        name="user_tel"
-                        placeholder="(123) 456-7890"
-                    />
-                    <StyledLabel>Message</StyledLabel>
-                    <textarea
-                        className="input input-textarea"
-                        placeholder="How can I help you?"
-                        name="message"
-                        required
-                    />
-                    <StyledButton color="primary" size="lg" shape="rounded">
-                        Send Message
-                    </StyledButton>
-                </ContactForm>
-            </Content>
-        </BaseContainer>
+                        <StyledButton color="primary" size="lg" shape="rounded">
+                            Send Message
+                        </StyledButton>
+                    </ContactForm> */}
+                    <ContactForm />
+                </Content>
+            </Container>
+        </ContactSectionBase>
     );
 };
 

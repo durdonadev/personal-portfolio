@@ -1,111 +1,77 @@
-import { useForm } from "react-hook-form";
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import toast from "react-hot-toast";
-import { Toaster, Input, Button } from "../../../../design-system";
+import styled from "styled-components";
+import { Button, Input } from "../../../../design-system";
 
-const Form = ({ onClose }: { onClose?: () => void }) => {
-    const form = useRef<HTMLFormElement | null>(null);
+const FormBase = styled.div`
+    width: 60%;
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState: { errors, isSubmitting }
-    } = useForm();
+    @media (max-width: 60em) {
+        width: 100%;
+    }
+`;
 
-    const onSubmit = () => {
-        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
-        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
-        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
+const FormContent = styled.form`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-20);
+`;
 
-        emailjs
-            .sendForm(serviceId, templateId, form.current!, {
-                publicKey: publicKey
-            })
-            .then(
-                () => {
-                    onClose && onClose();
-                    toast.success("Your Message has been successfully sent!");
-                },
-                () => {
-                    toast.error(`Failed: Please try again later.`);
-                }
-            );
-        reset();
-    };
+const NameInput = styled(Input)`
+    grid-column: 1/2;
+`;
 
+const EmailInput = styled(Input)`
+    grid-column: 2/3;
+`;
+
+const MessageInput = styled(Input)`
+    grid-column: 1/3;
+`;
+
+const StyledButton = styled(Button)`
+    grid-column: 2/3;
+    justify-self: end;
+`;
+
+const ContactForm = () => {
     return (
-        <>
-            <form ref={form} onSubmit={onSubmit}>
-                <Input
-                    register={register}
-                    errors={errors}
-                    validationSchema={{
-                        required: "Name is required.",
-                        minLength: {
-                            value: 3,
-                            message: "Please enter a minimum of 3 characters."
-                        }
-                    }}
-                    name="Name"
+        <FormBase>
+            <FormContent>
+                <NameInput
                     type="text"
-                    labelText="Name"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
+                    shape="rounded"
+                    size="lg"
+                    value=""
+                    onChange={() => {}}
                 />
-                <Input
-                    register={register}
-                    errors={errors}
-                    validationSchema={{
-                        required: "Email is required.",
-                        pattern: {
-                            value: /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/,
-                            message: "Please enter a valid email address"
-                        }
-                    }}
-                    name="Email"
-                    type="email"
-                    labelText="Email"
-                    placeholder="email@example.com"
-                />
-                <Input
-                    register={register}
-                    errors={errors}
-                    validationSchema={{
-                        pattern: {
-                            value: /^\d{3}-\d{3}-\d{4}$/,
-                            message:
-                                "Please enter a valid 10-digit US phone number in the format xxx-xxx-xxxx"
-                        }
-                    }}
-                    type="tel"
-                    name="Phone Number"
-                    labelText="Phone Number"
-                    placeholder="222-222-2222"
-                />
-                <Input
-                    register={register}
-                    errors={errors}
-                    validationSchema={{
-                        required: "Message is required.",
-                        minLength: {
-                            value: 15,
-                            message: "Please enter a minimum of 15 characters."
-                        }
-                    }}
-                    type="textarea"
-                    name="Message"
-                    labelText="Message"
-                    placeholder="How can I help you?"
-                />
-                <Button color="primary" size="lg" shape="rounded">
-                    Send Message
-                </Button>
-            </form>
 
-            <Toaster />
-        </>
+                <EmailInput
+                    type="email"
+                    placeholder="Email Address"
+                    shape="rounded"
+                    size="lg"
+                    value=""
+                    onChange={() => {}}
+                />
+                <MessageInput
+                    type="textarea"
+                    placeholder="Your Message"
+                    shape="rounded"
+                    size="lg"
+                    value=""
+                    onChange={() => {}}
+                />
+                <StyledButton
+                    color="primary"
+                    variant="contained"
+                    size="lg"
+                    shape="rounded"
+                >
+                    Send Message
+                </StyledButton>
+            </FormContent>
+        </FormBase>
     );
 };
 
-export { Form };
+export { ContactForm };
