@@ -1,60 +1,80 @@
 import React from "react";
+import { sizeClassNames, shapeClassNames } from "./clasnames";
+import { trimWhiteSpaces } from "../utils";
+import { Label } from "../Label";
+import { InputProps } from "./types";
 import "./Input.css";
-import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import styled from "styled-components";
 
-const StyledLabel = styled.label`
-    font-size: var(--font-size-16);
-    line-height: var(--line-height-24);
-    color: var(--jaguar-500);
-    font-weight: var(--font-weight-500);
-`;
+const Input: React.FC<InputProps> = (props) => {
+    const {
+        type,
+        error,
+        disabled,
+        placeholder,
+        shape,
+        size,
+        hintMessage,
+        labelText,
+        className,
+        id,
+        onChange,
+        value
+    } = props;
 
-type InputProps = {
-    type: "text" | "email" | "password" | "tel" | "textarea";
-    placeholder?: string;
-    labelText: string;
-    register: UseFormRegister<FieldValues>;
-    errors: FieldErrors<FieldValues>;
-    name: string;
-    validationSchema: object;
-};
+    const sizeClassName = size !== undefined ? sizeClassNames[size] : "";
 
-const Input: React.FC<InputProps> = ({
-    type,
-    placeholder,
-    labelText,
-    register,
-    errors,
-    name,
-    validationSchema
-}) => {
+    const shapeClassName = shape !== undefined ? shapeClassNames[shape] : "";
+
+    const errorClassName = error ? "input-error" : "";
+    const textareaClassName = type === "textarea" ? "input-textarea" : "";
+
+    const finalClassNames = trimWhiteSpaces(
+        `input ${sizeClassName} ${shapeClassName} ${errorClassName} ${textareaClassName}`
+    );
+
+    const hintMessageClass = trimWhiteSpaces(
+        `hint-message ${error ? "hint-message--error" : ""}`
+    );
+
+    const handleOnChange = (
+        e:
+            | React.ChangeEvent<HTMLTextAreaElement>
+            | React.ChangeEvent<HTMLInputElement>
+    ) => {
+        onChange(e.target.value);
+    };
+
     return (
-        <div className="input-wrapper">
-            <StyledLabel>{labelText}</StyledLabel>
+        <div className={`input-wrapper ${className || ""}`}>
+            {labelText ? (
+                <Label htmlFor={id} disabled={disabled} error={error}>
+                    {labelText}
+                </Label>
+            ) : null}
+            {type === "textarea" ? (
+                <textarea
+                    placeholder={placeholder}
+                    className={finalClassNames}
+                    disabled={disabled}
+                    id={id}
+                    onChange={handleOnChange}
+                    value={value}
+                />
+            ) : (
+                <input
+                    className={finalClassNames}
+                    type={type || "text"}
+                    placeholder={placeholder}
+                    disabled={disabled}
+                    id={id}
+                    onChange={handleOnChange}
+                    value={value}
+                />
+            )}
 
-            {(() => {
-                switch (type) {
-                    case "textarea":
-                        return (
-                            <textarea
-                                {...register(name, validationSchema)}
-                                className="input input-textarea"
-                                placeholder={placeholder}
-                            ></textarea>
-                        );
-                    default:
-                        return (
-                            <input
-                                {...register(name, validationSchema)}
-                                className="input"
-                                type={type}
-                                placeholder={placeholder}
-                            />
-                        );
-                }
-            })()}
-            {errors[name] && <p>{`${errors[name]!.message}`}</p>}
+            {hintMessage ? (
+                <span className={hintMessageClass}>{hintMessage}</span>
+            ) : null}
         </div>
     );
 };

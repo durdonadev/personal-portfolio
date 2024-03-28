@@ -110,8 +110,8 @@
     --color-bg: #f5fdff;
     --color-header: --color-gray;
     --color-section-header: #0a2533;
-    --color-navbar: #0a2533;
+    --color-footer: #0a2533;
     --color-text: #455157;
     --color-text-light: --color-dark-100;
-    --color-border: #ebf2f3;
+    --color-border: #dee2e6;
 }
