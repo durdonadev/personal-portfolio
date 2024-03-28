@@ -30,6 +30,8 @@ const Base = styled.nav<TopNavigationProps>`
     left: 0;
     z-index: 1;
 
+    background-color: ${(props) =>
+        props.scrolled ? "var(--color-white)" : "var(--color-bg)"};
     box-shadow: ${(props) => (props.scrolled ? "var(--shadow-xl)" : "none")};
 
     ${SectionSidePadding}

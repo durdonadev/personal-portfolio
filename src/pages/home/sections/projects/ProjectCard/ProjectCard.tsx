@@ -23,7 +23,7 @@ const ProjectCardBase = styled.div`
     @media (max-width: 60em) {
         display: block;
         padding-bottom: var(--space-32);
-        border-bottom: 1px solid #dee2e6;
+        border-bottom: 1px solid var(--color-border);
     }
 
     @media (max-width: 30em) {

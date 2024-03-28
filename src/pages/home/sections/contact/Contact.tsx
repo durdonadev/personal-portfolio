@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { Typography } from "../../../../design-system";
+import { Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import IconLink from "../../../components/IconLink";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
@@ -43,7 +42,7 @@ const ContactInfoWrapper = styled.div`
     width: 40%;
     display: flex;
     flex-direction: column;
-    gap: var(--space-40);
+    gap: var(--space-32);
 
     @media (max-width: 60em) {
         width: 100%;
@@ -59,14 +58,14 @@ const Paragraph = styled(Typography)`
     color: var(--color-white);
 `;
 
-const StyledLink = styled.a`
-    font-size: 1.8rem;
-    color: #3aa79a;
+const MailAndPhone = styled.div`
+    display: flex;
+    gap: var(--space-10);
 `;
 
-const SocialMedia = styled.div`
-    display: flex;
-    gap: var(--space-20);
+const StyledLink = styled.a`
+    font-size: 1.8rem;
+    color: var(--color-white);
 `;
 
 const Contact = () => {
@@ -146,37 +145,20 @@ const Contact = () => {
                             Have a project in mind or just have a question?
                             Let's connect and make it happen together!
                         </Paragraph>
-                        <SocialMedia>
-                            <IconLink
-                                href="https://www.linkedin.com/in/durdonadev"
-                                iconName="linkdin-icon"
-                            />
-                            <IconLink
-                                href="https://github.com/durdonadev"
-                                iconName="github-icon"
-                            />
-                            <IconLink
-                                href="https://twitter.com/DurdonaDev"
-                                iconName="twitter-icon"
-                            />
-                            <IconLink
-                                href="https://www.facebook.com/profile.php?id=100079816749162"
-                                iconName="facebook"
-                            />
-                        </SocialMedia>
-                        {/* <Typography variant="paragraphMD" weight="bold">
-                                Email
-                            </Typography>
+
+                        <MailAndPhone>
+                            <Icon iconName="mail" />
                             <StyledLink href="mailto:durdona.dev@gmail.com">
                                 durdona.dev@gmail.com
                             </StyledLink>
+                        </MailAndPhone>
 
-                            <Typography variant="paragraphMD" weight="bold">
-                                Phone
-                            </Typography>
+                        <MailAndPhone>
+                            <Icon iconName="phone" />
                             <StyledLink href="tel:+19293347203">
                                 +1 929 334-7203
-                            </StyledLink> */}
+                            </StyledLink>
+                        </MailAndPhone>
                     </ContactInfoWrapper>
 
                     {/* <ContactForm ref={form} onSubmit={sendEmail}>

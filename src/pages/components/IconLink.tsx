@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Icon, IconName } from "../../design-system";
 
 const StyledLink = styled.a`
-    z-index: 10;
     cursor: pointer;
     height: 2.4rem;
     width: 2.4rem;

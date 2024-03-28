@@ -31,27 +31,14 @@ const MenuLinks = styled.div<TopNavigationProps>`
     }
 `;
 
-const MobileNavigation: React.FC<TopNavigationProps> = () => {
-    const [navBackground, setNavBackground] = useState("var(--color-bg)");
-    const [scrolled, setScrolled] = useState(false);
+const MobileNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
+    const [navBackground, setNavBackground] = useState(
+        scrolled ? "var(--color-white)" : "var(--color-bg)"
+    );
 
     useEffect(() => {
-        const handleScroll = () => {
-            const offset = window.scrollY;
-            if (offset > 0) {
-                setNavBackground("var(--color-white)");
-                setScrolled(true);
-            } else {
-                setNavBackground("var(--color-bg)");
-                setScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+        setNavBackground(scrolled ? "var(--color-white)" : "var(--color-bg)");
+    }, [scrolled]);
 
     const handleOnClick = () => {
         const contactSection = document.getElementById("contact");

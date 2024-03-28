@@ -133,9 +133,9 @@ const HeroImage = styled.img`
 
 const Hero = () => {
     const handleOnClick = () => {
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: "smooth" });
+        const projectsSection = document.getElementById("projects");
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: "smooth" });
         }
     };
 
@@ -169,7 +169,7 @@ const Hero = () => {
                             color="secondary"
                             onClick={handleOnClick}
                         >
-                            Hire Me
+                            My Works
                         </Button>
                         <FileViewer />
                     </Buttons>
@@ -177,7 +177,7 @@ const Hero = () => {
                     <SocialMedia>
                         <IconLink
                             href="https://github.com/durdonadev"
-                            iconName="github-icon"
+                            iconName="github"
                         />
                         <Typography variant="paragraphSM" weight="normal">
                             Explore more on my GitHub

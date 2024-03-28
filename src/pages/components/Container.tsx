@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const Container = styled.div`
     margin: 0 auto;
-    max-width: 190rem;
-    padding: 2.5rem 28.2rem;
+    max-width: 144rem;
+    /* padding: 2.5rem 28.2rem; */
 
-    @media (max-width: 106em) {
+    /* @media (max-width: 106em) {
         //1696
         padding: 2.5rem 21rem;
     }
@@ -74,11 +74,7 @@ const Container = styled.div`
         //400
         padding: 2.5rem 2rem;
     }
-
-    /* @media (max-width: 21em) {
-        //336
-        padding: 2.5rem 2.6rem;
-    } */
+*/
 `;
 
 export { Container };

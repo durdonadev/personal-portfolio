@@ -12,7 +12,7 @@ const ServicesSectionBase = styled(SectionBase)`
 const Title = styled(Typography)`
     color: var(--color-section-header);
     text-align: center;
-    margin-bottom: var(--space-64);
+    margin-bottom: var(--space-60);
 `;
 
 const ServicesCardsWrapper = styled.div`
@@ -34,7 +34,7 @@ const Services = () => {
         <ServicesSectionBase id="services">
             <Container>
                 <Title variant="h2" weight="bold">
-                    My Skills
+                    Specialized In
                 </Title>
 
                 <ServicesCardsWrapper>
