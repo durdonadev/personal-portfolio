@@ -18,6 +18,10 @@ const ToolsWrapper = styled.div`
     gap: var(--space-40);
     -webkit-box-align: center;
     -webkit-box-pack: center;
+
+    @media (max-width: 60em) {
+        gap: var(--space-32);
+    }
 `;
 
 const Title = styled(Typography)`
