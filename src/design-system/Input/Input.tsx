@@ -1,10 +1,9 @@
 import React from "react";
 import { sizeClassNames, shapeClassNames } from "./clasnames";
-
+import { trimWhiteSpaces } from "../utils";
 import { Label } from "../Label";
 import { InputProps } from "./types";
 import "./Input.css";
-import { trimWhiteSpaces } from "../utils";
 
 const Input: React.FC<InputProps> = (props) => {
     const {
@@ -42,7 +41,7 @@ const Input: React.FC<InputProps> = (props) => {
             | React.ChangeEvent<HTMLTextAreaElement>
             | React.ChangeEvent<HTMLInputElement>
     ) => {
-        onChange && onChange(e.target.value);
+        onChange(e.target.value);
     };
 
     return (

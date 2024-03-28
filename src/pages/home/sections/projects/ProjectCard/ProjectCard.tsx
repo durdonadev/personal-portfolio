@@ -18,17 +18,15 @@ const ProjectCardBase = styled.div`
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: var(--space-50);
-    margin-bottom: var(--space-80);
+    margin-bottom: var(--space-60);
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         display: block;
-        padding-bottom: var(--space-50);
-        border-bottom: 1px solid #dee2e6;
+        padding-bottom: var(--space-32);
+        border-bottom: 1px solid var(--color-border);
     }
 
-    @media (max-width: 25em) {
-        //400
+    @media (max-width: 30em) {
         padding-bottom: var(--space-20);
     }
 `;
@@ -39,14 +37,12 @@ const ProjectImageWrapper = styled.div<{ $name: string }>`
         props.$name === "Restaurant Website" ? "2 / 3" : "1 / 2"};
     overflow: hidden;
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         width: 80%;
         margin: 0 auto;
-        margin-bottom: var(--space-32);
     }
 
-    @media (max-width: 32em) {
+    @media (max-width: 30em) {
         width: 90%;
     }
 `;
@@ -68,8 +64,7 @@ const ProjectTextWrapper = styled.div<{ $name: string }>`
     flex-direction: column;
     text-align: left;
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         width: 80%;
         margin: 0 auto;
         margin-bottom: var(--space-32);
@@ -87,8 +82,6 @@ const ProjectName = styled(Typography)`
 `;
 
 const ProjectDescription = styled(Typography)`
-    font-size: 15px;
-    line-height: 1.5;
     margin-bottom: var(--space-32);
 `;
 
@@ -96,8 +89,7 @@ const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
 
-    @media (max-width: 57em) {
-        //912
+    @media (max-width: 60em) {
         width: max-content;
         margin: 0 auto;
     }
@@ -105,7 +97,7 @@ const Buttons = styled.div`
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
-        <ProjectCardBase>
+        <ProjectCardBase id="projects">
             <ProjectImageWrapper $name={project.name}>
                 <ProjectImg src={project.image} alt="Project" />
             </ProjectImageWrapper>

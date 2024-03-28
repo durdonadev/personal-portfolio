@@ -36,6 +36,7 @@ export type IconName =
     | "vscode"
     | "expressjs"
     | "git"
+    | "github-tool"
     | "github"
     | "terminal"
     | "sass"

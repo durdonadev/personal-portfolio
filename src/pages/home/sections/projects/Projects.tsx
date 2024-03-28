@@ -3,22 +3,10 @@ import { Typography } from "../../../../design-system";
 import { ProjectCard } from "./ProjectCard";
 import { projects } from "./ProjectCard/data";
 import { Container } from "../../../components";
+import { SectionBase } from "../../../components/SectionBase";
 
-const SectionBase = styled(Container)`
-    padding-top: 15rem;
-    padding-bottom: 15rem;
-
-    @media (max-width: 75em) {
-        //1200
-        padding-top: 10rem;
-        padding-bottom: 10rem;
-    }
-
-    @media (max-width: 25em) {
-        //400
-        padding-top: 7rem;
-        padding-bottom: 5rem;
-    }
+const ProjectsSectionBase = styled(SectionBase)`
+    background-color: var(--color-bg);
 `;
 
 const Title = styled(Typography)`
@@ -33,17 +21,18 @@ const ProjectCardsWrapper = styled.div`
 
 const Projects = () => {
     return (
-        <SectionBase>
-            <Title variant="h2" weight="bold">
-                Latest Projects
-            </Title>
-
-            <ProjectCardsWrapper>
-                {projects.map((project, index) => (
-                    <ProjectCard key={index} project={project} />
-                ))}
-            </ProjectCardsWrapper>
-        </SectionBase>
+        <ProjectsSectionBase id="projects">
+            <Container>
+                <Title variant="h2" weight="bold">
+                    Latest Projects
+                </Title>
+                <ProjectCardsWrapper>
+                    {projects.map((project, index) => (
+                        <ProjectCard key={index} project={project} />
+                    ))}
+                </ProjectCardsWrapper>
+            </Container>
+        </ProjectsSectionBase>
     );
 };
 

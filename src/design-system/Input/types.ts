@@ -15,7 +15,6 @@ export type InputProps = {
     hintMessage?: string;
     labelText?: string;
 
-    onChange?: (value: string) => void;
-    value?: string;
-    name?: string;
+    onChange: (value: string) => void;
+    value: string;
 };
