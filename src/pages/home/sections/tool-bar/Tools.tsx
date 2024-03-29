@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Container } from "../../../components";
 import { Tool } from "./types";
-import { Icon, Typography } from "../../../../design-system";
+import { AnimateOnScroll, Icon, Typography } from "../../../../design-system";
 
 const ToolsContainer = styled(Container)`
     display: flex;
@@ -52,21 +52,32 @@ interface ToolsProps {
 const Tools: React.FC<ToolsProps> = ({ tools }) => {
     return (
         <ToolsContainer>
-            <Title variant="h2" weight="bold">
-                Technical Skills
-            </Title>
-            <ToolsWrapper>
-                {tools.map((tool, idx) => (
-                    <ToolBox key={idx}>
-                        <StyledIcon
-                            height="4rem"
-                            width="4rem"
-                            iconName={tool.icon}
-                        />
-                        <ToolTitle>{tool.title}</ToolTitle>
-                    </ToolBox>
-                ))}
-            </ToolsWrapper>
+            <AnimateOnScroll
+                notLazy={true}
+                noScale={false}
+                duration={0.8}
+                threshold={0.1}
+                x={0}
+                y={0}
+                scale={0.7}
+                delay={0.2}
+            >
+                <Title variant="h2" weight="bold">
+                    Technical Skills
+                </Title>
+                <ToolsWrapper>
+                    {tools.map((tool, idx) => (
+                        <ToolBox key={idx}>
+                            <StyledIcon
+                                height="4rem"
+                                width="4rem"
+                                iconName={tool.icon}
+                            />
+                            <ToolTitle>{tool.title}</ToolTitle>
+                        </ToolBox>
+                    ))}
+                </ToolsWrapper>
+            </AnimateOnScroll>
         </ToolsContainer>
     );
 };

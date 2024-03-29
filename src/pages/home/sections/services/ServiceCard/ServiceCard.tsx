@@ -12,20 +12,19 @@ type ServicesCardProps = {
     service: Service;
 };
 
-export const ServicesCardBase = styled.div<{ icon: IconName }>`
+const ServicesCardBase = styled.div<{ icon: IconName }>`
     cursor: pointer;
     border: 1px solid var(--color-gray-300);
     border-radius: var(--border-radius-8);
     padding: var(--space-32) var(--space-42);
     text-align: left;
     transition: all 1s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     &:hover {
         transform: scale(1.05);
-    }
-
-    @media (max-width: 60em) {
-        /* margin-bottom: var(--space-32); */
     }
 `;
 
