@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon, Typography } from "../../../../design-system";
+import { AnimateOnScroll, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
@@ -38,7 +38,7 @@ const Title = styled(Typography)`
     margin-bottom: var(--space-64);
 `;
 
-const ContactInfoWrapper = styled.div`
+const ContactInfoWrapper = styled(AnimateOnScroll)`
     width: 40%;
     display: flex;
     flex-direction: column;
@@ -133,11 +133,19 @@ const Contact = () => {
     return (
         <ContactSectionBase id="contact">
             <Container>
-                <Title variant="h3" weight="bold">
-                    Get In Touch
-                </Title>
+                <AnimateOnScroll>
+                    <Title variant="h3" weight="bold">
+                        Get In Touch
+                    </Title>
+                </AnimateOnScroll>
                 <Content>
-                    <ContactInfoWrapper>
+                    <ContactInfoWrapper
+                        duration={0.6}
+                        threshold={0.1}
+                        delay={0.4}
+                        scale={0.9}
+                        x={-100}
+                    >
                         <Heading variant="h5" weight="bold">
                             Say Hello!
                         </Heading>
@@ -145,14 +153,12 @@ const Contact = () => {
                             Have a project in mind or just have a question?
                             Let's connect and make it happen together!
                         </Paragraph>
-
                         <MailAndPhone>
                             <Icon iconName="mail" />
                             <StyledLink href="mailto:durdona.dev@gmail.com">
                                 durdona.dev@gmail.com
                             </StyledLink>
                         </MailAndPhone>
-
                         <MailAndPhone>
                             <Icon iconName="phone" />
                             <StyledLink href="tel:+19293347203">

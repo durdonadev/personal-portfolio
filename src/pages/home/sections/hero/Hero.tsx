@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Typography } from "../../../../design-system";
+import { AnimateOnScroll, Button, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
 import hero from "../../../../assets/images/hero-img.png";
 import IconLink from "../../../components/IconLink";
@@ -19,7 +19,7 @@ const BaseContainer = styled(Container)`
     }
 `;
 
-const HeroTextWrapper = styled.div`
+const HeroTextWrapper = styled(AnimateOnScroll)`
     width: 60%;
 
     @media (max-width: 90em) {
@@ -72,11 +72,8 @@ const StyledTypewriterWrapper = styled.div`
     @media (max-width: 30em) {
         font-size: 4.4rem;
     }
-
-    @media (max-width: 30em) {
-        font-size: 3.4rem;
-    }
 `;
+
 const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
@@ -101,7 +98,7 @@ const SocialMedia = styled.div`
     }
 `;
 
-const HeroImgWrapper = styled.div`
+const HeroImgWrapper = styled(AnimateOnScroll)`
     width: 40%;
 
     @media (max-width: 90em) {
@@ -143,7 +140,8 @@ const Hero = () => {
         <HeroHeaderBase id="hero">
             <BaseContainer>
                 <HeroTextWrapper>
-                    <HeroHeading variant="h2">Hello, It's Durdona</HeroHeading>
+                    <HeroHeading variant="h2">Hello, I am Durdona</HeroHeading>
+
                     <StyledTypewriterWrapper>
                         <Typewriter
                             options={{
@@ -162,6 +160,7 @@ const Hero = () => {
                         coding and a passion for creating seamless user
                         experiences.
                     </HeroParagraph>
+
                     <Buttons>
                         <Button
                             size="lg"
@@ -185,7 +184,13 @@ const Hero = () => {
                     </SocialMedia>
                 </HeroTextWrapper>
 
-                <HeroImgWrapper>
+                <HeroImgWrapper
+                    duration={0.6}
+                    threshold={0.1}
+                    delay={0.4}
+                    scale={0.9}
+                    x={100}
+                >
                     <HeroImage src={hero} alt="Girl with laptop" />
                 </HeroImgWrapper>
             </BaseContainer>

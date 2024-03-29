@@ -4,7 +4,7 @@ import { NavigationLink } from "./NavigationLinks";
 import { TopNavigationProps, links } from "./TopNavigation";
 import styled from "styled-components";
 
-const MenuLinks = styled.div<TopNavigationProps>`
+const MenuLinks = styled.ul<TopNavigationProps>`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -31,6 +31,10 @@ const MenuLinks = styled.div<TopNavigationProps>`
     }
 `;
 
+const ListItem = styled.li`
+    list-style: none;
+`;
+
 const MobileNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
     const [navBackground, setNavBackground] = useState(
         scrolled ? "var(--color-white)" : "var(--color-bg)"
@@ -50,12 +54,13 @@ const MobileNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
     return (
         <MenuLinks backgroundcolor={navBackground} scrolled={scrolled}>
             {links.map((link, index) => (
-                <NavigationLink
-                    key={index}
-                    linkText={link.text}
-                    linkTo={link.link}
-                    isFirstLink={index === 0}
-                />
+                <ListItem key={index}>
+                    <NavigationLink
+                        linkText={link.text}
+                        linkTo={link.link}
+                        isFirstLink={index === 0}
+                    />
+                </ListItem>
             ))}
             <Button
                 size="md"

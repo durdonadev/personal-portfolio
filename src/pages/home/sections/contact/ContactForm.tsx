@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Input } from "../../../../design-system";
+import { AnimateOnScroll, Button, Input } from "../../../../design-system";
 
 const FormBase = styled.div`
     width: 60%;
@@ -35,41 +35,49 @@ const StyledButton = styled(Button)`
 const ContactForm = () => {
     return (
         <FormBase>
-            <FormContent>
-                <NameInput
-                    type="text"
-                    placeholder="Your Name"
-                    shape="rounded"
-                    size="lg"
-                    value=""
-                    onChange={() => {}}
-                />
+            <AnimateOnScroll
+                duration={0.6}
+                threshold={0.1}
+                delay={0.4}
+                scale={0.9}
+                x={100}
+            >
+                <FormContent>
+                    <NameInput
+                        type="text"
+                        placeholder="Your Name"
+                        shape="rounded"
+                        size="lg"
+                        value=""
+                        onChange={() => {}}
+                    />
 
-                <EmailInput
-                    type="email"
-                    placeholder="Email Address"
-                    shape="rounded"
-                    size="lg"
-                    value=""
-                    onChange={() => {}}
-                />
-                <MessageInput
-                    type="textarea"
-                    placeholder="Your Message"
-                    shape="rounded"
-                    size="lg"
-                    value=""
-                    onChange={() => {}}
-                />
-                <StyledButton
-                    color="primary"
-                    variant="contained"
-                    size="lg"
-                    shape="rounded"
-                >
-                    Send Message
-                </StyledButton>
-            </FormContent>
+                    <EmailInput
+                        type="email"
+                        placeholder="Email Address"
+                        shape="rounded"
+                        size="lg"
+                        value=""
+                        onChange={() => {}}
+                    />
+                    <MessageInput
+                        type="textarea"
+                        placeholder="Your Message"
+                        shape="rounded"
+                        size="lg"
+                        value=""
+                        onChange={() => {}}
+                    />
+                    <StyledButton
+                        color="primary"
+                        variant="contained"
+                        size="lg"
+                        shape="rounded"
+                    >
+                        Send Message
+                    </StyledButton>
+                </FormContent>
+            </AnimateOnScroll>
         </FormBase>
     );
 };

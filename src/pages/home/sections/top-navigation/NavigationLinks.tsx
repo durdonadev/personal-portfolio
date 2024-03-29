@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
@@ -7,12 +8,12 @@ type PropsType = {
     isFirstLink: boolean;
 };
 
-const StyledLink = styled.a`
+const StyledLink = styled(motion.a)`
     color: var(--color-navbar);
     font-weight: var(--font-weight-700);
     font-size: var(--font-size-16);
     padding-bottom: 0.2rem;
-    border-bottom: 0.2rem solid transparent;
+    border-bottom: 1px solid transparent;
     transition: all 1s;
 
     &:hover {
@@ -53,6 +54,9 @@ const NavigationLink: React.FC<PropsType> = ({
 
     return (
         <StyledLink
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.8 }}
+            style={{ x: 100 }}
             href={linkTo}
             className="paragraph-sm"
             id={isFirstLink ? "firstLink" : undefined}

@@ -9,7 +9,7 @@ const ToolBarSectionBase = styled(SectionBase)`
 
 export const ToolsBar = () => {
     return (
-        <ToolBarSectionBase>
+        <ToolBarSectionBase id="tool-bar">
             <Tools tools={tools} />
         </ToolBarSectionBase>
     );

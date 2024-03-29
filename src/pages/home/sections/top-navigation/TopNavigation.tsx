@@ -8,8 +8,8 @@ import { MobileNavigation } from "./MobileNavigation";
 
 export const links = [
     { text: "Home", link: "" },
-    { text: "My Skills", link: "#services" },
-    { text: "About", link: "#about" },
+    { text: "Skills", link: "#tool-bar" },
+    { text: "Specialized In", link: "#services" },
     { text: "Projects", link: "#projects" }
 ];
 
@@ -73,13 +73,17 @@ const TopNavigationContent = styled(Container)`
     position: relative;
 `;
 
-const Links = styled.div`
+const Links = styled.ul`
     display: flex;
     gap: var(--space-40);
 
     @media (max-width: 50em) {
         display: none;
     }
+`;
+
+const ListItem = styled.li`
+    list-style: none;
 `;
 
 const StyledLogo = styled(Logo)`
@@ -146,12 +150,13 @@ const TopNavigation: React.FC<TopNavigationProps> = () => {
                 <StyledLogo size="sm" layout="horizontal" />
                 <Links>
                     {links.map((link, index) => (
-                        <NavigationLink
-                            key={index}
-                            linkText={link.text}
-                            linkTo={link.link}
-                            isFirstLink={index === 0}
-                        />
+                        <ListItem key={index}>
+                            <NavigationLink
+                                linkText={link.text}
+                                linkTo={link.link}
+                                isFirstLink={index === 0}
+                            />
+                        </ListItem>
                     ))}
                 </Links>
 
