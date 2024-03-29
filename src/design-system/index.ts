@@ -5,5 +5,6 @@ export * from "./Label";
 export * from "./Logo";
 export * from "./Toaster";
 export * from "./Input";
+export * from "./Animation";
 
 export * from "./utils";
