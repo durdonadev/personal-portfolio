@@ -139,7 +139,13 @@ const Hero = () => {
     return (
         <HeroHeaderBase id="hero">
             <BaseContainer>
-                <HeroTextWrapper>
+                <HeroTextWrapper
+                    x="-10%"
+                    delay={0}
+                    scale={0.9}
+                    duration={0.8}
+                    notLazy
+                >
                     <HeroHeading variant="h2">Hello, I am Durdona</HeroHeading>
 
                     <StyledTypewriterWrapper>
@@ -185,11 +191,11 @@ const Hero = () => {
                 </HeroTextWrapper>
 
                 <HeroImgWrapper
-                    duration={0.6}
-                    threshold={0.1}
-                    delay={0.4}
+                    x="10%"
+                    delay={0}
                     scale={0.9}
-                    x={100}
+                    duration={0.8}
+                    notLazy
                 >
                     <HeroImage src={hero} alt="Girl with laptop" />
                 </HeroImgWrapper>

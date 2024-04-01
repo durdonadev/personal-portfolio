@@ -140,11 +140,10 @@ const Contact = () => {
                 </AnimateOnScroll>
                 <Content>
                     <ContactInfoWrapper
-                        duration={0.6}
-                        threshold={0.1}
-                        delay={0.4}
+                        x={window.innerWidth < 1920 ? "-10%" : "-20%"}
                         scale={0.9}
-                        x={-100}
+                        duration={0.8}
+                        delay={0.2}
                     >
                         <Heading variant="h5" weight="bold">
                             Say Hello!
