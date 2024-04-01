@@ -23,7 +23,7 @@ const Projects = () => {
     return (
         <ProjectsSectionBase id="projects">
             <Container>
-                <Title variant="h2" weight="bold">
+                <Title variant="h3" weight="bold">
                     Latest Projects
                 </Title>
                 <ProjectCardsWrapper>

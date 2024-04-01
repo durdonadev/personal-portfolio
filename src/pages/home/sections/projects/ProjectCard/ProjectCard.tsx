@@ -103,7 +103,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             </ProjectImageWrapper>
 
             <ProjectTextWrapper $name={project.name}>
-                <ProjectName variant="h3" weight="bold">
+                <ProjectName variant="h4" weight="bold">
                     {project.name}
                 </ProjectName>
                 <ProjectDescription variant="paragraphSM" weight="normal">

@@ -62,7 +62,7 @@ const Tools: React.FC<ToolsProps> = ({ tools }) => {
                 scale={0.7}
                 delay={0.2}
             >
-                <Title variant="h2" weight="bold">
+                <Title variant="h3" weight="bold">
                     Technical Skills
                 </Title>
                 <ToolsWrapper>

@@ -33,7 +33,7 @@ const Services = () => {
     return (
         <ServicesSectionBase id="services">
             <Container>
-                <Title variant="h2" weight="bold">
+                <Title variant="h3" weight="bold">
                     Specialized In
                 </Title>
 
