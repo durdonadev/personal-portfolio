@@ -14,119 +14,88 @@ type ProjectCardProps = {
 };
 
 const ProjectCardBase = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: var(--space-50);
-    margin-bottom: var(--space-60);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: var(--space-24);
 
-    @media (max-width: 60em) {
-        display: block;
-        padding-bottom: var(--space-32);
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    @media (max-width: 30em) {
-        padding-bottom: var(--space-20);
-    }
+    cursor: pointer;
+    box-shadow: var(--shadow-xl);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-8);
+    padding: var(--space-24);
 `;
 
-const ProjectImageWrapper = styled.div<{ $name: string }>`
-    grid-row: 1 / 2;
-    grid-column: ${(props) =>
-        props.$name === "Restaurant Website" ? "2 / 3" : "1 / 2"};
-    overflow: hidden;
-
-    @media (max-width: 60em) {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    @media (max-width: 30em) {
-        width: 90%;
-    }
+const ProjectImageWrapper = styled.div`
+    border-radius: var(--border-radius-8);
+    border: 0.2rem solid var(--color-border);
+    padding: var(--space-8);
 `;
 
 const ProjectImg = styled.img`
     width: 100%;
     height: auto;
     object-fit: contain;
-    border-radius: 0.8rem;
+    border-radius: var(--border-radius-8);
+    transition: all 1s;
+    &:hover {
+        transform: scale(1.02);
+    }
 `;
 
 const ProjectTextWrapper = styled.div<{ $name: string }>`
-    grid-row: 1 / 2;
-    grid-column: ${(props) =>
-        props.$name === "Restaurant Website" ? "1 / 2" : "2 / 3"};
-
-    padding-right: 10%;
     display: flex;
     flex-direction: column;
-    text-align: left;
-
-    @media (max-width: 60em) {
-        width: 80%;
-        margin: 0 auto;
-        margin-bottom: var(--space-32);
-        padding-right: 0;
-        text-align: center;
-    }
-
-    @media (max-width: 32em) {
-        width: 90%;
-    }
+    text-align: center;
 `;
 
 const ProjectName = styled(Typography)`
-    margin-bottom: var(--space-32);
+    margin-bottom: var(--space-16);
 `;
 
-const ProjectDescription = styled(Typography)`
-    margin-bottom: var(--space-32);
-`;
+const ProjectDescription = styled(Typography)``;
 
 const Buttons = styled.div`
     display: flex;
     gap: var(--space-20);
+    margin: 0 auto;
 
     @media (max-width: 60em) {
         width: max-content;
-        margin: 0 auto;
     }
 `;
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     return (
         <ProjectCardBase id="projects">
-            <ProjectImageWrapper $name={project.name}>
-                <ProjectImg src={project.image} alt="Project" />
-            </ProjectImageWrapper>
-
             <ProjectTextWrapper $name={project.name}>
-                <ProjectName variant="h4" weight="bold">
+                <ProjectName variant="h5" weight="bold">
                     {project.name}
                 </ProjectName>
-                {/* <ProjectDescription variant="paragraphSM" weight="normal">
+                <ProjectDescription variant="paragraphSM" weight="normal">
                     {project.description}
-                </ProjectDescription> */}
-                {/* <Buttons>
-                    <a href={project.demoLink}>
-                        <Button size="lg" color="primary" shape="rounded">
-                            Try Demo
-                        </Button>
-                    </a>
-                    <a href={project.githubLink}>
-                        <Button
-                            size="lg"
-                            variant="outlined"
-                            color="primary"
-                            shape="rounded"
-                        >
-                            GitHub Link
-                        </Button>
-                    </a>
-                </Buttons> */}
+                </ProjectDescription>
             </ProjectTextWrapper>
+            <ProjectImageWrapper>
+                <ProjectImg src={project.image} alt="Project" />
+            </ProjectImageWrapper>
+            <Buttons>
+                <a href={project.githubLink}>
+                    <Button size="md" color="secondary" shape="rounded">
+                        GitHub
+                    </Button>
+                </a>
+                <a href={project.demoLink}>
+                    <Button
+                        size="md"
+                        variant="outlined"
+                        color="secondary"
+                        shape="rounded"
+                    >
+                        Try Demo
+                    </Button>
+                </a>
+            </Buttons>
         </ProjectCardBase>
     );
 };

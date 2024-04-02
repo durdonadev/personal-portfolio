@@ -9,20 +9,24 @@ const ProjectsSectionBase = styled(SectionBase)`
     background-color: var(--color-bg);
 `;
 
-const ProjectsContainer = styled(Container)`
-    display: grid;
-    grid-template-columns: repeat(2 1fr);
-    gap: var(--space-30);
-`;
+const ProjectsContainer = styled(Container)``;
 
 const Title = styled(Typography)`
     color: var(--color-section-header);
     text-align: center;
-    margin-bottom: 8rem;
+    margin-bottom: var(--space-60);
 `;
 
 const ProjectCardsWrapper = styled.div`
-    row-gap: var(--space-20);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-40);
+    margin-bottom: var(--space-60);
+
+    @media (max-width: 60em) {
+        display: flex;
+        flex-direction: column;
+    }
 `;
 
 const Projects = () => {
