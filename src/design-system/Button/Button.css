@@ -64,7 +64,7 @@
 }
 
 .btn-primary:disabled {
-    background-color: rgba(160, 225, 218, 0.05);
+    background-color: var(--color-secondary);
 }
 
 .btn-primary:focus {

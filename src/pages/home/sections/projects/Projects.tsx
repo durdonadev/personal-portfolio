@@ -9,6 +9,12 @@ const ProjectsSectionBase = styled(SectionBase)`
     background-color: var(--color-bg);
 `;
 
+const ProjectsContainer = styled(Container)`
+    display: grid;
+    grid-template-columns: repeat(2 1fr);
+    gap: var(--space-30);
+`;
+
 const Title = styled(Typography)`
     color: var(--color-section-header);
     text-align: center;
@@ -22,7 +28,7 @@ const ProjectCardsWrapper = styled.div`
 const Projects = () => {
     return (
         <ProjectsSectionBase id="projects">
-            <Container>
+            <ProjectsContainer>
                 <Title variant="h3" weight="bold">
                     Latest Projects
                 </Title>
@@ -31,7 +37,7 @@ const Projects = () => {
                         <ProjectCard key={index} project={project} />
                     ))}
                 </ProjectCardsWrapper>
-            </Container>
+            </ProjectsContainer>
         </ProjectsSectionBase>
     );
 };

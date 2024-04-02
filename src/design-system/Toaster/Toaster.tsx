@@ -19,16 +19,16 @@ const Toaster: React.FC<ToasterProps> = () => {
                 success: {
                     iconTheme: {
                         primary: `var(--green-500)`,
-                        secondary: "var(--white)"
+                        secondary: "var(--color-white)"
                     },
                     style: {
-                        backgroundColor: "var(--primary-25)"
+                        backgroundColor: "var(--gray-12)"
                     }
                 },
                 error: {
                     iconTheme: {
                         primary: `var(--red-orange-500)`,
-                        secondary: "var(--white)"
+                        secondary: "var(--color-white)"
                     },
                     style: {
                         backgroundColor: "var(--red-orange-25)"

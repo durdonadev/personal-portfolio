@@ -106,10 +106,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <ProjectName variant="h4" weight="bold">
                     {project.name}
                 </ProjectName>
-                <ProjectDescription variant="paragraphSM" weight="normal">
+                {/* <ProjectDescription variant="paragraphSM" weight="normal">
                     {project.description}
-                </ProjectDescription>
-                <Buttons>
+                </ProjectDescription> */}
+                {/* <Buttons>
                     <a href={project.demoLink}>
                         <Button size="lg" color="primary" shape="rounded">
                             Try Demo
@@ -125,7 +125,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                             GitHub Link
                         </Button>
                     </a>
-                </Buttons>
+                </Buttons> */}
             </ProjectTextWrapper>
         </ProjectCardBase>
     );

@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import { AnimateOnScroll, Icon, Typography } from "../../../../design-system";
 import { Container } from "../../../components";
-import { useRef, useState } from "react";
-import emailjs from "@emailjs/browser";
-import "./Contact.css";
-import toast from "react-hot-toast";
+
 import { ContactForm } from "./ContactForm";
 import { SectionBase } from "../../../components/SectionBase";
 import footer from "../../../../assets/images/footer.png";
@@ -69,67 +66,6 @@ const StyledLink = styled.a`
 `;
 
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [tel, setTel] = useState("");
-    const [message, setMessage] = useState("");
-
-    const form = useRef<HTMLFormElement | null>(null);
-
-    const [isFormSubmitting, setIsFormSubmitting] = useState(false);
-    const [isError, setIsError] = useState<boolean>(false);
-
-    const handleOnChangeName = (value: string) => {
-        setName(value);
-    };
-
-    const handleOnChangeEmail = (value: string) => {
-        setEmail(value);
-    };
-
-    const handleOnChangeTel = (value: string) => {
-        setTel(value);
-    };
-
-    const handleOnChangeMessage = (value: string) => {
-        setMessage(value);
-    };
-
-    const isFormSubmittable = name && email && tel && message;
-
-    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-
-        const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
-        const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
-        const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
-
-        setIsFormSubmitting(true);
-
-        if (form.current) {
-            emailjs
-                .sendForm(serviceId, templateId, form.current, {
-                    publicKey: publicKey
-                })
-                .then(
-                    () => {
-                        setIsFormSubmitting(false);
-
-                        toast.success(
-                            "Thank you! I have received your message."
-                        );
-                    },
-                    () => {
-                        setIsFormSubmitting(false);
-                        setIsError(true);
-                        toast.error(
-                            "Oops. There was a problem! Please email me at durdona.dev@gmail.com"
-                        );
-                    }
-                );
-        }
-    };
-
     return (
         <ContactSectionBase id="contact">
             <Container>
@@ -166,42 +102,6 @@ const Contact = () => {
                         </MailAndPhone>
                     </ContactInfoWrapper>
 
-                    {/* <ContactForm ref={form} onSubmit={sendEmail}>
-                        <StyledLabel>Name</StyledLabel>
-                        <input
-                            className="input"
-                            required
-                            type="text"
-                            name="user_name"
-                            placeholder="Will Smith"
-                        />
-                        <StyledLabel>Email</StyledLabel>
-                        <input
-                            className="input"
-                            required
-                            type="email"
-                            name="user_email"
-                            placeholder="email@example.com"
-                        />
-                        <StyledLabel>Phone number</StyledLabel>
-                        <input
-                            className="input"
-                            required
-                            type="tel"
-                            name="user_tel"
-                            placeholder="(123) 456-7890"
-                        />
-                        <StyledLabel>Message</StyledLabel>
-                        <textarea
-                            className="input input-textarea"
-                            placeholder="How can I help you?"
-                            name="message"
-                            required
-                        />
-                        <StyledButton color="primary" size="lg" shape="rounded">
-                            Send Message
-                        </StyledButton>
-                    </ContactForm> */}
                     <ContactForm />
                 </Content>
             </Container>
