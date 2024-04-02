@@ -34,7 +34,7 @@ const Services = () => {
         <ServicesSectionBase id="services">
             <Container>
                 <Title variant="h3" weight="bold">
-                    Specialized In
+                    My Skills
                 </Title>
 
                 <ServicesCardsWrapper>

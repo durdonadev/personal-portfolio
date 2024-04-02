@@ -63,7 +63,7 @@ const Tools: React.FC<ToolsProps> = ({ tools }) => {
                 delay={0.2}
             >
                 <Title variant="h3" weight="bold">
-                    Technical Skills
+                    Tech Stack
                 </Title>
                 <ToolsWrapper>
                     {tools.map((tool, idx) => (
