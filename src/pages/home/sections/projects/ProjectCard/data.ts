@@ -22,9 +22,8 @@ export const projects = [
         image: project4,
         name: "Move Careers",
         description: "Electronic commerce platform.",
-        githubLink:
-            "https://github.com/durdonadev/furniture-shop-website-react",
-        demoLink: "https://furniture-shop-durdona.netlify.app"
+        githubLink: "",
+        demoLink: "https://move-careers-page-durdona.netlify.app/"
     },
     {
         image: project3,
@@ -32,6 +31,6 @@ export const projects = [
         description: "Electronic commerce platform.",
         githubLink:
             "https://github.com/durdonadev/furniture-shop-website-react",
-        demoLink: "https://move-careers-page-durdona.netlify.app/"
+        demoLink: "https://furniture-shop-durdona.netlify.app"
     }
 ];
