@@ -8,8 +8,8 @@ import { MobileNavigation } from "./MobileNavigation";
 
 export const links = [
     { text: "Home", link: "" },
-    { text: "Skills", link: "#tool-bar" },
-    { text: "Specialized In", link: "#services" },
+    { text: "Tech Stack", link: "#tool-bar" },
+    { text: "My Skills", link: "#services" },
     { text: "Projects", link: "#projects" }
 ];
 
