@@ -9,26 +9,29 @@ export const projects = [
         name: "Projectify-App",
         description: "Web-based project management platform.",
         githubLink: "https://github.com/durdonadev/projectify-app-ui",
-        demoLink: "http://localhost:3000/"
+        demoLink: "https://projectify-app-ui-react.onrender.com/"
     },
     {
         image: project2,
         name: "Deliziosso Italian Cuisine",
-        description: "Informational and promotional website.",
+        description:
+            "Authentic Italian cuisine restaurant website with menus and promotions.",
         githubLink: "https://github.com/durdonadev/restaurant-website-react",
         demoLink: "https://restaurant-website-durdona.netlify.app"
     },
     {
         image: project4,
         name: "Move Careers",
-        description: "Electronic commerce platform.",
+        description:
+            "Career-related platform for job exploration and professional development.",
         githubLink: "",
         demoLink: "https://move-careers-page-durdona.netlify.app/"
     },
     {
         image: project3,
         name: "Whiter Furniture Store",
-        description: "Electronic commerce platform.",
+        description:
+            "E-commerce website offering stylish furniture and home decor products.",
         githubLink:
             "https://github.com/durdonadev/furniture-shop-website-react",
         demoLink: "https://furniture-shop-durdona.netlify.app"

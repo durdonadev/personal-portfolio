@@ -66,6 +66,14 @@ const Buttons = styled.div`
 `;
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+    const handleGitHubButtonClick = () => {
+        window.open(project.githubLink, "_blank");
+    };
+
+    const handleDemoButtonClick = () => {
+        window.open(project.demoLink, "_blank");
+    };
+
     return (
         <ProjectCardBase id="projects">
             <ProjectTextWrapper $name={project.name}>
@@ -80,21 +88,24 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                 <ProjectImg src={project.image} alt="Project" />
             </ProjectImageWrapper>
             <Buttons>
-                <a href={project.githubLink}>
-                    <Button size="md" color="secondary" shape="rounded">
-                        GitHub
-                    </Button>
-                </a>
-                <a href={project.demoLink}>
-                    <Button
-                        size="md"
-                        variant="outlined"
-                        color="secondary"
-                        shape="rounded"
-                    >
-                        Try Demo
-                    </Button>
-                </a>
+                <Button
+                    size="md"
+                    color="secondary"
+                    shape="rounded"
+                    onClick={handleGitHubButtonClick}
+                >
+                    GitHub
+                </Button>
+
+                <Button
+                    size="md"
+                    variant="outlined"
+                    color="secondary"
+                    shape="rounded"
+                    onClick={handleDemoButtonClick}
+                >
+                    Try Demo
+                </Button>
             </Buttons>
         </ProjectCardBase>
     );
