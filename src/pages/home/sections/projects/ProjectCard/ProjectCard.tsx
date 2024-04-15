@@ -28,7 +28,7 @@ const ProjectCardBase = styled.div`
 
 const ProjectImageWrapper = styled.div`
     border-radius: var(--border-radius-8);
-    border: 0.2rem solid var(--color-border);
+    border: 1px solid var(--color-border);
     padding: var(--space-8);
 `;
 
