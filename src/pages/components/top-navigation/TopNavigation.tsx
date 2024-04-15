@@ -181,7 +181,9 @@ const TopNavigation: React.FC<TopNavigationProps> = () => {
                 <MobileNavigation
                     scrolled={scrolled}
                     backgroundcolor={navBackground}
-                />
+                    show={showMenu}
+                    onClose={handleOnClickMenu}
+                ></MobileNavigation>
             ) : null}
         </Base>
     );

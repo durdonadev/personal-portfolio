@@ -6,6 +6,7 @@ type PropsType = {
     linkText: string;
     linkTo: string;
     isFirstLink: boolean;
+    onClick?: () => void;
 };
 
 const StyledLink = styled(motion.a)`
@@ -28,7 +29,8 @@ const StyledLink = styled(motion.a)`
 const NavigationLink: React.FC<PropsType> = ({
     linkText,
     linkTo,
-    isFirstLink
+    isFirstLink,
+    onClick
 }) => {
     useEffect(() => {
         const scrollToTop = () => {
@@ -58,6 +60,7 @@ const NavigationLink: React.FC<PropsType> = ({
             whileTap={{ scale: 0.8 }}
             style={{ x: 100 }}
             href={linkTo}
+            onClick={onClick}
             className="paragraph-sm"
             id={isFirstLink ? "firstLink" : undefined}
         >

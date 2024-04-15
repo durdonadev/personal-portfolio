@@ -4,14 +4,16 @@ import { NavigationLink } from "./NavigationLinks";
 import { TopNavigationProps, links } from "./TopNavigation";
 import styled from "styled-components";
 
-const MenuLinks = styled.ul<TopNavigationProps>`
+interface MenuLinksProps extends TopNavigationProps {
+    onClose: () => void;
+    show: boolean;
+}
+
+const MenuLinks = styled.ul<MenuLinksProps>`
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: ${(props) => (props.show ? "flex" : "none")};
     align-items: center;
-    gap: var(--space-24);
-    padding-top: var(--space-24);
-    padding-bottom: var(--space-24);
+    justify-content: center;
 
     box-shadow: var(--shadow-xl);
     background-color: ${(props) =>
@@ -31,11 +33,24 @@ const MenuLinks = styled.ul<TopNavigationProps>`
     }
 `;
 
+const LinksWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-24);
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+`;
+
 const ListItem = styled.li`
     list-style: none;
 `;
 
-const MobileNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
+const MobileNavigation: React.FC<MenuLinksProps> = ({
+    scrolled,
+    show,
+    onClose
+}) => {
     const [navBackground, setNavBackground] = useState(
         scrolled ? "var(--color-white)" : "var(--color-bg)"
     );
@@ -49,28 +64,37 @@ const MobileNavigation: React.FC<TopNavigationProps> = ({ scrolled }) => {
         if (contactSection) {
             contactSection.scrollIntoView({ behavior: "smooth" });
         }
+        onClose();
     };
 
     return (
-        <MenuLinks backgroundcolor={navBackground} scrolled={scrolled}>
-            {links.map((link, index) => (
-                <ListItem key={index}>
-                    <NavigationLink
-                        linkText={link.text}
-                        linkTo={link.link}
-                        isFirstLink={index === 0}
-                    />
-                </ListItem>
-            ))}
-            <Button
-                size="md"
-                color="primary"
-                shape="rounded"
-                variant="contained"
-                onClick={handleOnClick}
-            >
-                Let's Talk
-            </Button>
+        <MenuLinks
+            backgroundcolor={navBackground}
+            scrolled={scrolled}
+            show={show}
+            onClose={onClose}
+        >
+            <LinksWrapper>
+                {links.map((link, index) => (
+                    <ListItem key={index}>
+                        <NavigationLink
+                            linkText={link.text}
+                            linkTo={link.link}
+                            isFirstLink={index === 0}
+                            onClick={onClose}
+                        />
+                    </ListItem>
+                ))}
+                <Button
+                    size="md"
+                    color="primary"
+                    shape="rounded"
+                    variant="contained"
+                    onClick={handleOnClick}
+                >
+                    Let's Talk
+                </Button>
+            </LinksWrapper>
         </MenuLinks>
     );
 };
