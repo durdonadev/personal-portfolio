@@ -6,7 +6,7 @@ import project4 from "../../../../../assets/projects/move-hero.png";
 export const projects = [
     {
         image: project1,
-        name: "Projectify-App",
+        name: "Projectify",
         description: "Web-based project management platform.",
         githubLink: "https://github.com/durdonadev/projectify-app-ui",
         demoLink: "https://projectify-app-ui-react.onrender.com/"
