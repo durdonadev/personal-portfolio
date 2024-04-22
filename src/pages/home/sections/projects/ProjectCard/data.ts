@@ -34,6 +34,6 @@ export const projects = [
             "E-commerce website offering stylish furniture and home decor products.",
         githubLink:
             "https://github.com/durdonadev/furniture-shop-website-react",
-        demoLink: "https://furniture-shop-durdona.netlify.app"
+        demoLink: "https://furniture-shop-whiter.onrender.com/"
     }
 ];
