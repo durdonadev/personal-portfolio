@@ -13,11 +13,11 @@ export const projects = [
     },
     {
         image: project2,
-        name: "Deliziosso Italian Cuisine",
+        name: "Delizioso Italian Cuisine",
         description:
             "Authentic Italian cuisine restaurant website with menus and promotions.",
         githubLink: "https://github.com/durdonadev/restaurant-website-react",
-        demoLink: "https://restaurant-website-durdona.netlify.app"
+        demoLink: "https://restaurant-website-delizioso.onrender.com/"
     },
     {
         image: project4,
